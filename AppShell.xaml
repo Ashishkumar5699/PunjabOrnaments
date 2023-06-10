@@ -10,7 +10,7 @@
         <Tab Title="Home Page">
             <ShellContent Title="Home" ContentTemplate="{DataTemplate Page:HomePageView}" Route="MainPage" />
         </Tab>
-        <Tab Title="Approves">
+        <Tab Title="Approval">
             <ShellContent Title="Home" ContentTemplate="{DataTemplate Page:HomePageView}" Route="MainPage" />
         </Tab>
         <Tab Title="Settings">

@@ -1,4 +1,4 @@
-using Punjab_Ornaments.Presentation.Viewmodels;
+using Punjab_Ornaments.Presentation.Viewmodels.HomePage.Customer;
 
 namespace Punjab_Ornaments.Presentation.Views;
 

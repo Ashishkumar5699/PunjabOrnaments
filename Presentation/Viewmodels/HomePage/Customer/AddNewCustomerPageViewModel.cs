@@ -5,7 +5,7 @@ using Punjab_Ornaments.Localization.Database;
 using Punjab_Ornaments.Models;
 using System.Windows.Input;
 
-namespace Punjab_Ornaments.Presentation.Viewmodels
+namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Customer
 {
     public partial class AddNewCustomerPageViewModel : BaseViewModel
     {
@@ -79,7 +79,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         }
         public string Address2
         {
-            get => address2; 
+            get => address2;
             set
             {
                 address2 = value;
@@ -97,7 +97,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         }
         public string City
         {
-            get => city; 
+            get => city;
             set
             {
                 city = value;

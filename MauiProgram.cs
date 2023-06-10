@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Punjab_Ornaments.Presentation.Viewmodels;
-using Punjab_Ornaments.Presentation.Viewmodels.Purchase;
+using Punjab_Ornaments.Presentation.Viewmodels.HomePage.Customer;
+using Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase;
 using Punjab_Ornaments.Presentation.Views;
 using Punjab_Ornaments.Presentation.Views.Customer;
 
@@ -36,7 +37,14 @@ public static class MauiProgram
         mauiAppBuilder.Services.AddSingleton<GoldStockListViewModel>();
         mauiAppBuilder.Services.AddSingleton<GoldStockDetailPageViewModel>();
         mauiAppBuilder.Services.AddSingleton<AddNewCustomerPageViewModel>();
+
+/* Unmerged change from project 'Punjab Ornaments (net7.0-maccatalyst)'
+Before:
         mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.Customer.CustomerListViewModel>();
+After:
+        mauiAppBuilder.Services.AddSingleton<CustomerListViewModel>();
+*/
+        mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.HomePage.Customer.CustomerListViewModel>();
         mauiAppBuilder.Services.AddSingleton<AddPurchaseViewModel>();
         return mauiAppBuilder;
 	}

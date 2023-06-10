@@ -2,7 +2,7 @@
 using Punjab_Ornaments.Localization.Database;
 using System.Collections.ObjectModel;
 
-namespace Punjab_Ornaments.Presentation.Viewmodels.Customer
+namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Customer
 {
     public partial class CustomerListViewModel : BaseViewModel
     {

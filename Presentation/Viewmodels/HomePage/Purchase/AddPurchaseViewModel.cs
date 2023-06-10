@@ -2,7 +2,7 @@
 using Punjab_Ornaments.Localization.Database;
 using System.Windows.Input;
 
-namespace Punjab_Ornaments.Presentation.Viewmodels.Purchase
+namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase
 {
     public partial class AddPurchaseViewModel : BaseViewModel
     {
@@ -13,11 +13,11 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Purchase
         #region Commands
         public ICommand AddPurchaseCommnad => new Command(async () => await AddPurchaseAsync(PurchaseItem));
         #endregion
-        
+
         #region constructor and initial methods
         public AddPurchaseViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
         {
-        
+
         }
 
         public async Task OnAppearing()
@@ -40,7 +40,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Purchase
         #region Methods
         async Task AddPurchaseAsync(Models.Stock.Purchase purchaseItem)
         {
-            if (AddPurchaseViewModel.PurchaseItemValidation(purchaseItem))
+            if (PurchaseItemValidation(purchaseItem))
             {
                 await _localDataService.AddPurchase(purchaseItem);
             }
@@ -50,22 +50,22 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Purchase
         private void UpdateDefaultValues()
         {
             PurchaseItem = new Models.Stock.Purchase
-                            {
-                                //PurchaseId
-                                MatelType = null,//string.Empty,
-                                ItemType = string.Empty,
-                                Brand = string.Empty,
-                                ManufactureId = string.Empty,
-                                ManufactureName = string.Empty,
-                                GrossWeight = 0,
-                                LessWeight = 0,
-                                NetWeight = 0,
-                                Quantity = 0,
-                                Rate = 0,
-                                Wastage = 0,
-                                Labour = 0,
-                                PurchaseDate = DateTime.Today,
-                            };
+            {
+                //PurchaseId
+                MatelType = null,//string.Empty,
+                ItemType = string.Empty,
+                Brand = string.Empty,
+                ManufactureId = string.Empty,
+                ManufactureName = string.Empty,
+                GrossWeight = 0,
+                LessWeight = 0,
+                NetWeight = 0,
+                Quantity = 0,
+                Rate = 0,
+                Wastage = 0,
+                Labour = 0,
+                PurchaseDate = DateTime.Today,
+            };
         }
 
         private static bool PurchaseItemValidation(Models.Stock.Purchase purchaseItem)
@@ -73,7 +73,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Purchase
             if (purchaseItem.MatelType == string.Empty) return false;
             else if (purchaseItem.ItemType == string.Empty) return false;
             else if (purchaseItem.Brand == string.Empty) return false;
-            else if (purchaseItem.ManufactureId  == string.Empty) return false;
+            else if (purchaseItem.ManufactureId == string.Empty) return false;
             else if (purchaseItem.ManufactureName == string.Empty) return false;
             else if (purchaseItem.GrossWeight == 0) return false;
             else if (purchaseItem.LessWeight == 0) return false;

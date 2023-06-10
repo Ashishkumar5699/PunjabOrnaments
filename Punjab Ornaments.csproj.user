@@ -11,31 +11,31 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <ItemGroup>
-    <MauiXaml Update="Presentation\Views\Customer\CustomerListPage.xaml">
+    <MauiXaml Update="Presentation\Views\HomePage\Customer\CustomerListPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Presentation\Views\Purchase\AddPurchase.xaml">
+    <MauiXaml Update="Presentation\Views\HomePage\Purchase\AddPurchase.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Presentation\Views\Stock\Gold\AddGoldStock.xaml">
+    <MauiXaml Update="Presentation\Views\HomePage\Stock\Gold\AddGoldStock.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Presentation\Views\Customer\AddNewCustomerPage.xaml">
+    <MauiXaml Update="Presentation\Views\HomePage\Customer\AddNewCustomerPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Presentation\Views\Stock\Gold\GoldStockDetailPage.xaml">
+    <MauiXaml Update="Presentation\Views\HomePage\Stock\Gold\GoldStockDetailPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Presentation\Views\Stock\Gold\GoldStockList.xaml">
+    <MauiXaml Update="Presentation\Views\HomePage\Stock\Gold\GoldStockList.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Presentation\Views\HomePageView.xaml">
+    <MauiXaml Update="Presentation\Views\HomePage\HomePageView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Presentation\Views\Common\Popup\SucessComfirmPopup.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Presentation\Views\Stock\StockView.xaml">
+    <MauiXaml Update="Presentation\Views\HomePage\Stock\StockView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

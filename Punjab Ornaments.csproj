@@ -56,40 +56,44 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Presentation\Views\Stock\Gold\GoldStockList.xaml.cs">
+	  <Compile Update="Presentation\Views\HomePage\Stock\Gold\GoldStockList.xaml.cs">
 	    <DependentUpon>GoldStockList.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Presentation\Views\Customer\CustomerListPage.xaml">
+	  <MauiXaml Update="Presentation\Views\HomePage\Customer\CustomerListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Presentation\Views\Purchase\AddPurchase.xaml">
+	  <MauiXaml Update="Presentation\Views\HomePage\Purchase\AddPurchase.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Presentation\Views\Stock\Gold\AddGoldStock.xaml">
+	  <MauiXaml Update="Presentation\Views\HomePage\Stock\Gold\AddGoldStock.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Presentation\Views\Customer\AddNewCustomerPage.xaml">
+	  <MauiXaml Update="Presentation\Views\HomePage\Customer\AddNewCustomerPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Presentation\Views\Stock\Gold\GoldStockDetailPage.xaml">
+	  <MauiXaml Update="Presentation\Views\HomePage\Stock\Gold\GoldStockDetailPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Presentation\Views\Stock\Gold\GoldStockList.xaml">
+	  <MauiXaml Update="Presentation\Views\HomePage\Stock\Gold\GoldStockList.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Presentation\Views\Common\Popup\SucessComfirmPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Presentation\Views\Stock\StockView.xaml">
+	  <MauiXaml Update="Presentation\Views\HomePage\Stock\StockView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Folder Include="Models\Common\" />
+	  <Folder Include="Presentation\Viewmodels\Approval\" />
+	  <Folder Include="Presentation\Viewmodels\Settings\" />
+	  <Folder Include="Presentation\Views\Approval\" />
+	  <Folder Include="Presentation\Views\Settings\" />
 	</ItemGroup>
 
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionPunjabOrnamentsHideInfoBar="True" /></VisualStudio></ProjectExtensions>
