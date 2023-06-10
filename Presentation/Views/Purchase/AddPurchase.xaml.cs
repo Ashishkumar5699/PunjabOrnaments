@@ -15,4 +15,9 @@ public partial class AddPurchase : ContentPage
         var vm = BindingContext as AddPurchaseViewModel;
         await vm.OnAppearing();
     }
+    private void Entry_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+    {
+        var vm = BindingContext as AddPurchaseViewModel;
+        vm.UpdateWeight();
+    }
 }

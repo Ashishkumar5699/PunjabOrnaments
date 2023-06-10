@@ -12,7 +12,10 @@ namespace Punjab_Ornaments.Models.Stock
         public string Brand { get; set;}
         public string ManufactureId { get; set;}
         public string ManufactureName { get; set;}
-        public Weight Weight { get; set;}
+        //public Weight Weight { get; set;}
+        public double GrossWeight { get; set; }
+        public double LessWeight { get; set; }
+        public double NetWeight { get; set; }
         public int Quantity { get; set;}
         public double Rate { get; set;}
         public double Wastage { get; set;}

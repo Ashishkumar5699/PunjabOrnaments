@@ -8,7 +8,7 @@ namespace Punjab_Ornaments.Localization.Database
     public partial class SQLiteDataService : ILocalDataService
     {
         #region initialization
-        private static readonly Lazy<SQLiteAsyncConnection> LazyInitializer = new Lazy<SQLiteAsyncConnection>(() =>
+        private static readonly Lazy<SQLiteAsyncConnection> LazyInitializer = new(() =>
         {
             return new SQLiteAsyncConnection(DatabaseConstant.DatabasePath, DatabaseConstant.Flags);
         });
@@ -23,8 +23,9 @@ namespace Punjab_Ornaments.Localization.Database
 
         private void CreateTables(SQLiteConnection database)
         {
-            database.CreateTable<Models.Gold>();
-            database.CreateTable<Models.Customer>();
+                database.CreateTable<Customer>();
+                database.CreateTable<Gold>();
+                database.CreateTable<Purchase>();
         }
         #endregion
 

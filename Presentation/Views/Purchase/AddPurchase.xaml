@@ -7,7 +7,7 @@
              x:DataType="viewmodel:AddPurchaseViewModel"
              Title="AddPurchase">
     <ScrollView>
-        <VerticalStackLayout x:DataType="model:Purchase">
+        <VerticalStackLayout>
             <Grid ColumnDefinitions="*,*">
                 <Label Text="Matel Type" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
                 <Picker Title="Matel Type" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="White">
@@ -32,40 +32,48 @@
             </Grid>
             <Grid ColumnDefinitions="*,*">
                 <Label Text="Brand" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
-                <Entry Text="{Binding Brand}" Placeholder="Brand" Grid.Column="1" />
+                <Picker Title="Brand" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="White">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Dhanya</x:String>
+                            <x:String>PNJB</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
             </Grid>
             <Grid ColumnDefinitions="*,*">
                 <Label Text="Manufacture Id" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
-                <Entry Text="{Binding ManufactureId}" Placeholder="ManufactureId" Grid.Column="1" />
+                <Entry Text="{Binding PurchaseItem.ManufactureId}" Placeholder="ManufactureId" Grid.Column="1"/>
             </Grid>
             <Grid ColumnDefinitions="*,*">
                 <Label Text="Manufacture Name" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
-                <Entry Text="{Binding ManufactureName}" Placeholder="ManufactureName" Grid.Column="1" />
+                <Entry Text="{Binding PurchaseItem.ManufactureName, Mode=TwoWay}" Placeholder="ManufactureName" Grid.Column="1" />
             </Grid>
             <Grid ColumnDefinitions="*,*">
                 <Label Text="Weight" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
-                <Grid Grid.Column="1" BindingContext="{Binding Weight}">
-                    <Entry Text="{Binding Weight.GrossWeight}" Placeholder="GrossWeight"/>
-                    <Entry Text="{Binding Weight.LessWeight}" Placeholder="LessWeight" />
-                    <Label Text="{Binding Weight.NetWeight}"/>
+                <Grid Grid.Column="1" ColumnDefinitions="*,*,*">
+                    <Entry Grid.Column="0" x:Name="GrossWeight"  Text="{Binding PurchaseItem.GrossWeight}" Placeholder="GrossWeight" PropertyChanged="Entry_PropertyChanged"/>
+                    <Entry Grid.Column="1" x:Name="LessWeight" Text="{Binding PurchaseItem.LessWeight}" Placeholder="LessWeight" PropertyChanged="Entry_PropertyChanged" />
+                    <Entry Grid.Column="2" x:Name="NetWeight" Text="{Binding PurchaseItem.NetWeight}" IsEnabled="False"/>
                 </Grid>
             </Grid>
             <Grid ColumnDefinitions="*,*">
                 <Label Text="Quantity" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
-                <Entry Text="{Binding Quantity}" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                <Entry Text="{Binding PurchaseItem.Quantity}" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
             </Grid>
             <Grid ColumnDefinitions="*,*">
                 <Label Text="Rate" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
-                <Entry Text="{Binding Rate}" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                <Entry Text="{Binding PurchaseItem.Rate}" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
             </Grid>
             <Grid ColumnDefinitions="*,*">
                 <Label Text="Wastage" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
-                <Entry Text="{Binding Wastage}" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                <Entry Text="{Binding PurchaseItem.Wastage}" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
             </Grid>
             <Grid ColumnDefinitions="*,*">
                 <Label Text="Labour" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
-                <Entry Text="{Binding Labour}" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                <Entry Text="{Binding PurchaseItem.Labour}" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
             </Grid>
+            <Button Text="Add" Command="{Binding AddPurchaseCommnad}" CommandParameter="{Binding PurchaseItem}"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
