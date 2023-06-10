@@ -6,10 +6,17 @@
     xmlns:local="clr-namespace:Punjab_Ornaments"
     xmlns:Page="clr-namespace:Punjab_Ornaments.Presentation.Views"
     Shell.FlyoutBehavior="Disabled">
+    <TabBar>
+        <Tab Title="Home Page">
+            <ShellContent Title="Home" ContentTemplate="{DataTemplate Page:HomePageView}" Route="MainPage" />
+        </Tab>
+        <Tab Title="Approves">
+            <ShellContent Title="Home" ContentTemplate="{DataTemplate Page:HomePageView}" Route="MainPage" />
+        </Tab>
+        <Tab Title="Settings">
+            <ShellContent Title="Home" ContentTemplate="{DataTemplate Page:HomePageView}" Route="MainPage" />
+        </Tab>
+    </TabBar>
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate Page:HomePageView}"
-        Route="MainPage" />
 
 </Shell>

@@ -1,5 +1,4 @@
-﻿using Punjab_Ornaments.Models.Common;
-using SQLite;
+﻿using SQLite;
 
 namespace Punjab_Ornaments.Models.Stock
 {
