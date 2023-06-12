@@ -49,6 +49,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Remove="Presentation\CustomControls\CustomButtonLabel.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.141-beta" />
@@ -62,6 +66,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Presentation\CustomControls\LabelButton.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Presentation\Views\Approval\PendingApprovalsView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Presentation\Views\HomePage\Customer\CustomerListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -90,9 +100,7 @@
 
 	<ItemGroup>
 	  <Folder Include="Models\Common\" />
-	  <Folder Include="Presentation\Viewmodels\Approval\" />
 	  <Folder Include="Presentation\Viewmodels\Settings\" />
-	  <Folder Include="Presentation\Views\Approval\" />
 	  <Folder Include="Presentation\Views\Settings\" />
 	</ItemGroup>
 

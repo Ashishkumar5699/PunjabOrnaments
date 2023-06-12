@@ -4,17 +4,19 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Punjab_Ornaments"
-    xmlns:Page="clr-namespace:Punjab_Ornaments.Presentation.Views"
+    xmlns:Home="clr-namespace:Punjab_Ornaments.Presentation.Views"
+    xmlns:Approval="clr-namespace:Punjab_Ornaments.Presentation.Views.Approval"
     Shell.FlyoutBehavior="Disabled">
     <TabBar>
         <Tab Title="Home Page">
-            <ShellContent Title="Home" ContentTemplate="{DataTemplate Page:HomePageView}" Route="MainPage" />
+            <ShellContent Title="Home" ContentTemplate="{DataTemplate Home:HomePageView}" Route="HomePage" />
         </Tab>
         <Tab Title="Approval">
-            <ShellContent Title="Home" ContentTemplate="{DataTemplate Page:HomePageView}" Route="MainPage" />
+            <ShellContent Title="Pending" ContentTemplate="{DataTemplate Approval:PendingApprovalsView}" Route="PendingApprovalPage" />
+            <ShellContent Title="Complete" ContentTemplate="{DataTemplate Approval:PendingApprovalsView}" Route="CompleteApprovalPage" />
         </Tab>
         <Tab Title="Settings">
-            <ShellContent Title="Home" ContentTemplate="{DataTemplate Page:HomePageView}" Route="MainPage" />
+            <ShellContent Title="Home" ContentTemplate="{DataTemplate Home:HomePageView}" Route="SettingPage" />
         </Tab>
     </TabBar>
 

@@ -11,6 +11,12 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <ItemGroup>
+    <MauiXaml Update="Presentation\CustomControls\LabelButton.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Presentation\Views\Approval\PendingApprovalsView.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Presentation\Views\HomePage\Customer\CustomerListPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

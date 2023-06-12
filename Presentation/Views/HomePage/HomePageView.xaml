@@ -15,14 +15,14 @@
             <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >
                 <VerticalStackLayout>
                     <Label Text="Sale" FontAttributes="Bold" FontSize="Title"/>
-                    <HorizontalStackLayout>
-                        <Button Text="Add Purchase" Command="{Binding NavigateToAddPurchasePageCommnad}"/>
-                    </HorizontalStackLayout>
                 </VerticalStackLayout>
             </Frame>
             <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >
                 <VerticalStackLayout>
                     <Label Text="Purchase" FontAttributes="Bold" FontSize="Title"/>
+                    <HorizontalStackLayout>
+                        <Button Text="Add Purchase" Command="{Binding NavigateToAddPurchasePageCommnad}"/>
+                    </HorizontalStackLayout>
                 </VerticalStackLayout>
             </Frame>
             <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >

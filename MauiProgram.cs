@@ -1,9 +1,4 @@
 ﻿using Microsoft.Extensions.Logging;
-using Punjab_Ornaments.Presentation.Viewmodels;
-using Punjab_Ornaments.Presentation.Viewmodels.HomePage.Customer;
-using Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase;
-using Punjab_Ornaments.Presentation.Views;
-using Punjab_Ornaments.Presentation.Views.Customer;
 
 namespace Punjab_Ornaments;
 
@@ -32,11 +27,12 @@ public static class MauiProgram
 	}
 	public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder)
 	{
-        mauiAppBuilder.Services.AddSingleton<HomePageViewModel>();
-        mauiAppBuilder.Services.AddSingleton<StockViewModel>();
-        mauiAppBuilder.Services.AddSingleton<GoldStockListViewModel>();
-        mauiAppBuilder.Services.AddSingleton<GoldStockDetailPageViewModel>();
-        mauiAppBuilder.Services.AddSingleton<AddNewCustomerPageViewModel>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.HomePageViewModel>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.StockViewModel>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.GoldStockListViewModel>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.GoldStockDetailPageViewModel>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.HomePage.Customer.AddNewCustomerPageViewModel>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.Approval.PendingApprovalsViewModel>();
 
 /* Unmerged change from project 'Punjab Ornaments (net7.0-maccatalyst)'
 Before:
@@ -45,7 +41,7 @@ After:
         mauiAppBuilder.Services.AddSingleton<CustomerListViewModel>();
 */
         mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.HomePage.Customer.CustomerListViewModel>();
-        mauiAppBuilder.Services.AddSingleton<AddPurchaseViewModel>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.HomePage.Purchase.AddPurchaseViewModel>();
         return mauiAppBuilder;
 	}
 
@@ -57,14 +53,15 @@ After:
 	}
 	public static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder)
 	{
-        mauiAppBuilder.Services.AddSingleton<HomePageView>();
-        mauiAppBuilder.Services.AddSingleton<StockView>();
-        mauiAppBuilder.Services.AddSingleton<GoldStockList>();
-        mauiAppBuilder.Services.AddSingleton<AddGoldStock>();
-        mauiAppBuilder.Services.AddSingleton<GoldStockDetailPage>();
-        mauiAppBuilder.Services.AddSingleton<AddNewCustomerPage>();
-        mauiAppBuilder.Services.AddSingleton<CustomerListPage>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Views.HomePageView>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Views.StockView>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Views.GoldStockList>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Views.AddGoldStock>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Views.GoldStockDetailPage>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Views.AddNewCustomerPage>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Views.Customer.CustomerListPage>();
         mauiAppBuilder.Services.AddSingleton<Presentation.Views.Purchase.AddPurchase>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Views.Approval.PendingApprovalsView>();
         return mauiAppBuilder;
 	}
 }

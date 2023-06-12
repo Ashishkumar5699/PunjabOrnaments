@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Punjab_Ornaments.Presentation.Views.Purchase.AddPurchase"
-             xmlns:viewmodel="clr-namespace:Punjab_Ornaments.Presentation.Viewmodels.Purchase"
+             xmlns:viewmodel="clr-namespace:Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase"
              xmlns:model="clr-namespace:Punjab_Ornaments.Models.Stock"
              x:DataType="viewmodel:AddPurchaseViewModel"
              Title="AddPurchase">

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodel="clr-namespace:Punjab_Ornaments.Presentation.Viewmodels"
+             xmlns:viewmodel="clr-namespace:Punjab_Ornaments.Presentation.Viewmodels.HomePage.Customer"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:control="clr-namespace:Punjab_Ornaments.Presentation.CustomControls"
              x:DataType="viewmodel:AddNewCustomerPageViewModel"
              x:Class="Punjab_Ornaments.Presentation.Views.AddNewCustomerPage"
              Title="Add New Customer"
@@ -23,7 +24,8 @@
                                 </x:Array>
                             </Picker.ItemsSource>
                         </Picker>
-                        <Entry Grid.Column="1" FontAttributes="Bold" Placeholder="First Name" Text="{Binding FirstName}" BackgroundColor="White" ClearButtonVisibility="WhileEditing"/>
+                        <control:LabelButton Grid.Column="1" Title="First Name" Text="{Binding FirstName}"/>
+                        <!--<Entry Grid.Column="1" FontAttributes="Bold" Placeholder="First Name" Text="{Binding FirstName}" BackgroundColor="White" ClearButtonVisibility="WhileEditing"/>-->
                     </Grid>
                 </Grid>
                 <Grid ColumnDefinitions="*,2*" ColumnSpacing="10">
