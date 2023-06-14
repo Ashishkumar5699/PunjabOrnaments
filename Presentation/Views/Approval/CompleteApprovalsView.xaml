@@ -5,8 +5,8 @@
              xmlns:model="clr-namespace:Punjab_Ornaments.Models.Stock"
              xmlns:template="clr-namespace:Punjab_Ornaments.Presentation.Views.Templates"
              x:DataType="viewmodel:PendingApprovalsViewModel"
-             x:Class="Punjab_Ornaments.Presentation.Views.Approval.PendingApprovalsView"
-             Title="PendingApprovalsView">
+             x:Class="Punjab_Ornaments.Presentation.Views.Approval.CompleteApprovalsView"
+             Title="CompleteApprovalsView">
     <VerticalStackLayout>
         <CollectionView ItemsSource="{Binding PendingPuchaseList}">
             <CollectionView.ItemTemplate>

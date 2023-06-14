@@ -43,6 +43,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase
             if (PurchaseItemValidation(purchaseItem))
             {
                 await _localDataService.AddPurchase(purchaseItem);
+                await _navigationservice.PopAsync();
             }
             else
                 await Application.Current.MainPage.DisplayAlert("Error", "please fill all fields", "Okay");
@@ -51,8 +52,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase
         {
             PurchaseItem = new Models.Stock.Purchase
             {
-                //PurchaseId
-                MatelType = null,//string.Empty,
+                MatelType = null,
                 ItemType = string.Empty,
                 Brand = string.Empty,
                 ManufactureId = string.Empty,
@@ -65,6 +65,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase
                 Wastage = 0,
                 Labour = 0,
                 PurchaseDate = DateTime.Today,
+                IsCompleted = true
             };
         }
 
@@ -76,7 +77,6 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase
             else if (purchaseItem.ManufactureId == string.Empty) return false;
             else if (purchaseItem.ManufactureName == string.Empty) return false;
             else if (purchaseItem.GrossWeight == 0) return false;
-            else if (purchaseItem.LessWeight == 0) return false;
             else if (purchaseItem.NetWeight <= 0) return false;
             else if (purchaseItem.Quantity == 0) return false;
             else if (purchaseItem.Rate == 0) return false;
@@ -90,6 +90,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase
         internal void UpdateWeight()
         {
             PurchaseItem.NetWeight = PurchaseItem.GrossWeight - PurchaseItem.LessWeight;
+            OnPropertyChanged(nameof(PurchaseItem));
         }
         #endregion
     }

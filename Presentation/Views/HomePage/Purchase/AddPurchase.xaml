@@ -10,7 +10,7 @@
         <VerticalStackLayout>
             <Grid ColumnDefinitions="*,*">
                 <Label Text="Matel Type" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
-                <Picker Title="Matel Type" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="White">
+                <Picker Title="Matel Type" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="White" SelectedItem="{Binding PurchaseItem.MatelType}">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Gold</x:String>
@@ -21,7 +21,7 @@
             </Grid>
             <Grid ColumnDefinitions="*,*">
                 <Label Text="ItemType" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
-                <Picker Title="Matel Type" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="White">
+                <Picker Title="Matel Type" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="White" SelectedItem="{Binding PurchaseItem.ItemType}">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>LR</x:String>
@@ -32,7 +32,7 @@
             </Grid>
             <Grid ColumnDefinitions="*,*">
                 <Label Text="Brand" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
-                <Picker Title="Brand" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="White">
+                <Picker Title="Brand" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="White" SelectedItem="{Binding PurchaseItem.Brand}">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Dhanya</x:String>

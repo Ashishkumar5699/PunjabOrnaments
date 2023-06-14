@@ -2,9 +2,9 @@ using Punjab_Ornaments.Presentation.Viewmodels.Approval;
 
 namespace Punjab_Ornaments.Presentation.Views.Approval;
 
-public partial class PendingApprovalsView : ContentPage
+public partial class CompleteApprovalsView : ContentPage
 {
-	public PendingApprovalsView(PendingApprovalsViewModel viewModel)
+	public CompleteApprovalsView(CompleteApprovalViewModel viewModel)
 	{
 		InitializeComponent();
 		BindingContext = viewModel;
@@ -12,7 +12,7 @@ public partial class PendingApprovalsView : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        var vm = BindingContext as PendingApprovalsViewModel;
+        var vm = BindingContext as CompleteApprovalViewModel;
         await vm.OnAppearing();
     }
 }

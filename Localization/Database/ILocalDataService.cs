@@ -27,7 +27,8 @@ namespace Punjab_Ornaments.Localization.Database
         Task<int> AddPurchase(Purchase Purchaseitem);
         Task<int> UpdatePurchase(Purchase Purchaseitem);
         Task<int> DeletePurchase(Purchase Purchaseitem);
-        Task<List<Purchase>> GetAllPurchases();
+        Task<List<Purchase>> GetAllPendingPurchases();
+        Task<List<Purchase>> GetAllCompletePurchases();
         Task<List<Purchase>> GetTodaysPurchase();
         #endregion
     }
