@@ -65,7 +65,6 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase
                 Wastage = 0,
                 Labour = 0,
                 PurchaseDate = DateTime.Today,
-                IsCompleted = true
             };
         }
 

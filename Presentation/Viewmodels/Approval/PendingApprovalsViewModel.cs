@@ -7,11 +7,11 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
 {
     public partial class PendingApprovalsViewModel : BaseViewModel
     {
-        #region Private
+        #region Private Members
         private ObservableCollection<Models.Stock.Purchase> _pendingPuchaseList;
         #endregion
 
-        #region construction and init method
+        #region construction and init methods
         public PendingApprovalsViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
         {
         }
@@ -23,7 +23,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
         }
         #endregion
 
-        #region Bindable Property
+        #region Bindable Properties
         public ObservableCollection<Models.Stock.Purchase> PendingPuchaseList
         {
             get => _pendingPuchaseList;
