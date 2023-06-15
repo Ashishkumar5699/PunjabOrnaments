@@ -25,5 +25,6 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(CustomerListPage), typeof(CustomerListPage));
         Routing.RegisterRoute(nameof(AddPurchase), typeof(AddPurchase));
         Routing.RegisterRoute(nameof(PendingApprovalsView), typeof(PendingApprovalsView));
+        Routing.RegisterRoute(nameof(CompleteApprovalsView), typeof(CompleteApprovalsView));
     }
 }

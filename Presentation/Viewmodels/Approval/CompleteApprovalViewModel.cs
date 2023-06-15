@@ -8,7 +8,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
     public partial class CompleteApprovalViewModel : BaseViewModel
     {
         #region Private Members
-        private ObservableCollection<Models.Stock.Purchase> _completePuchaseList;
+        private ObservableCollection<Purchase> _completePuchaseList;
         #endregion
 
         #region construction and init methods

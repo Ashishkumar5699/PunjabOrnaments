@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:Punjab_Ornaments.Presentation.Viewmodels.Approval"
              xmlns:model="clr-namespace:Punjab_Ornaments.Models.Stock"
-             xmlns:template="clr-namespace:Punjab_Ornaments.Presentation.Views.Templates"
+             xmlns:template="clr-namespace:Punjab_Ornaments.Presentation.Views.Approval.ApprovalTemplates"
              x:DataType="viewmodel:PendingApprovalsViewModel"
              x:Class="Punjab_Ornaments.Presentation.Views.Approval.PendingApprovalsView"
              Title="PendingApprovalsView">

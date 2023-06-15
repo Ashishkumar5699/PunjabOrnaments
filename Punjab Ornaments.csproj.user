@@ -14,6 +14,9 @@
     <MauiXaml Update="Presentation\CustomControls\LabelButton.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Presentation\Views\Approval\ApprovalTemplates\Purchasetemplate.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Presentation\Views\Approval\CompleteApprovalsView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
@@ -45,9 +48,6 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Presentation\Views\HomePage\Stock\StockView.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
-    <MauiXaml Update="Presentation\Views\Templates\Purchasetemplate.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

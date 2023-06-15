@@ -42,6 +42,8 @@ After:
 */
         mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.HomePage.Customer.CustomerListViewModel>();
         mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.HomePage.Purchase.AddPurchaseViewModel>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.Approval.PendingApprovalsViewModel>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.Approval.CompleteApprovalViewModel>();
         return mauiAppBuilder;
 	}
 
@@ -62,6 +64,7 @@ After:
         mauiAppBuilder.Services.AddSingleton<Presentation.Views.Customer.CustomerListPage>();
         mauiAppBuilder.Services.AddSingleton<Presentation.Views.Purchase.AddPurchase>();
         mauiAppBuilder.Services.AddSingleton<Presentation.Views.Approval.PendingApprovalsView>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Views.Approval.CompleteApprovalsView>();
         return mauiAppBuilder;
 	}
 }
