@@ -1,19 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Punjab_Ornaments.Infrastructure.Navigation
 {
     public partial class NavigationService : INavigationService
     {
-        //public async Task NavigateToAsync(string route, IDictionary<string, object> routeParameters = null)
         public async Task NavigateToAsync(string route, string routeParameters = null, object routeobj = null)
         {
             try
             {
-                await Shell.Current.GoToAsync($"/{route}");
+                if( routeParameters == null || routeobj == null )
+                {
+                    await Shell.Current.GoToAsync($"/{route}");
+                }
+                else
+                {
+                    await Shell.Current.GoToAsync($"/{route}", new Dictionary<string, object> { { routeParameters, routeobj } });
+                }
+
             }
             catch(Exception ex)
             {

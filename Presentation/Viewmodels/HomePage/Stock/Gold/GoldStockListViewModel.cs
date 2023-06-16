@@ -77,11 +77,10 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         }
 
         [RelayCommand]
-        public static async Task NavigatetoDetailPage(int id)
+        public async Task NavigatetoDetailPage(int id)
         {
-            await Shell.Current.GoToAsync("/GoldStockDetailPage", new Dictionary<string, object> { { "id", id } });
+            await _navigationservice.NavigateToAsync("GoldStockDetailPage", "id", id);
         }
-        //await navigationservice.NavigateToAsync("/GoldStockDetailPage", gold.Id.ToString());
         #endregion
     }
 }
