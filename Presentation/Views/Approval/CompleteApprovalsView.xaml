@@ -4,11 +4,11 @@
              xmlns:viewmodel="clr-namespace:Punjab_Ornaments.Presentation.Viewmodels.Approval"
              xmlns:model="clr-namespace:Punjab_Ornaments.Models.Stock"
              xmlns:template="clr-namespace:Punjab_Ornaments.Presentation.Views.Approval.ApprovalTemplates"
-             x:DataType="viewmodel:PendingApprovalsViewModel"
+             x:DataType="viewmodel:CompleteApprovalViewModel"
              x:Class="Punjab_Ornaments.Presentation.Views.Approval.CompleteApprovalsView"
              Title="CompleteApprovalsView">
     <VerticalStackLayout>
-        <CollectionView ItemsSource="{Binding PendingPuchaseList}">
+        <CollectionView ItemsSource="{Binding CompletePuchaseList}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <template:Purchasetemplate/>

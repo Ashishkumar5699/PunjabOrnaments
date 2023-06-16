@@ -17,6 +17,7 @@ public partial class AppShell : Shell
 
     private void RegisterRoutes()
 	{
+        //Home
         Routing.RegisterRoute(nameof(StockView), typeof(StockView));
         Routing.RegisterRoute(nameof(GoldStockList), typeof(GoldStockList));
         Routing.RegisterRoute(nameof(AddGoldStock), typeof(AddGoldStock));
@@ -24,7 +25,10 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(AddNewCustomerPage), typeof(AddNewCustomerPage));
         Routing.RegisterRoute(nameof(CustomerListPage), typeof(CustomerListPage));
         Routing.RegisterRoute(nameof(AddPurchase), typeof(AddPurchase));
+
+        //Approval
         Routing.RegisterRoute(nameof(PendingApprovalsView), typeof(PendingApprovalsView));
         Routing.RegisterRoute(nameof(CompleteApprovalsView), typeof(CompleteApprovalsView));
+        Routing.RegisterRoute(nameof(PurchaseDetailPage), typeof(PurchaseDetailPage));
     }
 }

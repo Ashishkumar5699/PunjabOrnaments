@@ -30,6 +30,8 @@ namespace Punjab_Ornaments.Localization.Database
         Task<List<Purchase>> GetAllPendingPurchases();
         Task<List<Purchase>> GetAllCompletePurchases();
         Task<List<Purchase>> GetTodaysPurchase();
+        Task<List<Purchase>> GetPurchaseById(int purchaseid);
+        Task<int> ApprovedPurchase(int purchaseid);
         #endregion
     }
 }

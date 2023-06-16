@@ -48,6 +48,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Models\Common\**" />
+	  <Compile Remove="Models\Common\**" />
+	  <EmbeddedResource Remove="Models\Common\**" />
+	  <MauiCss Remove="Models\Common\**" />
+	  <MauiXaml Remove="Models\Common\**" />
+	  <None Remove="Models\Common\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Remove="Presentation\CustomControls\CustomButtonLabel.xaml" />
 	</ItemGroup>
 
@@ -77,6 +86,9 @@
 	  <MauiXaml Update="Presentation\Views\Approval\PendingApprovalsView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Presentation\Views\Approval\PurchaseDetailPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Presentation\Views\HomePage\Customer\CustomerListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -104,7 +116,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Models\Common\" />
 	  <Folder Include="Presentation\Viewmodels\Settings\" />
 	  <Folder Include="Presentation\Views\Settings\" />
 	</ItemGroup>

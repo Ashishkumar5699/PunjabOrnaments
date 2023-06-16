@@ -27,23 +27,20 @@ public static class MauiProgram
 	}
 	public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder)
 	{
+		//Home Page
         mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.HomePageViewModel>();
         mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.StockViewModel>();
         mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.GoldStockListViewModel>();
         mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.GoldStockDetailPageViewModel>();
         mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.HomePage.Customer.AddNewCustomerPageViewModel>();
         mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.Approval.PendingApprovalsViewModel>();
-
-/* Unmerged change from project 'Punjab Ornaments (net7.0-maccatalyst)'
-Before:
-        mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.Customer.CustomerListViewModel>();
-After:
-        mauiAppBuilder.Services.AddSingleton<CustomerListViewModel>();
-*/
         mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.HomePage.Customer.CustomerListViewModel>();
+
+		//Approval Page
         mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.HomePage.Purchase.AddPurchaseViewModel>();
         mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.Approval.PendingApprovalsViewModel>();
         mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.Approval.CompleteApprovalViewModel>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.Approval.PurchaseDetailViewModel>();
         return mauiAppBuilder;
 	}
 
@@ -55,6 +52,7 @@ After:
 	}
 	public static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder)
 	{
+		//Home Page
         mauiAppBuilder.Services.AddSingleton<Presentation.Views.HomePageView>();
         mauiAppBuilder.Services.AddSingleton<Presentation.Views.StockView>();
         mauiAppBuilder.Services.AddSingleton<Presentation.Views.GoldStockList>();
@@ -63,8 +61,11 @@ After:
         mauiAppBuilder.Services.AddSingleton<Presentation.Views.AddNewCustomerPage>();
         mauiAppBuilder.Services.AddSingleton<Presentation.Views.Customer.CustomerListPage>();
         mauiAppBuilder.Services.AddSingleton<Presentation.Views.Purchase.AddPurchase>();
+
+		//Approval Page
         mauiAppBuilder.Services.AddSingleton<Presentation.Views.Approval.PendingApprovalsView>();
         mauiAppBuilder.Services.AddSingleton<Presentation.Views.Approval.CompleteApprovalsView>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Views.Approval.PurchaseDetailPage>();
         return mauiAppBuilder;
 	}
 }

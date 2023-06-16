@@ -2,6 +2,7 @@
 using Punjab_Ornaments.Localization.Database;
 using Punjab_Ornaments.Models.Stock;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
 {
@@ -11,6 +12,9 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
         private ObservableCollection<Models.Stock.Purchase> _pendingPuchaseList;
         #endregion
 
+        #region Commands
+        public ICommand NavigateToPurchaseDetailPageCommnad => new Command<int>(async (purchaseid) => await NavigateToPurchaseDetailPageAsync(purchaseid));
+        #endregion
         #region construction and init methods
         public PendingApprovalsViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
         {
@@ -32,6 +36,12 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
                 _pendingPuchaseList = value;
                 OnPropertyChanged();
             }
+        }
+        #endregion
+        #region Methods
+        private async Task NavigateToPurchaseDetailPageAsync(int purchaseid)
+        {
+            await _navigationservice.NavigateToAsync("PurchaseDetailPage", "PurchaseId", purchaseid);
         }
         #endregion
     }
