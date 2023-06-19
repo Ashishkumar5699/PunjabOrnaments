@@ -3,12 +3,12 @@ using Punjab_Ornaments.Presentation.Views;
 using Punjab_Ornaments.Presentation.Views.Approval;
 using Punjab_Ornaments.Presentation.Views.Customer;
 using Punjab_Ornaments.Presentation.Views.Purchase;
+using Punjab_Ornaments.Presentation.Views.Settings;
 
 namespace Punjab_Ornaments;
 
 public partial class AppShell : Shell
 {
-    private ILocalDataService _localDataService;
 	public AppShell()
 	{
 		InitializeComponent();
@@ -30,5 +30,10 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(PendingApprovalsView), typeof(PendingApprovalsView));
         Routing.RegisterRoute(nameof(CompleteApprovalsView), typeof(CompleteApprovalsView));
         Routing.RegisterRoute(nameof(PurchaseDetailPage), typeof(PurchaseDetailPage));
+
+        //Setting (Admin Panel)
+        Routing.RegisterRoute(nameof(SettingPage), typeof(SettingPage));
+        Routing.RegisterRoute(nameof(MetalTypePage), typeof(MetalTypePage));
+        Routing.RegisterRoute(nameof(MetalTypeDetailPage), typeof(MetalTypeDetailPage));
     }
 }

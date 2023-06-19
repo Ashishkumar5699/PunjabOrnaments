@@ -41,6 +41,13 @@ public static class MauiProgram
         mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.Approval.PendingApprovalsViewModel>();
         mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.Approval.CompleteApprovalViewModel>();
         mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.Approval.PurchaseDetailViewModel>();
+
+		//Settings
+        mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.Settings.SettingPageViewModel>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.Settings.MetalTypePageViewModel>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Viewmodels.Settings.MetalTypeDetailPageViewModel>();
+
+
         return mauiAppBuilder;
 	}
 
@@ -66,6 +73,13 @@ public static class MauiProgram
         mauiAppBuilder.Services.AddSingleton<Presentation.Views.Approval.PendingApprovalsView>();
         mauiAppBuilder.Services.AddSingleton<Presentation.Views.Approval.CompleteApprovalsView>();
         mauiAppBuilder.Services.AddSingleton<Presentation.Views.Approval.PurchaseDetailPage>();
+
+		//Setting
+        mauiAppBuilder.Services.AddSingleton<Presentation.Views.Settings.SettingPage>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Views.Settings.MetalTypePage>();
+        mauiAppBuilder.Services.AddSingleton<Presentation.Views.Settings.MetalTypeDetailPage>();
+
+
         return mauiAppBuilder;
 	}
 }

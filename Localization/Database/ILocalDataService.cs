@@ -1,4 +1,5 @@
 ﻿using Punjab_Ornaments.Models;
+using Punjab_Ornaments.Models.AdminPannel;
 using Punjab_Ornaments.Models.Stock;
 
 namespace Punjab_Ornaments.Localization.Database
@@ -32,6 +33,23 @@ namespace Punjab_Ornaments.Localization.Database
         Task<List<Purchase>> GetTodaysPurchase();
         Task<List<Purchase>> GetPurchaseById(int purchaseid);
         Task<int> ApprovedPurchase(int purchaseid);
+        #endregion
+
+        #region Admin Pannel (Setting)
+
+        #region MetalType
+        Task<int> AddMetalType(MetelType metelType);
+        Task<int> DeleteMetalType(MetelType metelType);
+        Task<List<MetelType>> GetAllMetalType();
+        #endregion
+        
+        #region Brand
+        Task<int> AddBrand(Brand brand);
+        Task<int> DeleteBrand(Brand brand);
+        Task<List<Brand>> GetAllBrand();
+        Task<List<Brand>> GetBrandByMetalType(string metalType);
+        #endregion
+        
         #endregion
     }
 }

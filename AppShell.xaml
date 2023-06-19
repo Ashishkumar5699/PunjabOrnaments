@@ -6,19 +6,18 @@
     xmlns:local="clr-namespace:Punjab_Ornaments"
     xmlns:Home="clr-namespace:Punjab_Ornaments.Presentation.Views"
     xmlns:Approval="clr-namespace:Punjab_Ornaments.Presentation.Views.Approval"
+    xmlns:Setting="clr-namespace:Punjab_Ornaments.Presentation.Views.Settings"
     Shell.FlyoutBehavior="Disabled">
     <TabBar>
         <Tab Title="Home Page">
-            <ShellContent Title="Home" ContentTemplate="{DataTemplate Home:HomePageView}" Route="HomePage" />
+            <ShellContent Title="Home" ContentTemplate="{DataTemplate Home:HomePageView}"/>
         </Tab>
         <Tab Title="Approval">
-            <ShellContent Title="Pending" ContentTemplate="{DataTemplate Approval:PendingApprovalsView}" Route="ApprovalPage" />
-            <ShellContent Title="Complete" ContentTemplate="{DataTemplate Approval:CompleteApprovalsView}" Route="ApprovalPage" />
+            <ShellContent Title="Pending" ContentTemplate="{DataTemplate Approval:PendingApprovalsView}"/>
+            <ShellContent Title="Complete" ContentTemplate="{DataTemplate Approval:CompleteApprovalsView}"/>
         </Tab>
         <Tab Title="Settings">
-            <ShellContent Title="Home" ContentTemplate="{DataTemplate Home:HomePageView}" Route="SettingPage" />
+            <ShellContent Title="Home" ContentTemplate="{DataTemplate Setting:SettingPage}"/>
         </Tab>
     </TabBar>
-
-
 </Shell>

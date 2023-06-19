@@ -1,5 +1,6 @@
 ﻿using Punjab_Ornaments.Localization.GlobalContants;
 using Punjab_Ornaments.Models;
+using Punjab_Ornaments.Models.AdminPannel;
 using Punjab_Ornaments.Models.Stock;
 using SQLite;
 
@@ -20,12 +21,16 @@ namespace Punjab_Ornaments.Localization.Database
             var database = new SQLiteConnection(DatabaseConstant.DatabasePath);
             CreateTables(database);
         }
+        #endregion
 
-        private void CreateTables(SQLiteConnection database)
+        #region Methods
+        private static void CreateTables(SQLiteConnection database)
         {
-                database.CreateTable<Customer>();
-                database.CreateTable<Gold>();
-                database.CreateTable<Purchase>();
+            database.CreateTable<Customer>();
+            database.CreateTable<Gold>();
+            database.CreateTable<Purchase>();
+            database.CreateTable<MetelType>();
+            database.CreateTable<Brand>();
         }
         #endregion
 
@@ -54,6 +59,24 @@ namespace Punjab_Ornaments.Localization.Database
         public async Task<List<Purchase>> GetTodaysPurchase() => await Database.QueryAsync<Purchase>($"SELECT * FROM Customer WHERE PurchaseDate = '{DateTime.Today.Date}'");
         public async Task<List<Purchase>> GetPurchaseById(int purchaseid) => await Database.QueryAsync<Purchase>($"SELECT * FROM Purchase WHERE PurchaseId = '{purchaseid}' ");
         public async Task<int> ApprovedPurchase(int purchaseid) => await Database.ExecuteAsync($"UPDATE Purchase SET IsCompleted = 1 WHERE PurchaseId = '{purchaseid}'");
+        #endregion
+
+        #region MetalTypes
+        public async Task<int> AddMetalType(MetelType metelType) => await Database.InsertAsync(metelType);
+
+        public async Task<int> DeleteMetalType(MetelType metelType) => await Database.DeleteAsync(metelType);
+
+        public async Task<List<MetelType>> GetAllMetalType() => await Database.QueryAsync<MetelType>("SELECT * FROM MetelType");
+        #endregion
+
+        #region Brands
+        public async Task<int> AddBrand(Brand brand) => await Database.InsertAsync(brand);
+
+        public async Task<int> DeleteBrand(Brand brand) => await Database.DeleteAsync(brand);
+
+        public async Task<List<Brand>> GetAllBrand() => await Database.QueryAsync<Brand>("SELECT * FROM Brand");
+
+        public async Task<List<Brand>> GetBrandByMetalType(string metalType) => await Database.QueryAsync<Brand>($"SELECT * FROM Brand WHERE MetalType = '{metalType}'");
         #endregion
     }
 }

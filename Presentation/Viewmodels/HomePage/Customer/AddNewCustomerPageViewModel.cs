@@ -123,7 +123,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Customer
             }
         }
         #endregion
-
+        
         async Task AddCustomerAsync()
         {
             Models.Customer customer = new Models.Customer
@@ -141,7 +141,6 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Customer
 
             };
             await _localDataService.AddCustomer(customer);
-            var test = await _localDataService.GetAllCustomers();
             await _navigationservice.PopAsync();
         }
 
