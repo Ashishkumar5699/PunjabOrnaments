@@ -7,7 +7,6 @@
     <Frame x:DataType="viewmodel:MetalTypePageViewModel">
         <Frame.GestureRecognizers>
             <TapGestureRecognizer 
-                Command="{Binding Path=Parent.Parent.BindingContext.NavigateToPurchaseDetailPageCommnad, Source={x:Reference Name=PurchasetemplateView}}"
                 Command="{Binding Source={x:Reference path.Parent.Parent.MetalTypeTemplate}, Path=NavigateAddMetaltypePageCommnad}"
             CommandParameter="{Binding Source={x:Reference idlabel},Path=Text}"/>
         </Frame.GestureRecognizers>
