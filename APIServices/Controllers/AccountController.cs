@@ -22,7 +22,7 @@ namespace APIServices.Controllers
         {
             try
             {
-                //if (await UserExist(registerDto.UserName)) return BadRequest("Username is taken");
+                if (await UserExist(registerDto.UserName)) return BadRequest("Username is taken");
                 using var hmac = new HMACSHA512();
 
                 var user = new AppUser
