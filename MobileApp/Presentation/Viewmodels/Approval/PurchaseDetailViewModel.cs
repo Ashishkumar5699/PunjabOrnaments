@@ -1,4 +1,5 @@
-﻿using Punjab_Ornaments.Infrastructure.Navigation;
+﻿using Punjab_Ornaments.Infrastructure.APIService;
+using Punjab_Ornaments.Infrastructure.Navigation;
 using Punjab_Ornaments.Localization.Database;
 using Punjab_Ornaments.Models.Stock;
 using System.Windows.Input;
@@ -18,10 +19,9 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
         #endregion
 
         #region Constructor and init methods
-        public PurchaseDetailViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
+        public PurchaseDetailViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
         {
         }
-
         internal async Task OnAppearing()
         {
             var purchaseitem = await _localDataService.GetPurchaseById(PurchaseId);

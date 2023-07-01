@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Punjab_Ornaments.Infrastructure.APIService;
 using Punjab_Ornaments.Infrastructure.Navigation;
 using Punjab_Ornaments.Localization.Database;
 using Punjab_Ornaments.Models;
@@ -15,9 +16,10 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         #endregion
 
         #region Constructor and override methods
-        public GoldStockListViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
+        public GoldStockListViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
         {
         }
+
         public async Task OnAppearing()
         {
             var listofStock = await _localDataService.GetAllGoldStock();

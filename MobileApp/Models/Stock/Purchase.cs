@@ -21,6 +21,6 @@ namespace Punjab_Ornaments.Models.Stock
         public double Wastage { get; set; }
         public double Labour { get; set; }
         public DateTime PurchaseDate { get; set; }
-        public bool IsCompleted { get; set; }
+        public bool? IsApproved { get; set; }
     }
 }

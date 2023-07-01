@@ -1,4 +1,5 @@
-﻿using Punjab_Ornaments.Infrastructure.Navigation;
+﻿using Punjab_Ornaments.Infrastructure.APIService;
+using Punjab_Ornaments.Infrastructure.Navigation;
 using Punjab_Ornaments.Localization.Database;
 using Punjab_Ornaments.Models.AdminPannel;
 using System.Collections.ObjectModel;
@@ -12,6 +13,10 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Settings
         #region Private Members
         private ObservableCollection<MetelType> _metalTypeList;
         private int _id;
+
+        public MetalTypePageViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        {
+        }
         #endregion
 
         #region Commands
@@ -19,10 +24,6 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Settings
         public ICommand NavigateToMetalDetailPageCommnad => new Command<int>(async (i) => await NavigateToMetalDetailPageAsync(i));
         #endregion
         #region Constructor and init Method
-        public MetalTypePageViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
-        {
-        }
-
         public async Task OnAppearing()
         {
             var metelTypes = await _localDataService.GetAllMetalType();

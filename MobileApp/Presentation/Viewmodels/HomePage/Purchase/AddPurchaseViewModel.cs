@@ -1,4 +1,5 @@
-﻿using Punjab_Ornaments.Infrastructure.Navigation;
+﻿using Punjab_Ornaments.Infrastructure.APIService;
+using Punjab_Ornaments.Infrastructure.Navigation;
 using Punjab_Ornaments.Localization.Database;
 using System.Windows.Input;
 
@@ -15,12 +16,12 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase
         #endregion
 
         #region constructor and initial methods
-        public AddPurchaseViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
-        {
 
+        public AddPurchaseViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        {
         }
 
-        public async Task OnAppearing()
+        public void OnAppearing()
         {
             UpdateDefaultValues();
         }
@@ -42,7 +43,8 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase
         {
             if (PurchaseItemValidation(purchaseItem))
             {
-                await _localDataService.AddPurchase(purchaseItem);
+                await _apiservice.AddGoldPurchaseRequst(purchaseItem);
+                //await _localDataService.AddPurchase(purchaseItem);
                 await _navigationservice.PopAsync();
             }
             else
@@ -70,6 +72,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase
 
         private static bool PurchaseItemValidation(Models.Stock.Purchase purchaseItem)
         {
+            return true;
             if (purchaseItem.MatelType == string.Empty) return false;
             else if (purchaseItem.ItemType == string.Empty) return false;
             else if (purchaseItem.Brand == string.Empty) return false;

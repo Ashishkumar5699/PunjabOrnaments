@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Punjab_Ornaments.Infrastructure.APIService;
 using Punjab_Ornaments.Infrastructure.Navigation;
 using Punjab_Ornaments.Localization.Database;
 using Punjab_Ornaments.Models;
@@ -26,7 +27,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Customer
         #endregion
 
         #region Constructor and initial functions
-        public AddNewCustomerPageViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
+        public AddNewCustomerPageViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
         {
         }
         #endregion

@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Punjab_Ornaments.Infrastructure.APIService;
 using Punjab_Ornaments.Infrastructure.Navigation;
 using Punjab_Ornaments.Localization.Database;
 using Punjab_Ornaments.Models;
@@ -12,7 +13,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         private int _id;
         #endregion
         #region Constructor and override methods
-        public GoldStockDetailPageViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
+        public GoldStockDetailPageViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
         {
         }
         #endregion

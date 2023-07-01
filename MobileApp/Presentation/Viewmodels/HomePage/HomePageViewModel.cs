@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Punjab_Ornaments.Infrastructure.APIService;
 using Punjab_Ornaments.Infrastructure.Navigation;
 using Punjab_Ornaments.Localization.Database;
 using System.Windows.Input;
@@ -13,11 +14,11 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         public ICommand NavigateToViewAllCustmorPageCommnad => new Command(async () => await NavigateToViewAllCustmorPageAsync());
         public ICommand NavigateToAddPurchasePageCommnad => new Command(async () => await NavigateToAddPurchasePageAsync());
         #endregion
-        public HomePageViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
+        #region Constructor and init functions
+        public HomePageViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
         {
         }
-
-        //private readonly ISaveAndOpen _saveAndOpen;
+        #endregion
         #region Properties
 
         [ObservableProperty]

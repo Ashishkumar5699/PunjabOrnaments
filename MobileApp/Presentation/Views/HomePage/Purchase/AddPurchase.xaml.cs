@@ -9,11 +9,11 @@ public partial class AddPurchase : ContentPage
 		InitializeComponent();
 		BindingContext = viewModel;
     }
-    protected override async void OnAppearing()
+    protected override void OnAppearing()
     {
         base.OnAppearing();
         var vm = BindingContext as AddPurchaseViewModel;
-        await vm.OnAppearing();
+        vm.OnAppearing();
     }
     private void Entry_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
     {

@@ -1,4 +1,4 @@
-﻿namespace Punjab_Ornaments.Localization.GlobalContants
+﻿namespace Punjab_Ornaments.Resources.Constant
 {
     public static class DatabaseConstant
     {

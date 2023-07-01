@@ -1,4 +1,5 @@
-﻿using Punjab_Ornaments.Infrastructure.Navigation;
+﻿using Punjab_Ornaments.Infrastructure.APIService;
+using Punjab_Ornaments.Infrastructure.Navigation;
 using Punjab_Ornaments.Localization.Database;
 using Punjab_Ornaments.Models.Stock;
 using System.Collections.ObjectModel;
@@ -15,8 +16,9 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
         #region Commands
         public ICommand NavigateToPurchaseDetailPageCommnad => new Command<int>(async (purchaseid) => await NavigateToPurchaseDetailPageAsync(purchaseid));
         #endregion
+
         #region construction and init methods
-        public PendingApprovalsViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
+        public PendingApprovalsViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
         {
         }
 

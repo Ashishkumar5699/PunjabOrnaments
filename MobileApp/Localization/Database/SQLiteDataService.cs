@@ -1,7 +1,7 @@
-﻿using Punjab_Ornaments.Localization.GlobalContants;
-using Punjab_Ornaments.Models;
+﻿using Punjab_Ornaments.Models;
 using Punjab_Ornaments.Models.AdminPannel;
 using Punjab_Ornaments.Models.Stock;
+using Punjab_Ornaments.Resources.Constant;
 using SQLite;
 
 namespace Punjab_Ornaments.Localization.Database
