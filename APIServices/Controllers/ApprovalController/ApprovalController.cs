@@ -16,6 +16,14 @@ namespace APIServices.Controllers.ApprovalController
         [HttpGet("Getallgoldpurchaserequests")]
         public async Task<ActionResult<IEnumerable<PurchaseRequest>>> Getallgoldpurchaserequests()
         {
+            try
+            {
+                var reult =  await _context.PurchaseRequests.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
             return await _context.PurchaseRequests.ToListAsync();
         }
 
@@ -25,7 +33,7 @@ namespace APIServices.Controllers.ApprovalController
             var goldPurchase = await _context.PurchaseRequests.FindAsync(id);
             if (goldPurchase != null)
             {
-                goldPurchase.IsApproved = true;
+                goldPurchase.IsApproved = 1;
                 _context.PurchaseRequests.Update(goldPurchase);
                 await _context.SaveChangesAsync();
 
@@ -57,7 +65,7 @@ namespace APIServices.Controllers.ApprovalController
             if (goldPurchase == null)
                 return BadRequest("Item Doesnot exist");
 
-            goldPurchase.IsApproved = false;
+            goldPurchase.IsApproved = 0;
             _context.PurchaseRequests.Update(goldPurchase);
             await _context.SaveChangesAsync();
             

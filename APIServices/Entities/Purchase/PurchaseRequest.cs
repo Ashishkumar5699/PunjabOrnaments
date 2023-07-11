@@ -19,6 +19,6 @@ namespace APIServices.Entities.Purchase
         public double Wastage { get; set; }
         public double Labour { get; set; }
         public DateTime PurchaseDate { get; set; }
-        public bool? IsApproved { get; set; } = null;
+        public int? IsApproved { get; set; }
     }
 }

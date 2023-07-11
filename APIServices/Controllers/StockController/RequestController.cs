@@ -3,7 +3,6 @@ using APIServices.DTOs.PurchaseDto;
 using APIServices.Entities.Purchase;
 using APIServices.Interface;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace APIServices.Controllers.StockController
 {

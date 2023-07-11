@@ -23,7 +23,7 @@ namespace APIServices.Controllers.StockController
         }
 
         [HttpPost]
-        public async Task<ActionResult<Gold>> AddGold(GoldDto goldDto)
+        public ActionResult<Gold> AddGold(GoldDto goldDto)
         {
             return BadRequest("Api is under construction please try after some time");
         }
