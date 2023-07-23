@@ -1,17 +1,16 @@
-﻿using System.Text;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace Punjab_Ornaments.Infrastructure.RestService
 {
     public class RestService : IRestService
     {
-#if DEBUG
-        private readonly static HttpClientHandler insecureHandler = GetInsecureHandler();
-        private readonly HttpClient _client = new(insecureHandler);
-#else
-        private readonly HttpClient _client = new HttpClient();
-#endif
+        //#if DEBUG
+        //        private readonly static HttpClientHandler insecureHandler = GetInsecureHandler();
+        //        private readonly HttpClient _client = new(insecureHandler);
+        //#else
+        //#endif
 
+        private readonly HttpClient _client;
         private readonly JsonSerializerOptions _serializerOptions;
 
         public RestService()
@@ -23,49 +22,56 @@ namespace Punjab_Ornaments.Infrastructure.RestService
                 WriteIndented = true
             };
         }
+
         public Task DeleteAsync(string uri, string token = "")
         {
             throw new NotImplementedException();
         }
 
-        public Task<TResult> GetAsync<TResult>(string uri, string token = "", Dictionary<string, string> headers = null)
+        public async Task<TResult> GetAsync<TResult>(string uri, string token = "", Dictionary<string, string> headers = null)
         {
-            throw new NotImplementedException();
+            var request = new HttpRequestMessage(HttpMethod.Get, uri);
+            var content = new StringContent("", null, "text/plain");
+            request.Content = content;
+            var response = await _client.SendAsync(request);
+            var serialized = HandleResponse(response);
+            var result = JsonSerializer.Deserialize<TResult>(serialized.Result, _serializerOptions);
+            return result;
         }
 
-        public async Task<TResult> PostAsync<TResult>(string url, TResult data, string token = "", Dictionary<string, string> headers = null)
+        public async Task<TResult> PutAsync<TResult>(string url, TResult data, string token = "", Dictionary<string, string> headers = null)
         {
             try
             {
-                //var client = new HttpClient();
-                //var request = new HttpRequestMessage(HttpMethod.Get, "https://10.0.2.2:5001/api/Approval/Getallgoldpurchaserequests");
-                //var responsee = await client.SendAsync(request);
-                //responsee.EnsureSuccessStatusCode();
-                //Console.WriteLine(await responsee.Content.ReadAsStringAsync());
+                var request = new HttpRequestMessage(HttpMethod.Put, url);
+                string jsonserilozer = System.Text.Json.JsonSerializer.Serialize(data, _serializerOptions);
+                var content = new StringContent(jsonserilozer, null, "application/json");
+                request.Content = content;
+                var response = await _client.SendAsync(request);
+                var serialized = HandleResponse(response);
+                TResult result = await Task.Run(() => JsonSerializer.Deserialize<TResult>(serialized.Result, _serializerOptions));
 
-                Uri uri = new(string.Format(url, string.Empty));
-                string json = System.Text.Json.JsonSerializer.Serialize(data, _serializerOptions);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
-                HttpResponseMessage response = null;
-                response = await _client.PostAsync(uri, content);
-                if (response.IsSuccessStatusCode)
-                {
-                    return data;
-                }
+                return result;
             }
             catch (Exception ex)
             {
-                throw;
             }
 
             return data;
 
         }
 
-        public Task<TResult> PutAsync<TResult, TInput>(string uri, TInput data, string token = "", Dictionary<string, string> headers = null)
+        public async Task<TResult> PutAsync<TResult, TInput>(string uri, TInput data, string token = "", Dictionary<string, string> headers = null)
         {
+            //var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Put, uri);
+            var content = new StringContent("", null, "text/plain");
+            request.Content = content;
+            var response = await _client.SendAsync(request);
+            var serialized = HandleResponse(response);
+            TResult result = await Task.Run(() => JsonSerializer.Deserialize<TResult>(serialized.Result, _serializerOptions));
 
-            throw new NotImplementedException();
+            return result;
         }
 
         public static HttpClientHandler GetInsecureHandler()
@@ -78,6 +84,23 @@ namespace Punjab_Ornaments.Infrastructure.RestService
                 return errors == System.Net.Security.SslPolicyErrors.None;
             };
             return handler;
+        }
+
+        private static async Task<string> HandleResponse(HttpResponseMessage response)
+        {
+            try
+            {
+                response.EnsureSuccessStatusCode();
+                var abc = await response.Content.ReadAsStringAsync();
+                return await response.Content.ReadAsStringAsync();
+
+            }
+            catch (Exception ex)
+            {
+                var err = ex.Message;
+            }
+
+            return null;
         }
     }
 }

@@ -4,11 +4,11 @@
              xmlns:model="clr-namespace:Punjab_Ornaments.Models.Stock"
              x:Class="Punjab_Ornaments.Presentation.Views.Approval.ApprovalTemplates.Purchasetemplate"
              x:Name="PurchasetemplateView">
-    <Frame x:DataType="model:Purchase">
-        <Grid ColumnDefinitions="*,*,*">
-            <Grid.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding Path=Parent.Parent.BindingContext.NavigateToPurchaseDetailPageCommnad, Source={x:Reference Name=PurchasetemplateView}}" CommandParameter="{Binding PurchaseId}" />
-            </Grid.GestureRecognizers>
+    <Frame>
+        <Frame.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding Path=Parent.Parent.BindingContext.NavigateToPurchaseDetailPageCommnad, Source={x:Reference Name=PurchasetemplateView}}" CommandParameter="{Binding PurchaseRequestId}" />
+        </Frame.GestureRecognizers>
+        <Grid ColumnDefinitions="*,*,*" x:DataType="model:Purchase">
             <VerticalStackLayout Grid.Column="0" VerticalOptions="CenterAndExpand">
                 <Grid ColumnDefinitions="*,*">
                     <Label Grid.Column="0" Text="MatelType" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>

@@ -54,11 +54,11 @@ namespace Punjab_Ornaments.Localization.Database
         public async Task<int> AddPurchase(Purchase Purchaseitem) => await Database.InsertAsync(Purchaseitem);
         public async Task<int> UpdatePurchase(Purchase Purchaseitem) => await Database.UpdateAsync(Purchaseitem);
         public async Task<int> DeletePurchase(Purchase Purchaseitem) => await Database.DeleteAsync(Purchaseitem);
-        public async Task<List<Purchase>> GetAllPendingPurchases() => await Database.QueryAsync<Purchase>("SELECT * FROM Purchase WHERE IsCompleted = 0");
-        public async Task<List<Purchase>> GetAllCompletePurchases() => await Database.QueryAsync<Purchase>("SELECT * FROM Purchase WHERE IsCompleted = 1");
+        public async Task<List<Purchase>> GetAllPendingPurchases() => await Database.QueryAsync<Purchase>("SELECT * FROM Purchase WHERE IsApproved = 0");
+        public async Task<List<Purchase>> GetAllCompletePurchases() => await Database.QueryAsync<Purchase>("SELECT * FROM Purchase WHERE IsApproved = 1");
         public async Task<List<Purchase>> GetTodaysPurchase() => await Database.QueryAsync<Purchase>($"SELECT * FROM Customer WHERE PurchaseDate = '{DateTime.Today.Date}'");
         public async Task<List<Purchase>> GetPurchaseById(int purchaseid) => await Database.QueryAsync<Purchase>($"SELECT * FROM Purchase WHERE PurchaseId = '{purchaseid}' ");
-        public async Task<int> ApprovedPurchase(int purchaseid) => await Database.ExecuteAsync($"UPDATE Purchase SET IsCompleted = 1 WHERE PurchaseId = '{purchaseid}'");
+        public async Task<int> ApprovedPurchase(int purchaseid) => await Database.ExecuteAsync($"UPDATE Purchase SET IsApproved = 1 WHERE PurchaseId = '{purchaseid}'");
         #endregion
 
         #region MetalTypes

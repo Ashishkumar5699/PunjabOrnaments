@@ -6,11 +6,11 @@ using System.Windows.Input;
 
 namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
 {
-    [QueryProperty(nameof(PurchaseId), "PurchaseId")]
+    [QueryProperty(nameof(PurchaseRequestId), "PurchaseId")]
     public partial class PurchaseDetailViewModel : BaseViewModel
     {
         #region Private Members
-        public int _purchaseId;
+        public int _purchaserequestId;
         private Purchase _purchaseitem;
         #endregion
 
@@ -24,19 +24,20 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
         }
         internal async Task OnAppearing()
         {
-            var purchaseitem = await _localDataService.GetPurchaseById(PurchaseId);
-            Purchaseitem = purchaseitem.FirstOrDefault();
+            //var purchaseitem = await _localDataService.GetPurchaseById(PurchaseRequestId);
+            var purchaseitem = await _apiservice.GetPurchaseById(PurchaseRequestId);
+            Purchaseitem = purchaseitem;
         }
         #endregion
 
         #region Bindable Properties
-        public int PurchaseId
+        public int PurchaseRequestId
         {
-            get => _purchaseId;
+            get => _purchaserequestId;
             set
             {
-                _purchaseId = value;
-                OnPropertyChanged(nameof(PurchaseId));
+                _purchaserequestId = value;
+                OnPropertyChanged(nameof(PurchaseRequestId));
             }
         }
         public Purchase Purchaseitem
@@ -53,11 +54,12 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
         #region Methods
         private async Task ApprovedAsync(int purchaseid)
         {
-            var approved = await _localDataService.ApprovedPurchase(purchaseid);
-            if (approved > 0)
-            {
+            //var approved = await _localDataService.ApprovedPurchase(purchaseid);
+            var approved = await _apiservice.GoldApprove(purchaseid);
+            //if (approved > 0)
+            //{
                 await _navigationservice.PopAsync();
-            }
+            //}
         }
         #endregion
     }

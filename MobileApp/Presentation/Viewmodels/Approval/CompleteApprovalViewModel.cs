@@ -18,8 +18,9 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
         }
         internal async Task OnAppearing()
         {
-            var _pendingpurchaselist = await _localDataService.GetAllCompletePurchases();
-            CompletePuchaseList = new ObservableCollection<Purchase>(_pendingpurchaselist);
+            //var _pendingpurchaselist = await _localDataService.GetAllCompletePurchases();
+            var _Completepurchaselist = await _apiservice.GetAllPurchaseRequest();
+            CompletePuchaseList = new ObservableCollection<Purchase>(_Completepurchaselist.Where(x => x.IsApproved == 1));
         }
         #endregion
         #region Bindable Properties

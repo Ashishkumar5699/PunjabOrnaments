@@ -67,6 +67,7 @@
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.141-beta" />
 		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.5" />
 	</ItemGroup>
@@ -132,7 +133,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Domain\Purchase\" />
+	  <Folder Include="Domain\" />
+	  <Folder Include="Models\Stock\Purchase\" />
 	</ItemGroup>
 
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionPunjabOrnamentsHideInfoBar="True" /></VisualStudio></ProjectExtensions>

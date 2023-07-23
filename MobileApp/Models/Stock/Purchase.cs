@@ -4,9 +4,9 @@ namespace Punjab_Ornaments.Models.Stock
 {
     public class Purchase
     {
-        [PrimaryKey]
-        [AutoIncrement]
-        public int PurchaseId { get; set; }
+        //[PrimaryKey]
+        //[AutoIncrement]
+        public int PurchaseRequestId { get; set; }
         public string MatelType { get; set; }
         public string ItemType { get; set; }
         public string Brand { get; set; }
@@ -21,6 +21,6 @@ namespace Punjab_Ornaments.Models.Stock
         public double Wastage { get; set; }
         public double Labour { get; set; }
         public DateTime PurchaseDate { get; set; }
-        public bool? IsApproved { get; set; }
+        public int? IsApproved { get; set; }
     }
 }

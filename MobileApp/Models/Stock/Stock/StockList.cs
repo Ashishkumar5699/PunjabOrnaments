@@ -1,4 +1,4 @@
-﻿namespace Punjab_Ornaments.Models
+﻿namespace Punjab_Ornaments.Models.Stock.Stock
 {
     public class StockList
     {

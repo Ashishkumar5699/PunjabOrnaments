@@ -2,7 +2,7 @@
 {
     public static class ApiConstant
     {
-        public const string baseurl = "https://10.0.2.2:5001/api/";
+        public const string baseurl = "http://localhost:5000/api/";
 
         #region Account
         public const string Login = baseurl + "account/login";
@@ -12,8 +12,9 @@
         public const string GetAllStock = baseurl + "Stock";
         #endregion
         #region Request
-        public const string AddPurchaseRequest = baseurl + "/Request/AddGoldPurchaseRequst";
-        public const string DeleteGoldPurchaseRequst = baseurl + "/Request/DeleteGoldPurchaseRequst/";
+        public const string AddPurchaseRequest = baseurl + "Request/AddGoldPurchaseRequst";
+        public const string GetGoldRequestDetail = baseurl + "Request/GetGoldRequestDetail/";
+        public const string DeleteGoldPurchaseRequst = baseurl + "Request/DeleteGoldPurchaseRequst/";
         #endregion
         #region Approval
         public const string GetAllGoldPurchaseRequests = baseurl + "Approval/Getallgoldpurchaserequests";

@@ -72,7 +72,6 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase
 
         private static bool PurchaseItemValidation(Models.Stock.Purchase purchaseItem)
         {
-            return true;
             if (purchaseItem.MatelType == string.Empty) return false;
             else if (purchaseItem.ItemType == string.Empty) return false;
             else if (purchaseItem.Brand == string.Empty) return false;

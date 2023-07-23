@@ -24,8 +24,9 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
 
         internal async Task OnAppearing()
         {
-            var _pendingpurchaselist = await _localDataService.GetAllPendingPurchases();
-            PendingPuchaseList = new ObservableCollection<Purchase>(_pendingpurchaselist);
+            //var _pendingpurchaselist = await _localDataService.GetAllPendingPurchases();
+            var _pendingpurchaselist = await _apiservice.GetAllPurchaseRequest();
+            PendingPuchaseList = new ObservableCollection<Purchase>(_pendingpurchaselist.Where(x => x.IsApproved != 1));
         }
         #endregion
 
@@ -43,7 +44,8 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
         #region Methods
         private async Task NavigateToPurchaseDetailPageAsync(int purchaseid)
         {
-            await _navigationservice.NavigateToAsync("PurchaseDetailPage", "PurchaseId", purchaseid);
+            if(purchaseid != 0)
+                await _navigationservice.NavigateToAsync("PurchaseDetailPage", "PurchaseId", purchaseid);
         }
         #endregion
     }

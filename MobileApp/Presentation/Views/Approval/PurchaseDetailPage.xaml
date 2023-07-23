@@ -50,6 +50,6 @@
                 </VerticalStackLayout>
             </VerticalStackLayout>
         </ScrollView>
-        <Button Text="Approve" Command="{Binding ApprovedCommnad}" CommandParameter="{Binding PurchaseId}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
+        <Button Text="Approve" Command="{Binding ApprovedCommnad}" CommandParameter="{Binding Purchaseitem.PurchaseRequestId}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
     </Grid>
 </ContentPage>
