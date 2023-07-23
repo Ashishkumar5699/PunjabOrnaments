@@ -18,13 +18,13 @@ namespace APIServices.Controllers.ApprovalController
         {
             try
             {
-                var reult =  await _context.PurchaseRequests.ToListAsync();
+                var result =  await _context.PurchaseRequests.ToListAsync();
+                return result;
             }
             catch (Exception ex)
             {
-                throw;
+                return BadRequest(ex.Message);
             }
-            return await _context.PurchaseRequests.ToListAsync();
         }
 
         [HttpPut("GoldApprove/{id}")]

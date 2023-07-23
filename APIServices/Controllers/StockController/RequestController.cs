@@ -66,5 +66,16 @@ namespace APIServices.Controllers.StockController
                 PurchaseDate = goldPurchaseRequest.PurchaseDate
             };
         }
+
+        [HttpGet("GetGoldRequestDetail/{id}")]
+        public async Task<PurchaseRequest> GetGoldRequestDetail(int? id)
+        {
+            PurchaseRequest purchaseRequest;
+            purchaseRequest = await _context.PurchaseRequests.FindAsync(id);
+            if (purchaseRequest != null)
+                return purchaseRequest;
+
+            return new PurchaseRequest();
+        }
     }
 }
