@@ -1,7 +1,6 @@
 ﻿using APIServices.Data;
 using APIServices.DTOs.PurchaseDto;
 using APIServices.Entities.Purchase;
-using APIServices.Entities.Stock;
 using APIServices.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

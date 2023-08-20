@@ -26,7 +26,12 @@ namespace Punjab_Ornaments.Infrastructure.APIService
         public async Task<bool> GoldApprove(int id)
         {
             var response = await _restService.PutAsync<Purchase>(ApiConstant.GoldApprove + id.ToString(), null);
-            return true;
+            return response != null;
+        }
+        public async Task<bool> GoldReject(int id)
+        {
+            var response = await _restService.PutAsync<Purchase>(ApiConstant.GoldReject + id.ToString(), null);
+            return response != null;
         }
 
         public async Task<Purchase> GetPurchaseById(int id)

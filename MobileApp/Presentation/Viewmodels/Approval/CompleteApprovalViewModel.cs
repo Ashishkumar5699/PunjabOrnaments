@@ -1,16 +1,12 @@
 ﻿using Punjab_Ornaments.Infrastructure.APIService;
 using Punjab_Ornaments.Infrastructure.Navigation;
 using Punjab_Ornaments.Localization.Database;
-using Punjab_Ornaments.Models.Stock;
 using System.Collections.ObjectModel;
 
 namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
 {
-    public partial class CompleteApprovalViewModel : BaseViewModel
+    public partial class CompleteApprovalViewModel : ApprovalViewModel
     {
-        #region Private Members
-        private ObservableCollection<Purchase> _completePuchaseList;
-        #endregion
 
         #region construction and init methods
         public CompleteApprovalViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
@@ -19,19 +15,8 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
         internal async Task OnAppearing()
         {
             //var _pendingpurchaselist = await _localDataService.GetAllCompletePurchases();
-            var _Completepurchaselist = await _apiservice.GetAllPurchaseRequest();
-            CompletePuchaseList = new ObservableCollection<Purchase>(_Completepurchaselist.Where(x => x.IsApproved == 1));
-        }
-        #endregion
-        #region Bindable Properties
-        public ObservableCollection<Purchase> CompletePuchaseList
-        {
-            get => _completePuchaseList;
-            set
-            {
-                _completePuchaseList = value;
-                OnPropertyChanged();
-            }
+            var _purchaselist = await GetAllPurchaseRequests();
+            PuchaseList = new ObservableCollection<Models.Stock.Purchase>(_purchaselist.Where(x => x.IsApproved != null));
         }
         #endregion
     }

@@ -19,6 +19,7 @@
         #region Approval
         public const string GetAllGoldPurchaseRequests = baseurl + "Approval/Getallgoldpurchaserequests";
         public const string GoldApprove = baseurl + "Approval/GoldApprove/";
+        public const string GoldReject = baseurl + "Approval/GoldReject/";
         #endregion
     }
 }

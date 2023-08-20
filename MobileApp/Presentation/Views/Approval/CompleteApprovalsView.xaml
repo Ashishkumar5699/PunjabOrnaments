@@ -8,7 +8,7 @@
              x:Class="Punjab_Ornaments.Presentation.Views.Approval.CompleteApprovalsView"
              Title="CompleteApprovalsView">
     <VerticalStackLayout>
-        <CollectionView ItemsSource="{Binding CompletePuchaseList}">
+        <CollectionView ItemsSource="{Binding PuchaseList}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <template:Purchasetemplate/>
