@@ -1,5 +1,4 @@
-﻿using Punjab_Ornaments.Localization.Database;
-using Punjab_Ornaments.Presentation.Views;
+﻿using Punjab_Ornaments.Presentation.Views;
 using Punjab_Ornaments.Presentation.Views.Approval;
 using Punjab_Ornaments.Presentation.Views.Customer;
 using Punjab_Ornaments.Presentation.Views.Purchase;

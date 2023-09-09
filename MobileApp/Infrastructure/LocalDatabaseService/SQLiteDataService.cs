@@ -4,7 +4,7 @@ using Punjab_Ornaments.Models.Stock;
 using Punjab_Ornaments.Resources.Constant;
 using SQLite;
 
-namespace Punjab_Ornaments.Localization.Database
+namespace Punjab_Ornaments.Infrastructure.Database
 {
     public partial class SQLiteDataService : ILocalDataService
     {
@@ -21,9 +21,6 @@ namespace Punjab_Ornaments.Localization.Database
             var database = new SQLiteConnection(DatabaseConstant.DatabasePath);
             CreateTables(database);
         }
-        #endregion
-
-        #region Methods
         private static void CreateTables(SQLiteConnection database)
         {
             database.CreateTable<Customer>();
@@ -34,12 +31,18 @@ namespace Punjab_Ornaments.Localization.Database
         }
         #endregion
 
-        #region Gold
+        #region Gold Section
         public async Task<int> AddGoldinStock(Gold gold) => await Database.InsertAsync(gold);
         public async Task<int> UpdateGoldinStock(Gold gold) => await Database.UpdateAsync(gold);
         public async Task<int> DeleteGoldFromStock(Gold gold) => await Database.DeleteAsync(gold);
         public async Task<List<Gold>> GetAllGoldStock() => await Database.QueryAsync<Gold>("SELECT * FROM Gold");
         public async Task<List<Gold>> GetGoldStockById(int id) => await Database.QueryAsync<Gold>($"SELECT * FROM Gold WHERE Id = '{id}'");
+        #endregion
+
+        #region Approval Section
+        public async Task<List<Purchase>> GetAllPendingPurchaseRequests() => await Database.QueryAsync<Purchase>($"SELECT * FROM Purchase WHERE IsApproved={null}");
+
+        public async Task<List<Purchase>> GetAllCompletePurchaseRequests() => await Database.QueryAsync<Purchase>($"SELECT * FROM Purchase WHERE IsApproved!={null}");
         #endregion
 
         #region Customer
@@ -50,15 +53,15 @@ namespace Punjab_Ornaments.Localization.Database
         public async Task<List<Customer>> GetCustomerByPhone(int phoneNumber) => await Database.QueryAsync<Customer>($"SELECT * FROM Customer WHERE CustmorPhoneNumber = '{phoneNumber}'");
         #endregion
 
-        #region Purchase
+        #region Approve Purchase
         public async Task<int> AddPurchase(Purchase Purchaseitem) => await Database.InsertAsync(Purchaseitem);
         public async Task<int> UpdatePurchase(Purchase Purchaseitem) => await Database.UpdateAsync(Purchaseitem);
         public async Task<int> DeletePurchase(Purchase Purchaseitem) => await Database.DeleteAsync(Purchaseitem);
-        public async Task<List<Purchase>> GetAllPendingPurchases() => await Database.QueryAsync<Purchase>("SELECT * FROM Purchase WHERE IsApproved = 0");
+        public async Task<List<Purchase>> GetAllPendingPurchases() => await Database.QueryAsync<Purchase>("SELECT * FROM Purchase");
         public async Task<List<Purchase>> GetAllCompletePurchases() => await Database.QueryAsync<Purchase>("SELECT * FROM Purchase WHERE IsApproved = 1");
         public async Task<List<Purchase>> GetTodaysPurchase() => await Database.QueryAsync<Purchase>($"SELECT * FROM Customer WHERE PurchaseDate = '{DateTime.Today.Date}'");
-        public async Task<List<Purchase>> GetPurchaseById(int purchaseid) => await Database.QueryAsync<Purchase>($"SELECT * FROM Purchase WHERE PurchaseId = '{purchaseid}' ");
-        public async Task<int> ApprovedPurchase(int purchaseid) => await Database.ExecuteAsync($"UPDATE Purchase SET IsApproved = 1 WHERE PurchaseId = '{purchaseid}'");
+        public async Task<List<Purchase>> GetPurchaseById(int purchaseRequestId) => await Database.QueryAsync<Purchase>($"SELECT * FROM Purchase WHERE PurchaseRequestId = '{purchaseRequestId}' ");
+        public async Task<int> ApprovedPurchase(int purchaseRequestId, int isapproved) => await Database.ExecuteAsync($"UPDATE Purchase SET IsApproved = {isapproved} WHERE PurchaseRequestId = '{purchaseRequestId}'");
         #endregion
 
         #region MetalTypes

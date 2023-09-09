@@ -1,6 +1,6 @@
 ﻿using Punjab_Ornaments.Infrastructure.APIService;
+using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Infrastructure.Navigation;
-using Punjab_Ornaments.Localization.Database;
 using Punjab_Ornaments.Models.AdminPannel;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -14,7 +14,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Settings
         private ObservableCollection<MetelType> _metalTypeList;
         private int _id;
 
-        public MetalTypePageViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public MetalTypePageViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
         {
         }
         #endregion

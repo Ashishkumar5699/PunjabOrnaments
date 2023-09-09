@@ -1,6 +1,5 @@
-﻿using Punjab_Ornaments.Infrastructure.APIService;
+﻿using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Infrastructure.Navigation;
-using Punjab_Ornaments.Localization.Database;
 using Punjab_Ornaments.Models.Stock;
 using System.Windows.Input;
 
@@ -18,24 +17,22 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
         #endregion
 
         #region Commands
-        public ICommand ApprovedCommnad => new Command<int>(async (purchaseid) => await ApprovedAsync(purchaseid));
-        public ICommand RejectCommnad => new Command<int>(async (purchaseid) => await RejectAsync(purchaseid));
-        public ICommand DeleteCommnad => new Command<int>(async (purchaseid) => await DeleteAsync(purchaseid));
+        public ICommand ApprovedCommnad => new Command<bool>(async (isapproved) => await ApprovedAsync(isapproved));
+        public ICommand DeleteCommnad => new Command<int>( (purchaseid) => DeleteAsync(purchaseid));
 
         public ICommand AddToStockCommnad => new Command<int>(async (purchaseid) => await AddToStockAsync(purchaseid));
 
         #endregion
 
         #region Constructor and init methods
-        public PurchaseDetailViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public PurchaseDetailViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
         {
         }
         internal async Task OnAppearing()
         {
-            //var purchaseitem = await _localDataService.GetPurchaseById(PurchaseRequestId);
-            var purchaseitem = await _apiservice.GetPurchaseById(PurchaseRequestId);
-            Purchaseitem = purchaseitem;
-            init();
+            var purchaseitem = await _localDataService.GetPurchaseById(PurchaseRequestId);
+            Purchaseitem = purchaseitem.FirstOrDefault();
+            Init();
         }
         #endregion
 
@@ -88,13 +85,13 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
         #endregion
 
         #region Methods
-        private void init()
+        private void Init()
         {
             ShowButtons();
         }
         private void ShowButtons()
         {
-            if (Purchaseitem != null)
+            if (Purchaseitem == null)
                 return;
 
             ApproveRejectbtnvisible = Purchaseitem.IsApproved == null;
@@ -105,17 +102,10 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
             Deletebtnvisible = Purchaseitem.IsApproved == 0;
             AddtoStockbtnvisible = !Deletebtnvisible;
         }
-        private async Task ApprovedAsync(int purchaseid)
+        private async Task ApprovedAsync(bool isapproved)
         {
-            await _apiservice.GoldApprove(purchaseid);
-            ApproveRejectbtnvisible = false;
-            AddtoStockbtnvisible = true;
-        }
-        private async Task RejectAsync(int purchaseid)
-        {
-            await _apiservice.GoldReject(purchaseid);
-            ApproveRejectbtnvisible = false;
-            Deletebtnvisible = true;
+            var issucess = await _localDataService.ApprovedPurchase(PurchaseRequestId, isapproved ? 1 : 0);
+            await OnAppearing();
         }
 
         private Task DeleteAsync(int purchaseid)

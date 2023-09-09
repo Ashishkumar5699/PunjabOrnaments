@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Punjab_Ornaments.Infrastructure.APIService;
+using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Infrastructure.Navigation;
-using Punjab_Ornaments.Localization.Database;
 using Punjab_Ornaments.Models;
 using Punjab_Ornaments.Models.Enum;
 using System.Collections.ObjectModel;
@@ -16,7 +16,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         #endregion
 
         #region Constructor and override methods
-        public GoldStockListViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public GoldStockListViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
         {
         }
 
@@ -54,6 +54,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
 
         [ObservableProperty]
         CarrotEnum carrot;
+
         #endregion
 
         #endregion

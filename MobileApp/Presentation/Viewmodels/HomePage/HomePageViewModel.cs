@@ -1,8 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Punjab_Ornaments.Infrastructure.APIService;
+using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Infrastructure.Navigation;
-using Punjab_Ornaments.Localization.Database;
 using System.Windows.Input;
 
 namespace Punjab_Ornaments.Presentation.Viewmodels
@@ -15,7 +14,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         public ICommand NavigateToAddPurchasePageCommnad => new Command(async () => await NavigateToAddPurchasePageAsync());
         #endregion
         #region Constructor and init functions
-        public HomePageViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public HomePageViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
         {
         }
         #endregion
@@ -39,24 +38,10 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
 
         #region Methods
         [RelayCommand]
-        async Task Stock()
-        {
-            await _navigationservice.NavigateToAsync("StockView");
-            //await Shell.Current.GoToAsync("/StockView");
-        }
-
-        async Task NavigateToAddNewCustmerPageAsync()
-        {
-            await _navigationservice.NavigateToAsync("AddNewCustomerPage");
-        }
-        async Task NavigateToViewAllCustmorPageAsync()
-        {
-            await _navigationservice.NavigateToAsync("CustomerListPage");
-        }
-        async Task NavigateToAddPurchasePageAsync()
-        {
-            await _navigationservice.NavigateToAsync("AddPurchase");
-        }
+        async Task Stock() => await _navigationservice.NavigateToAsync("StockView");
+        async Task NavigateToAddNewCustmerPageAsync() => await _navigationservice.NavigateToAsync("AddNewCustomerPage");
+        async Task NavigateToViewAllCustmorPageAsync() => await _navigationservice.NavigateToAsync("CustomerListPage");
+        async Task NavigateToAddPurchasePageAsync() => await _navigationservice.NavigateToAsync("AddPurchase");
         #endregion
 
     }

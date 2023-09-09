@@ -13,6 +13,6 @@ public partial class SettingPage : ContentPage
     {
         base.OnAppearing();
         var vm = BindingContext as SettingPageViewModel;
-        await vm.OnAppearing();
+        await SettingPageViewModel.OnAppearing();
     }
 }

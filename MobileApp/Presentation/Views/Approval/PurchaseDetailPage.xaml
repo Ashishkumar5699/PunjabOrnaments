@@ -52,11 +52,11 @@
         </ScrollView>
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Margin="10" Padding="10" Spacing="10">
             <HorizontalStackLayout IsVisible="{Binding ApproveRejectbtnvisible}">
-                <Button Text="Approve" Command="{Binding ApprovedCommnad}" CommandParameter="{Binding Purchaseitem.PurchaseRequestId}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
-                <Button Text="Reject"  Command="{Binding RejectCommnad}" CommandParameter="{Binding Purchaseitem.PurchaseRequestId}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
+                <Button Text="Approve" Command="{Binding ApprovedCommnad}" CommandParameter="{x:Boolean true}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
+                <Button Text="Reject"  Command="{Binding ApprovedCommnad}" CommandParameter="{x:Boolean false}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
             </HorizontalStackLayout>
             <Button Text="Delete" IsVisible="{Binding Deletebtnvisible}" Command="{Binding DeleteCommnad}" CommandParameter="{Binding Purchaseitem.PurchaseRequestId}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
-            <Button Text="Add to Stock" IsVisible="{Binding Deletebtnvisible}" Command="{Binding AddToStockCommnad}" CommandParameter="{Binding Purchaseitem.PurchaseRequestId}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
+            <Button Text="Add to Stock" IsVisible="{Binding AddtoStockbtnvisible}" Command="{Binding AddToStockCommnad}" CommandParameter="{Binding Purchaseitem.PurchaseRequestId}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
         </HorizontalStackLayout>
         
         

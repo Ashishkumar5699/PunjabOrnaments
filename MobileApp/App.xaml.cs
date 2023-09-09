@@ -1,4 +1,4 @@
-﻿using Punjab_Ornaments.Localization.Database;
+﻿using Punjab_Ornaments.Infrastructure.Database;
 
 namespace Punjab_Ornaments;
 
