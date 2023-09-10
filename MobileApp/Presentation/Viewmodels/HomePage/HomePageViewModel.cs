@@ -12,6 +12,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         public ICommand NavigateToAddNewCustmorPageCommnad => new Command(async () => await NavigateToAddNewCustmerPageAsync());
         public ICommand NavigateToViewAllCustmorPageCommnad => new Command(async () => await NavigateToViewAllCustmorPageAsync());
         public ICommand NavigateToAddPurchasePageCommnad => new Command(async () => await NavigateToAddPurchasePageAsync());
+        public ICommand BillGenerationCommnad => new Command(async () => await BillGenerationAsync());
         #endregion
         #region Constructor and init functions
         public HomePageViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
@@ -42,6 +43,11 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         async Task NavigateToAddNewCustmerPageAsync() => await _navigationservice.NavigateToAsync("AddNewCustomerPage");
         async Task NavigateToViewAllCustmorPageAsync() => await _navigationservice.NavigateToAsync("CustomerListPage");
         async Task NavigateToAddPurchasePageAsync() => await _navigationservice.NavigateToAsync("AddPurchase");
+
+        async Task BillGenerationAsync()
+        {
+            return;
+        }
         #endregion
 
     }
