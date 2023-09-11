@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Punjab_Ornaments.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Punjab_Ornaments"
+    xmlns:Home="clr-namespace:Punjab_Ornaments.Presentation.Views"
+    xmlns:Approval="clr-namespace:Punjab_Ornaments.Presentation.Views.Approval"
+    xmlns:Setting="clr-namespace:Punjab_Ornaments.Presentation.Views.Settings"
+    Shell.FlyoutBehavior="Disabled">
+    <TabBar>
+        <Tab Title="Home Page">
+            <ShellContent Title="Home" ContentTemplate="{DataTemplate Home:HomePageView}"/>
+        </Tab>
+        <Tab Title="Approval">
+            <ShellContent Title="Pending" ContentTemplate="{DataTemplate Approval:PendingApprovalsView}"/>
+            <ShellContent Title="Complete" ContentTemplate="{DataTemplate Approval:CompleteApprovalsView}"/>
+        </Tab>
+        <Tab Title="Settings">
+            <ShellContent Title="Home" ContentTemplate="{DataTemplate Setting:SettingPage}"/>
+        </Tab>
+    </TabBar>
+</Shell>

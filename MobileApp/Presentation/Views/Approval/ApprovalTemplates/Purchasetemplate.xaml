@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:Punjab_Ornaments.Models.Stock"
+             x:Class="Punjab_Ornaments.Presentation.Views.Approval.ApprovalTemplates.Purchasetemplate"
+             x:Name="PurchasetemplateView">
+    <Frame>
+        <Frame.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding Path=Parent.Parent.BindingContext.NavigateToPurchaseDetailPageCommnad, Source={x:Reference Name=PurchasetemplateView}}" CommandParameter="{Binding PurchaseRequestId}" />
+        </Frame.GestureRecognizers>
+        <Grid ColumnDefinitions="*,*,*" x:DataType="model:Purchase">
+            <VerticalStackLayout Grid.Column="0" VerticalOptions="CenterAndExpand">
+                <Grid ColumnDefinitions="*,*">
+                    <Label Grid.Column="0" Text="MatelType" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
+                    <Label Grid.Column="1" Text="{Binding MatelType}" HorizontalOptions="Start" VerticalOptions="Center"/>
+                </Grid>
+                <Grid ColumnDefinitions="*,*">
+                    <Label Grid.Column="0" Text="Brand" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
+                    <Label Grid.Column="1" Text="{Binding Brand}" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                </Grid>
+                <Grid ColumnDefinitions="*,*">
+                    <Label Grid.Column="0" Text="ItemType" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
+                    <Label Grid.Column="1" Text="{Binding ItemType}" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                </Grid>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="1" VerticalOptions="CenterAndExpand">
+                <Grid ColumnDefinitions="*,*">
+                    <Label Grid.Column="0" Text="GrossWeight" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
+                    <Label Grid.Column="1" Text="{Binding GrossWeight}" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                </Grid>
+                <Grid ColumnDefinitions="*,*">
+                    <Label Grid.Column="0" Text="LessWeight" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
+                    <Label Grid.Column="1" Text="{Binding LessWeight}" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                </Grid>
+                <Grid ColumnDefinitions="*,*">
+                    <Label Grid.Column="0" Text="NetWeight" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
+                    <Label Grid.Column="1" Text="{Binding NetWeight}" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                </Grid>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="2" VerticalOptions="CenterAndExpand">
+                <Grid ColumnDefinitions="*,*">
+                    <Label Grid.Column="0" Text="Quantity" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
+                    <Label Grid.Column="1" Text="{Binding Quantity}" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                </Grid>
+                <Grid ColumnDefinitions="*,*">
+                    <Label Grid.Column="0" Text="Labour" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
+                    <Label Grid.Column="1" Text="{Binding Labour}" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                </Grid>
+                <Grid ColumnDefinitions="*,*">
+                    <Label Grid.Column="0" Text="PurchaseDate" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
+                    <Label Grid.Column="1" Text="{Binding PurchaseDate}" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                </Grid>
+            </VerticalStackLayout>
+        </Grid>
+    </Frame>
+</ContentView>
