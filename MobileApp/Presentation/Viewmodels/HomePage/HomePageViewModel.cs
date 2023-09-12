@@ -14,11 +14,13 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         public ICommand NavigateToViewAllCustmorPageCommnad => new Command(async () => await NavigateToViewAllCustmorPageAsync());
         public ICommand NavigateToAddPurchasePageCommnad => new Command(async () => await NavigateToAddPurchasePageAsync());
         #endregion
+
         #region Constructor and init functions
         public HomePageViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
         {
         }
         #endregion
+
         #region Properties
 
         [ObservableProperty]
