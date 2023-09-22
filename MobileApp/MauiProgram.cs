@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Punjab_Ornaments.Infrastructure.APIService;
+using Punjab_Ornaments.Infrastructure.BillGeneration;
 using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Infrastructure.Navigation;
 using Punjab_Ornaments.Infrastructure.RestService;
@@ -71,6 +72,7 @@ public static class MauiProgram
 		mauiAppBuilder.Services.AddSingleton<ILocalDataService, SQLiteDataService>();
 		mauiAppBuilder.Services.AddSingleton<IAPIService, APIService>();
 		mauiAppBuilder.Services.AddSingleton<IRestService, RestService>();
+		mauiAppBuilder.Services.AddSingleton<IBillGeneration, BillGeneration>();
 		return mauiAppBuilder;
 	}
 	public static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder)
