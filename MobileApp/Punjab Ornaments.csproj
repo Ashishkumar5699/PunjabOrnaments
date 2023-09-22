@@ -28,6 +28,14 @@
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-android|AnyCPU'">
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	  <DebugSymbols>True</DebugSymbols>
+	  <Debugger>Xamarin</Debugger>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android|AnyCPU'">
+	  <Debugger>Xamarin</Debugger>
+	</PropertyGroup>
 
 	<ItemGroup>
 		<!-- App Icon -->
@@ -48,11 +56,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Domain\**" />
 	  <AndroidResource Remove="Models\Common\**" />
+	  <Compile Remove="Domain\**" />
 	  <Compile Remove="Models\Common\**" />
+	  <EmbeddedResource Remove="Domain\**" />
 	  <EmbeddedResource Remove="Models\Common\**" />
+	  <MauiCss Remove="Domain\**" />
 	  <MauiCss Remove="Models\Common\**" />
+	  <MauiXaml Remove="Domain\**" />
 	  <MauiXaml Remove="Models\Common\**" />
+	  <None Remove="Domain\**" />
 	  <None Remove="Models\Common\**" />
 	</ItemGroup>
 
@@ -62,6 +76,12 @@
 
 	<ItemGroup>
 	  <None Remove="Platforms\Android\Resources\xml\network_security_config.xml" />
+	  <None Remove="Platforms\Android\Resources\xml\provider_paths.xml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Resources\Fonts\OpenSans-Regular.ttf" />
+	  <EmbeddedResource Include="Resources\Fonts\OpenSans-Semibold.ttf" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -133,7 +153,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Domain\" />
 	  <Folder Include="Models\Stock\Purchase\" />
 	</ItemGroup>
 
