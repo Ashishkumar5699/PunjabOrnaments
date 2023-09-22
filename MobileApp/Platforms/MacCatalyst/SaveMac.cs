@@ -1,4 +1,5 @@
-﻿using QuickLook;
+using Foundation;
+using QuickLook;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,54 @@ namespace Punjab_Ornaments.Infrastructure.Helpers
             QLPreviewItem item = new QLPreviewItemBundle(filename, filePath);
             qlPreview.DataSource = new PreviewControllerDS(item);
             currentController.PresentViewController((UIViewController)qlPreview, true, null);
+        }
+    }
+
+    public class QLPreviewItemBundle : QLPreviewItem
+    {
+        readonly string _fileName, _filePath;
+        public QLPreviewItemBundle(string fileName, string filePath)
+        {
+            _fileName = fileName;
+            _filePath = filePath;
+        }
+
+        public override string PreviewItemTitle
+        {
+            get
+            {
+                return _fileName;
+            }
+        }
+        public override NSUrl PreviewItemUrl
+        {
+            get
+            {
+                var documents = NSBundle.MainBundle.BundlePath;
+                var lib = Path.Combine(documents, _filePath);
+                var url = NSUrl.FromFilename(lib);
+                return url;
+            }
+        }
+    }
+
+    public class PreviewControllerDS : QLPreviewControllerDataSource
+    {
+        private readonly QLPreviewItem _item;
+
+        public PreviewControllerDS(QLPreviewItem item)
+        {
+            _item = item;
+        }
+
+        public override nint PreviewItemCount(QLPreviewController controller)
+        {
+            return (nint)1;
+        }
+
+        public override IQLPreviewItem GetPreviewItem(QLPreviewController controller, nint index)
+        {
+            return _item;
         }
     }
 }
