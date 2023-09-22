@@ -71,6 +71,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiFont Remove="Resources\Fonts\OpenSans-Regular.ttf" />
+	  <MauiFont Remove="Resources\Fonts\OpenSans-Semibold.ttf" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\Star.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Remove="Presentation\CustomControls\CustomButtonLabel.xaml" />
 	</ItemGroup>
 
@@ -90,6 +99,7 @@
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.141-beta" />
 		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.5" />
+		<PackageReference Include="Syncfusion.Pdf.NET" Version="23.1.36" />
 	</ItemGroup>
 
 	<ItemGroup>

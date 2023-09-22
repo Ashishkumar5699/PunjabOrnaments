@@ -1,4 +1,4 @@
-﻿using Foundation;
+using Foundation;
 using QuickLook;
 using System;
 using System.Collections.Generic;
@@ -35,6 +35,7 @@ namespace Punjab_Ornaments.Infrastructure.Helpers
             currentController.PresentViewController((UIViewController)qlPreview, true, null);
         }
     }
+
     public class QLPreviewItemBundle : QLPreviewItem
     {
         readonly string _fileName, _filePath;
