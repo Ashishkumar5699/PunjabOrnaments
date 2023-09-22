@@ -15,20 +15,19 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
 {
     public partial class HomePageViewModel : BaseViewModel
     {
-        //#region Commands
+        #region Commands
         public ICommand NavigateToAddNewCustmorPageCommnad => new Command(async () => await NavigateToAddNewCustmerPageAsync());
         public ICommand NavigateToViewAllCustmorPageCommnad => new Command(async () => await NavigateToViewAllCustmorPageAsync());
         public ICommand NavigateToAddPurchasePageCommnad => new Command(async () => await NavigateToAddPurchasePageAsync());
         public ICommand BillGenerationCommnad => new Command(async () => await BillGenerationAsync());
-        //#endregion
-        
-        //#region Constructor and init functions
+        #endregion
+        #region Constructor and init functions
         public HomePageViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
         {
         }
-        //#endregion
+        #endregion
 
-        //#region Properties
+        #region Properties
 
         [ObservableProperty]
         string custmorName;
