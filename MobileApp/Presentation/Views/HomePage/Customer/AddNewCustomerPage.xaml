@@ -8,8 +8,7 @@
              x:Class="Punjab_Ornaments.Presentation.Views.AddNewCustomerPage"
              Title="Add New Customer"
              BackgroundColor="LightGray">
-        <Grid ColumnDefinitions="*,2*">
-        <Frame Grid.Column="1" VerticalOptions="CenterAndExpand" Margin="10" BackgroundColor="LightBlue">
+    <Frame VerticalOptions="CenterAndExpand" Margin="10" BackgroundColor="LightBlue">
             <VerticalStackLayout>
                 <Grid  ColumnDefinitions="*,2*" ColumnSpacing="10">
                     <Label Grid.Column="0" Text="First Name" FontAttributes="Bold" FontSize="Title" HorizontalOptions="StartAndExpand"/>
@@ -63,5 +62,4 @@
                 <Button Text="Add" Command="{Binding AddCustomerCommand}"/>
             </VerticalStackLayout>
         </Frame>
-    </Grid>
 </ContentPage>

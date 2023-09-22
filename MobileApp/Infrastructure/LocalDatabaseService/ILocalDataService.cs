@@ -2,7 +2,7 @@
 using Punjab_Ornaments.Models.AdminPannel;
 using Punjab_Ornaments.Models.Stock;
 
-namespace Punjab_Ornaments.Localization.Database
+namespace Punjab_Ornaments.Infrastructure.Database
 {
     public interface ILocalDataService
     {
@@ -14,6 +14,12 @@ namespace Punjab_Ornaments.Localization.Database
         Task<int> DeleteGoldFromStock(Gold gold);
         Task<List<Gold>> GetAllGoldStock();
         Task<List<Gold>> GetGoldStockById(int id);
+        #endregion
+
+        #region Approval Section
+
+        Task<List<Purchase>> GetAllPendingPurchaseRequests();
+        Task<List<Purchase>> GetAllCompletePurchaseRequests();
         #endregion
 
         #region CustomerSection
@@ -32,7 +38,7 @@ namespace Punjab_Ornaments.Localization.Database
         Task<List<Purchase>> GetAllCompletePurchases();
         Task<List<Purchase>> GetTodaysPurchase();
         Task<List<Purchase>> GetPurchaseById(int purchaseid);
-        Task<int> ApprovedPurchase(int purchaseid);
+        Task<int> ApprovedPurchase(int purchaseid, int isapproved);
         #endregion
 
         #region Admin Pannel (Setting)
@@ -42,14 +48,14 @@ namespace Punjab_Ornaments.Localization.Database
         Task<int> DeleteMetalType(MetelType metelType);
         Task<List<MetelType>> GetAllMetalType();
         #endregion
-        
+
         #region Brand
         Task<int> AddBrand(Brand brand);
         Task<int> DeleteBrand(Brand brand);
         Task<List<Brand>> GetAllBrand();
         Task<List<Brand>> GetBrandByMetalType(string metalType);
         #endregion
-        
+
         #endregion
     }
 }

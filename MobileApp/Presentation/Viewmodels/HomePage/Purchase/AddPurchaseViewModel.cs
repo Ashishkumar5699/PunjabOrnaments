@@ -1,6 +1,6 @@
 ﻿using Punjab_Ornaments.Infrastructure.APIService;
+using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Infrastructure.Navigation;
-using Punjab_Ornaments.Localization.Database;
 using System.Windows.Input;
 
 namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase
@@ -17,7 +17,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase
 
         #region constructor and initial methods
 
-        public AddPurchaseViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public AddPurchaseViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
         {
         }
 
@@ -43,8 +43,9 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase
         {
             if (PurchaseItemValidation(purchaseItem))
             {
-                await _apiservice.AddGoldPurchaseRequst(purchaseItem);
-                //await _localDataService.AddPurchase(purchaseItem);
+                //await _apiservice.AddGoldPurchaseRequst(purchaseItem);
+                await _localDataService.AddPurchase(purchaseItem);
+
                 await _navigationservice.PopAsync();
             }
             else

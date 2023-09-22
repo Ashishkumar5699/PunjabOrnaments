@@ -5,74 +5,77 @@
              x:DataType="viewmodel:HomePageViewModel"
              x:Class="Punjab_Ornaments.Presentation.Views.HomePageView"
              Title="Dashboard">
-    <ScrollView>
-        <VerticalStackLayout BackgroundColor="LightGray">
-            <Frame BackgroundColor="White" Margin="10">
-                <VerticalStackLayout>
-                    <Label Text="Remainders" FontAttributes="Bold" FontSize="Title"/>
-                </VerticalStackLayout>
-            </Frame>
-            <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >
-                <VerticalStackLayout>
-                    <Label Text="Sale" FontAttributes="Bold" FontSize="Title"/>
-                </VerticalStackLayout>
-            </Frame>
-            <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >
-                <VerticalStackLayout>
-                    <Label Text="Purchase" FontAttributes="Bold" FontSize="Title"/>
-                    <HorizontalStackLayout>
-                        <Button Text="Add Purchase" Command="{Binding NavigateToAddPurchasePageCommnad}"/>
-                    </HorizontalStackLayout>
-                </VerticalStackLayout>
-            </Frame>
-            <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >
-                <VerticalStackLayout>
-                    <Label Text="Customer" FontAttributes="Bold" FontSize="Title"/>
-                    <HorizontalStackLayout>
-                        <Button CornerRadius="10" Text="Add New Customer" Command="{Binding NavigateToAddNewCustmorPageCommnad}"/>
-                        <Button CornerRadius="10" Text="View All Customer" Command="{Binding NavigateToViewAllCustmorPageCommnad}"/>
-                    </HorizontalStackLayout>
-                </VerticalStackLayout>
-            </Frame>
-            <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >
-                <VerticalStackLayout>
-                    <Label Text="Pending" FontAttributes="Bold" FontSize="Title"/>
-                </VerticalStackLayout>
-            </Frame>
-            <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >
-                <VerticalStackLayout>
-                    <Label Text="Jakad" FontAttributes="Bold" FontSize="Title"/>
-                </VerticalStackLayout>
-            </Frame>
-            <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >
-                <VerticalStackLayout>
-                    <Label Text="Orders" FontAttributes="Bold" FontSize="Title"/>
-                </VerticalStackLayout>
-            </Frame>
-            <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >
-                <VerticalStackLayout>
-                    <Label Text="Repairing" FontAttributes="Bold" FontSize="Title"/>
-                    <HorizontalStackLayout>
-                        <Button Text="Stock" Command="{Binding StockCommand}" HorizontalOptions="CenterAndExpand" CornerRadius="20"/>
-                    </HorizontalStackLayout>
-                </VerticalStackLayout>
-            </Frame>
-            <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >
-                <VerticalStackLayout>
-                    <Label Text="Mortgage" FontAttributes="Bold" FontSize="Title"/>
-                    <HorizontalStackLayout>
-                        <Button Text="Stock" Command="{Binding StockCommand}" HorizontalOptions="CenterAndExpand" CornerRadius="20"/>
-                    </HorizontalStackLayout>
-                </VerticalStackLayout>
-            </Frame>
-            <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >
-                <VerticalStackLayout>
-                    <Label Text="Stock" FontAttributes="Bold" FontSize="Title"/>
-                    <HorizontalStackLayout>
-                        <Button Text="Stock" Command="{Binding StockCommand}" HorizontalOptions="CenterAndExpand" CornerRadius="20"/>
-                    </HorizontalStackLayout>
-                </VerticalStackLayout>
-            </Frame>
-        </VerticalStackLayout>
-    </ScrollView>
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout BackgroundColor="LightGray">
+                <Frame BackgroundColor="White" Margin="10">
+                    <VerticalStackLayout>
+                        <Label Text="Remainders" FontAttributes="Bold" FontSize="Title"/>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >
+                    <VerticalStackLayout>
+                        <Label Text="Sale" FontAttributes="Bold" FontSize="Title"/>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Purchase Requests" FontAttributes="Bold" FontSize="Title"/>
+                        <HorizontalStackLayout>
+                            <Button Text="Add Purchase Request" Command="{Binding NavigateToAddPurchasePageCommnad}"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Customer" FontAttributes="Bold" FontSize="Title"/>
+                        <HorizontalStackLayout Spacing="10">
+                            <Button CornerRadius="10" Text="Add New Customer" Command="{Binding NavigateToAddNewCustmorPageCommnad}"/>
+                            <Button CornerRadius="10" Text="View All Customer" Command="{Binding NavigateToViewAllCustmorPageCommnad}"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >
+                    <VerticalStackLayout>
+                        <Label Text="Pending" FontAttributes="Bold" FontSize="Title"/>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >
+                    <VerticalStackLayout>
+                        <Label Text="Jakad" FontAttributes="Bold" FontSize="Title"/>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >
+                    <VerticalStackLayout>
+                        <Label Text="Orders" FontAttributes="Bold" FontSize="Title"/>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Repairing" FontAttributes="Bold" FontSize="Title"/>
+                        <HorizontalStackLayout>
+                            <Button Text="Stock" Command="{Binding StockCommand}" HorizontalOptions="CenterAndExpand" CornerRadius="20"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Mortgage" FontAttributes="Bold" FontSize="Title"/>
+                        <HorizontalStackLayout>
+                            <Button Text="Stock" Command="{Binding StockCommand}" HorizontalOptions="CenterAndExpand" CornerRadius="20"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Stock" FontAttributes="Bold" FontSize="Title"/>
+                        <HorizontalStackLayout>
+                            <Button Text="Stock" Command="{Binding StockCommand}" HorizontalOptions="CenterAndExpand" CornerRadius="20"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+        <Button Text="New bill" Command="{Binding BillGenerationCommnad}" VerticalOptions="End" HorizontalOptions="Center"/>
+    </Grid>
 </ContentPage>
