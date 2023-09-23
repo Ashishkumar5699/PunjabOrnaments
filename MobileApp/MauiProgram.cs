@@ -8,10 +8,12 @@ using Punjab_Ornaments.Presentation.Viewmodels;
 using Punjab_Ornaments.Presentation.Viewmodels.Approval;
 using Punjab_Ornaments.Presentation.Viewmodels.HomePage.Customer;
 using Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase;
+using Punjab_Ornaments.Presentation.Viewmodels.HomePage.Sale;
 using Punjab_Ornaments.Presentation.Viewmodels.Settings;
 using Punjab_Ornaments.Presentation.Views;
 using Punjab_Ornaments.Presentation.Views.Approval;
 using Punjab_Ornaments.Presentation.Views.Customer;
+using Punjab_Ornaments.Presentation.Views.HomePage.Sale;
 using Punjab_Ornaments.Presentation.Views.Purchase;
 using Punjab_Ornaments.Presentation.Views.Settings;
 
@@ -51,8 +53,11 @@ public static class MauiProgram
         mauiAppBuilder.Services.AddSingleton<PendingApprovalsViewModel>();
         mauiAppBuilder.Services.AddSingleton<CustomerListViewModel>();
 
+        //Home Page => Sale
+        mauiAppBuilder.Services.AddSingleton<SaleQuatationPageViewModel>();
+
         //Approval Page
-        _ = mauiAppBuilder.Services.AddSingleton<AddPurchaseViewModel>();
+        mauiAppBuilder.Services.AddSingleton<AddPurchaseViewModel>();
         mauiAppBuilder.Services.AddSingleton<PendingApprovalsViewModel>();
         mauiAppBuilder.Services.AddSingleton<CompleteApprovalViewModel>();
         mauiAppBuilder.Services.AddSingleton<PurchaseDetailViewModel>();
@@ -86,6 +91,9 @@ public static class MauiProgram
         mauiAppBuilder.Services.AddSingleton<AddNewCustomerPage>();
         mauiAppBuilder.Services.AddSingleton<CustomerListPage>();
         mauiAppBuilder.Services.AddSingleton<AddPurchase>();
+
+        //Home Page => Sale
+        mauiAppBuilder.Services.AddSingleton<SaleQuatationPage>();
 
 		//Approval Page
         mauiAppBuilder.Services.AddSingleton<PendingApprovalsView>();

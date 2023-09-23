@@ -1,5 +1,4 @@
-﻿using Punjab_Ornaments.Infrastructure.APIService;
-using Punjab_Ornaments.Infrastructure.Database;
+﻿using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Infrastructure.Navigation;
 using System.Windows.Input;
 
@@ -38,6 +37,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase
             }
         }
         #endregion
+
         #region Methods
         async Task AddPurchaseAsync(Models.Stock.Purchase purchaseItem)
         {

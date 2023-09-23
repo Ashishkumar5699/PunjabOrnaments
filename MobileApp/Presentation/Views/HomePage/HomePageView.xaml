@@ -16,6 +16,9 @@
                 <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >
                     <VerticalStackLayout>
                         <Label Text="Sale" FontAttributes="Bold" FontSize="Title"/>
+                        <HorizontalStackLayout>
+                            <Button Text="Sale Quatation" Command="{Binding NavigateToSaleQuatationPageCommnad}"/>
+                        </HorizontalStackLayout>
                     </VerticalStackLayout>
                 </Frame>
                 <Frame CornerRadius="10" Margin="10" BackgroundColor="White" >

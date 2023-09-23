@@ -16,17 +16,15 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
 {
     public partial class HomePageViewModel : BaseViewModel
     {
-        private readonly IBillGeneration _billGeneration;
         #region Commands
         public ICommand NavigateToAddNewCustmorPageCommnad => new Command(async () => await NavigateToAddNewCustmerPageAsync());
         public ICommand NavigateToViewAllCustmorPageCommnad => new Command(async () => await NavigateToViewAllCustmorPageAsync());
         public ICommand NavigateToAddPurchasePageCommnad => new Command(async () => await NavigateToAddPurchasePageAsync());
-        public ICommand BillGenerationCommnad => new Command(async () => await BillGenerationAsync());
+        public ICommand NavigateToSaleQuatationPageCommnad => new Command(async () => await NavigateToSaleQuatationPageAsync());
         #endregion
         #region Constructor and init functions
-        public HomePageViewModel(ILocalDataService localDataService, INavigationService navigationservice, IBillGeneration billGeneration) : base(localDataService, navigationservice)
+        public HomePageViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
         {
-            _billGeneration = billGeneration;
         }
         #endregion
 
@@ -54,13 +52,17 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         async Task NavigateToAddNewCustmerPageAsync() => await _navigationservice.NavigateToAsync("AddNewCustomerPage");
         async Task NavigateToViewAllCustmorPageAsync() => await _navigationservice.NavigateToAsync("CustomerListPage");
         async Task NavigateToAddPurchasePageAsync() => await _navigationservice.NavigateToAsync("AddPurchase");
-
-        async Task BillGenerationAsync()
+        async Task NavigateToSaleQuatationPageAsync()
         {
-            var ms = _billGeneration.SaleBillGenerate();
-            //Saves the memory stream as file.
-            Infrastructure.Helpers.SaveService saveService = new();
-            saveService.SaveAndView("Invoice.pdf", "application/pdf", ms);
+            try
+            {
+                await _navigationservice.NavigateToAsync("SaleQuatationPage");
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
         #endregion
     }

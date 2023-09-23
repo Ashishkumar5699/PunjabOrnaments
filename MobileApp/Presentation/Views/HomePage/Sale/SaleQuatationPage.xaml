@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Punjab_Ornaments.Presentation.Views.HomePage.Sale.SaleQuatationPage"
+             xmlns:viewmodel="clr-namespace:Punjab_Ornaments.Presentation.Viewmodels.HomePage.Sale"
+             x:DataType="viewmodel:SaleQuatationPageViewModel"
+             Title="SaleQuatationPage">
+    <!--<ContentPage.Resources>
+        <ResourceDictionary>
+            <ControlTemplate >
+                <Entry Text="{Binding SaleItem.Name}" Grid.Column="1"/>
+                <Entry Text="{Binding SaleItem.Type}" Grid.Column="2"/>
+                <Entry Text="{Binding SaleItem.Rate}" Grid.Column="3"/>
+                <Entry Text="{Binding SaleItem.Quantity}" Grid.Column="4"/>
+                <Entry Text="{Binding SaleItem.Price}" Grid.Column="5"/>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>-->
+    <ContentPage.Content>
+        <VerticalStackLayout>
+            <Grid ColumnDefinitions="20,AUTO,AUTO,AUTO,AUTO,AUTO">
+                <Entry Text="{Binding SaleItem.Name}" Grid.Column="1"/>
+                <Entry Text="{Binding SaleItem.Type}" Grid.Column="2"/>
+                <Entry Text="{Binding SaleItem.Rate}" Grid.Column="3"/>
+                <Entry Text="{Binding SaleItem.Quantity}" Grid.Column="4"/>
+                <Entry Text="{Binding SaleItem.Price}" Grid.Column="5"/>
+            </Grid>
+                <Button Text="Add" Command="{Binding AddItemCommand}"/>
+            <Grid>
+                <CollectionView ItemsSource="{Binding SaleItems}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame x:DataType="viewmodel:SaleDTO">
+                                <Grid ColumnDefinitions="20,AUTO,AUTO,AUTO,AUTO,AUTO">
+                                    <Label Text="{Binding Id}"/>
+                                    <Label Text="{Binding Name}" Grid.Column="1"/>
+                                    <Label Text="{Binding Type}" Grid.Column="2"/>
+                                    <Label Text="{Binding Rate}" Grid.Column="3"/>
+                                    <Label Text="{Binding Quantity}" Grid.Column="4"/>
+                                    <Label Text="{Binding Price}" Grid.Column="5"/>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Button Text="Print" Command="{Binding BillGenerationCommnad}" HorizontalOptions="CenterAndExpand" VerticalOptions="End"/>
+            </Grid>
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>

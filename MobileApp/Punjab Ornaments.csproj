@@ -81,6 +81,7 @@
 
 	<ItemGroup>
 	  <MauiXaml Remove="Presentation\CustomControls\CustomButtonLabel.xaml" />
+	  <MauiXaml Remove="Presentation\Views\HomePage\SaleQuatationPage.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -130,6 +131,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Presentation\Views\HomePage\Purchase\AddPurchase.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Presentation\Views\HomePage\Sale\SaleQuatationPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Presentation\Views\HomePage\Stock\Gold\AddGoldStock.xaml">

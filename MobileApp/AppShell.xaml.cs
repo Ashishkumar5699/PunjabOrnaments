@@ -1,6 +1,8 @@
-﻿using Punjab_Ornaments.Presentation.Views;
+﻿using Punjab_Ornaments.Presentation.Viewmodels.HomePage.Sale;
+using Punjab_Ornaments.Presentation.Views;
 using Punjab_Ornaments.Presentation.Views.Approval;
 using Punjab_Ornaments.Presentation.Views.Customer;
+using Punjab_Ornaments.Presentation.Views.HomePage.Sale;
 using Punjab_Ornaments.Presentation.Views.Purchase;
 using Punjab_Ornaments.Presentation.Views.Settings;
 
@@ -24,6 +26,8 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(AddNewCustomerPage), typeof(AddNewCustomerPage));
         Routing.RegisterRoute(nameof(CustomerListPage), typeof(CustomerListPage));
         Routing.RegisterRoute(nameof(AddPurchase), typeof(AddPurchase));
+
+        Routing.RegisterRoute(nameof(SaleQuatationPage), typeof(SaleQuatationPage));
 
         //Approval
         Routing.RegisterRoute(nameof(PendingApprovalsView), typeof(PendingApprovalsView));
