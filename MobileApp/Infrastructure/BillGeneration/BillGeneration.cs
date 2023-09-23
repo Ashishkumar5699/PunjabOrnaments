@@ -5,6 +5,8 @@ using System.Reflection;
 using Syncfusion.Drawing;
 using Color = Syncfusion.Drawing.Color;
 using SizeF = Syncfusion.Drawing.SizeF;
+using Punjab_Ornaments.Resources.Constant;
+using System.Data;
 
 namespace Punjab_Ornaments.Infrastructure.BillGeneration
 {
@@ -14,8 +16,10 @@ namespace Punjab_Ornaments.Infrastructure.BillGeneration
         {
             //Create a new PDF document.
             PdfDocument document = new();
+            
             //Add a page to the document.
             PdfPage page = document.Pages.Add();
+            
             //Create PDF graphics for the page.
             PdfGraphics graphics = page.Graphics;
 
@@ -24,26 +28,31 @@ namespace Punjab_Ornaments.Infrastructure.BillGeneration
             float pageHeight = page.GetClientSize().Height;
             RectangleF TotalPriceCellBounds = RectangleF.Empty;
             RectangleF QuantityCellBounds = RectangleF.Empty;
+            
             //Set the header height.
             float headerHeight = 90;
+
             //Create a brush with a light blue color. 
             PdfColor lightBlue = Color.FromArgb(255, 91, 126, 215);
             PdfBrush lightBlueBrush = new PdfSolidBrush(lightBlue);
+
             //Create a brush with a dark blue color. 
             PdfColor darkBlue = Color.FromArgb(255, 65, 104, 209);
             PdfBrush darkBlueBrush = new PdfSolidBrush(darkBlue);
+
             //Create a brush with a white color. 
             PdfBrush whiteBrush = new PdfSolidBrush(Color.FromArgb(255, 255, 255, 255));
 
             //Get the font file stream from the assembly. 
             Assembly assembly = typeof(MainPage).GetTypeInfo().Assembly;
-            string basePath = "Punjab_Ornaments.Resources.Fonts.";
-            //string basePath = "D:\\PunjabOrnaments\\MobileApp\\Resources\\Fonts\\";
+            string basePath = ResourcePath.FontPath;
             Stream fontStream = assembly.GetManifestResourceStream(basePath + "OpenSans-Regular.ttf");
+
             //Create a PdfTrueTypeFont from the stream with the different sizes. 
             PdfTrueTypeFont headerFont = new PdfTrueTypeFont(fontStream, 30, PdfFontStyle.Regular);
             PdfTrueTypeFont arialRegularFont = new PdfTrueTypeFont(fontStream, 18, PdfFontStyle.Regular);
             PdfTrueTypeFont arialBoldFont = new PdfTrueTypeFont(fontStream, 9, PdfFontStyle.Bold);
+
             //Create a string format.
             PdfStringFormat format = new PdfStringFormat();
             format.Alignment = PdfTextAlignment.Center;
@@ -51,10 +60,13 @@ namespace Punjab_Ornaments.Infrastructure.BillGeneration
 
             float y = 0;
             float x = 0;
+            
             //Set the margins of the address.
             float margin = 30;
+            
             //Set the line space.
             float lineSpace = 10;
+            
             //Create a border pen and draw the border to on the PDF page. 
             PdfColor borderColor = Color.FromArgb(255, 142, 170, 219);
             PdfPen borderPen = new PdfPen(borderColor, 1f);
@@ -62,10 +74,13 @@ namespace Punjab_Ornaments.Infrastructure.BillGeneration
 
             //Create a new PdfGrid. 
             PdfGrid grid = new PdfGrid();
+            
             //Add five columns to the grid.
             grid.Columns.Add(5);
+            
             //Create the header row of the grid.
             PdfGridRow[] headerRow = grid.Headers.Add(1);
+            
             //Set style to the header row and set value to the header cells. 
             headerRow[0].Style.BackgroundBrush = new PdfSolidBrush(new PdfColor(68, 114, 196));
             headerRow[0].Style.TextBrush = PdfBrushes.White;
@@ -75,6 +90,7 @@ namespace Punjab_Ornaments.Infrastructure.BillGeneration
             headerRow[0].Cells[2].Value = "Price ($)";
             headerRow[0].Cells[3].Value = "Quantity";
             headerRow[0].Cells[4].Value = "Total ($)";
+            
             //Add products to the grid table.
             AddProducts("CA-1098", "AWC Logo Cap", 8.99, 2, 17.98, grid);
             AddProducts("LJ-0192", "Long-Sleeve Logo Jersey,M", 49.99, 3, 149.97, grid);
@@ -83,7 +99,7 @@ namespace Punjab_Ornaments.Infrastructure.BillGeneration
             AddProducts("FK-5136", "ML Fork", 175.49, 6, 1052.94, grid);
             AddProducts("HL-U509", "Sports-100 Helmet,Black", 34.99, 1, 34.99, grid);
 
-            //#region Header         
+            #region Header         
             //Fill the header with a light blue brush. 
             graphics.DrawRectangle(lightBlueBrush, new RectangleF(0, 0, pageWidth, headerHeight));
             string title = "INVOICE";
@@ -101,7 +117,7 @@ namespace Punjab_Ornaments.Infrastructure.BillGeneration
             //Set the bottom line alignment and draw the text to the PDF page. 
             format.LineAlignment = PdfVerticalAlignment.Bottom;
             graphics.DrawString("Amount", arialRegularFont, whiteBrush, new RectangleF(400, 0, pageWidth - 400, headerHeight / 2 - arialRegularFont.Height), format);
-            //#endregion
+            #endregion
 
             //Measure the string size using the font. 
             SizeF size = arialRegularFont.MeasureString("Invoice Number: 2058557939");
@@ -129,7 +145,7 @@ namespace Punjab_Ornaments.Infrastructure.BillGeneration
             y += arialRegularFont.Height + lineSpace;
             graphics.DrawString("9365550136", arialRegularFont, PdfBrushes.Black, new Syncfusion.Drawing.PointF(x, y));
 
-            //#region Grid
+            #region Grid
             //Set the width of theto grid columns. 
             grid.Columns[0].Width = 110;
             grid.Columns[1].Width = 150;
@@ -204,7 +220,7 @@ namespace Punjab_Ornaments.Infrastructure.BillGeneration
             borderPen.DashPattern = new float[] { 3, 3 };
             graphics.DrawLine(borderPen, new Syncfusion.Drawing.PointF(0, pageHeight - 100), new Syncfusion.Drawing.PointF(pageWidth, pageHeight - 100));
 
-            basePath = "Punjab_Ornaments.Resources.Images.";
+            basePath = ResourcePath.ImagesPath;
             //Get the image file stream from the assembly.
             Stream imageStream = assembly.GetManifestResourceStream(basePath + "Star.png");
 
@@ -239,9 +255,11 @@ namespace Punjab_Ornaments.Infrastructure.BillGeneration
             ms.Position = 0;
 
             return ms;
-            //}
-            //#endregion
-            ////#region Helper Methods
+            
+            #endregion
+            
+            #region Helper Methods
+
             //Create and row for the grid.
             void AddProducts(string productId, string productName, double price, int quantity, double total, PdfGrid grid)
             {
@@ -253,6 +271,7 @@ namespace Punjab_Ornaments.Infrastructure.BillGeneration
                 row.Cells[3].Value = quantity.ToString();
                 row.Cells[4].Value = total.ToString();
             }
+
             /// <summary>
             /// Get the Total amount of the purcharsed items.
             /// </summary>
@@ -268,6 +287,8 @@ namespace Punjab_Ornaments.Infrastructure.BillGeneration
                 return Total;
 
             }
+
+            #endregion
         }
     }
 }

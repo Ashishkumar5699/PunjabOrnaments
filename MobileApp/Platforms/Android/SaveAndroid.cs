@@ -1,15 +1,8 @@
 ﻿using Android.Content;
 using Android.OS;
 using Java.IO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 using Environment = Android.OS.Environment;
 using Application = Android.App.Application;
-using Uri = Android.Net.Uri;
 
 namespace Punjab_Ornaments.Infrastructure.Helpers
 {
