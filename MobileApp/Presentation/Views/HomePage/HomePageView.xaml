@@ -5,7 +5,7 @@
              x:DataType="viewmodel:HomePageViewModel"
              x:Class="Punjab_Ornaments.Presentation.Views.HomePageView"
              Title="Dashboard">
-    <Grid>
+    <ContentPage.Content>
         <ScrollView>
             <VerticalStackLayout BackgroundColor="LightGray">
                 <Frame BackgroundColor="White" Margin="10">
@@ -79,6 +79,5 @@
                 </Frame>
             </VerticalStackLayout>
         </ScrollView>
-        <Button Text="New bill" Command="{Binding BillGenerationCommnad}" VerticalOptions="End" HorizontalOptions="Center"/>
-    </Grid>
+    </ContentPage.Content>
 </ContentPage>
