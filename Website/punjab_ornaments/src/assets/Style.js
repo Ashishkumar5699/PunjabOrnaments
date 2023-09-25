@@ -1,10 +1,7 @@
 const CenterComponent = {
-    height: "auto",
-    width:"500px",
-    alignItems:"center",
-    justifyContent:"center",
-    border:"1px solid orange",
-    direction:"column"
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
 }
 
 const FullScreantheComponent ={

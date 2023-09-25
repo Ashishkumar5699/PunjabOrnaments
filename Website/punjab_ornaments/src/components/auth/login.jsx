@@ -3,7 +3,6 @@ import {
     Card,
     CardContent,
     Typography,
-    CardActions,
     Button,
     TextField,
     Stack,
@@ -17,9 +16,12 @@ export default function login() {
     const [Password, setPassword] = React.useState("");
 
     return (
-        <Box sx={{ ...FullScreantheComponent, justifyContent:"center",backgroundColor: '#F2F2F2' }}>
-            <Card sx={{ ...CenterComponent }}>
+            <Card>
                 <CardContent>
+                    <Typography sx={{ ...CenterComponent}}>
+                        LOGIN ACCOUNT
+                    </Typography>
+                    <br/>
                     <TextField
                         label="User Name"
                         variant="outlined"
@@ -37,7 +39,5 @@ export default function login() {
 
                 </CardContent>
             </Card>
-        </Box>
-
     )
 }
