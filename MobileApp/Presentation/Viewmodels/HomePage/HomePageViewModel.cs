@@ -19,7 +19,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         public ICommand NavigateToAddNewCustmorPageCommnad => new Command(async () => await NavigateToAddNewCustmerPageAsync());
         public ICommand NavigateToViewAllCustmorPageCommnad => new Command(async () => await NavigateToViewAllCustmorPageAsync());
         public ICommand NavigateToAddPurchasePageCommnad => new Command(async () => await NavigateToAddPurchasePageAsync());
-        public ICommand BillGenerationCommnad => new Command(async () => await BillGenerationAsync());
+        public ICommand BillGenerationCommnad => new Command(BillGenerationAsync);
         #endregion
         #region Constructor and init functions
         public HomePageViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
@@ -52,7 +52,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         async Task NavigateToViewAllCustmorPageAsync() => await _navigationservice.NavigateToAsync("CustomerListPage");
         async Task NavigateToAddPurchasePageAsync() => await _navigationservice.NavigateToAsync("AddPurchase");
 
-        async Task BillGenerationAsync()
+        void BillGenerationAsync()
         {
             //Create a new PDF document.
             PdfDocument document = new();
@@ -312,6 +312,6 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
             return Total;
 
         }
-        //#endregion
+        #endregion
     }
 }

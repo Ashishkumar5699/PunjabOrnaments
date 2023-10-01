@@ -160,6 +160,9 @@
 	  <MauiXaml Update="Presentation\Views\Settings\Templates\MetalTypeTemplate.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Presentation\Views\UnderConstruction.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
