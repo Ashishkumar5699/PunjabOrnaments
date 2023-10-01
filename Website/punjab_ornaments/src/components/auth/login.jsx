@@ -11,6 +11,8 @@ import {React, useState }from 'react'
 
 import { CenterComponent , FullScreantheComponent} from '../../assets/Style';
 
+import { LoginAction } from '../../services/AuthService';
+
 export default function login() {
     const [Username, setUsername] = useState("");
     const [Password, setPassword] = useState("");
@@ -20,16 +22,10 @@ export default function login() {
 
     const valueGetter = (e) => e.target.value
     
-    const HandleLoginAction = () => {
-
-        const authdetail = {
-            Username,
-            Password
-        }
-
-        console.log(authdetail)
-
-    }
+    const HandleLoginAction = async () => 
+    {
+        var response = await LoginAction({Username,Password})
+    } 
 
     return (
             <Card>
