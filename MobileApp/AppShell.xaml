@@ -7,8 +7,13 @@
     xmlns:Home="clr-namespace:Punjab_Ornaments.Presentation.Views"
     xmlns:Approval="clr-namespace:Punjab_Ornaments.Presentation.Views.Approval"
     xmlns:Setting="clr-namespace:Punjab_Ornaments.Presentation.Views.Settings"
-    Shell.FlyoutBehavior="Disabled">
-    <TabBar>
+    xmlns:dummy="clr-namespace:Punjab_Ornaments.Presentation.Views"
+    Shell.FlyoutBehavior="Flyout">
+    <FlyoutItem Title="Home">
+        <ShellContent Title="Home" ContentTemplate="{DataTemplate dummy:UnderConstruction}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Gold">
         <Tab Title="Home Page">
             <ShellContent Title="Home" ContentTemplate="{DataTemplate Home:HomePageView}"/>
         </Tab>
@@ -19,5 +24,21 @@
         <Tab Title="Settings">
             <ShellContent Title="Home" ContentTemplate="{DataTemplate Setting:SettingPage}"/>
         </Tab>
-    </TabBar>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Silver">
+        <ShellContent Title="Home" ContentTemplate="{DataTemplate dummy:UnderConstruction}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Diamond">
+        <ShellContent Title="Home" ContentTemplate="{DataTemplate dummy:UnderConstruction}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Mortgage">
+        <ShellContent Title="Home" ContentTemplate="{DataTemplate dummy:UnderConstruction}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Account">
+        <ShellContent Title="Home" ContentTemplate="{DataTemplate dummy:UnderConstruction}"/>
+    </FlyoutItem>
 </Shell>
