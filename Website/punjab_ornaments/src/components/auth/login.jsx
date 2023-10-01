@@ -7,13 +7,29 @@ import {
     TextField,
     Stack,
 } from '@mui/material';
-import React from 'react'
+import {React, useState }from 'react'
 
 import { CenterComponent , FullScreantheComponent} from '../../assets/Style';
 
 export default function login() {
-    const [Username, setUsername] = React.useState("");
-    const [Password, setPassword] = React.useState("");
+    const [Username, setUsername] = useState("");
+    const [Password, setPassword] = useState("");
+
+    const HandleUsernameChange = (e) => setUsername(valueGetter(e));
+    const HandlePasswordChange = (e) => setPassword(valueGetter(e));
+
+    const valueGetter = (e) => e.target.value
+    
+    const HandleLoginAction = () => {
+
+        const authdetail = {
+            Username,
+            Password
+        }
+
+        console.log(authdetail)
+
+    }
 
     return (
             <Card>
@@ -25,6 +41,7 @@ export default function login() {
                     <TextField
                         label="User Name"
                         variant="outlined"
+                        onChange={HandleUsernameChange}
                         value={Username} />
                     <br />
                     <br />
@@ -32,10 +49,11 @@ export default function login() {
                         label="Password"
                         variant="outlined"
                         border="solid orange"
+                        onChange={HandlePasswordChange}
                         value={Password} />
                     <br />
                     <br />
-                    <Button size="small">Login</Button>
+                    <Button size="small" onClick={HandleLoginAction}>Login</Button>
 
                 </CardContent>
             </Card>
