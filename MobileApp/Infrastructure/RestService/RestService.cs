@@ -74,6 +74,26 @@ namespace Punjab_Ornaments.Infrastructure.RestService
             return result;
         }
 
+        public async Task<TResult> PostAsync<TResult>(string uri, TResult data, string token = "", Dictionary<string, string> headers = null)
+        {
+            try
+            {
+                var request = new HttpRequestMessage(HttpMethod.Post, uri);
+                string jsonserilozer = System.Text.Json.JsonSerializer.Serialize(data, _serializerOptions);
+                var content = new StringContent(jsonserilozer, null, "text/plain");
+                request.Content = content;
+                var response = await _client.SendAsync(request);
+                var serialized = HandleResponse(response);
+                TResult result = await Task.Run(() => JsonSerializer.Deserialize<TResult>(serialized.Result, _serializerOptions));
+                return result;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+        
         public static HttpClientHandler GetInsecureHandler()
         {
             HttpClientHandler handler = new HttpClientHandler();

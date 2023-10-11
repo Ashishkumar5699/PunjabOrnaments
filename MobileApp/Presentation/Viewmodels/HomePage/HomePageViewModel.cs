@@ -16,7 +16,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         #endregion
 
         #region Constructor and init functions
-        public HomePageViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public HomePageViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
         {
         }
         #endregion

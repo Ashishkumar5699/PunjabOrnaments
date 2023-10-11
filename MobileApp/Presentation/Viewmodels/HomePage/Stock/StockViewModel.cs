@@ -7,7 +7,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
 {
     public partial class StockViewModel : BaseViewModel
     {
-        public StockViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public StockViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
         {
         }
 

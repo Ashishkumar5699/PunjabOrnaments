@@ -5,11 +5,13 @@ using Punjab_Ornaments.Infrastructure.RestService;
 using Punjab_Ornaments.Localization.Database;
 using Punjab_Ornaments.Presentation.Viewmodels;
 using Punjab_Ornaments.Presentation.Viewmodels.Approval;
+using Punjab_Ornaments.Presentation.Viewmodels.Auth;
 using Punjab_Ornaments.Presentation.Viewmodels.HomePage.Customer;
 using Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase;
 using Punjab_Ornaments.Presentation.Viewmodels.Settings;
 using Punjab_Ornaments.Presentation.Views;
 using Punjab_Ornaments.Presentation.Views.Approval;
+using Punjab_Ornaments.Presentation.Views.Auth;
 using Punjab_Ornaments.Presentation.Views.Customer;
 using Punjab_Ornaments.Presentation.Views.Purchase;
 using Punjab_Ornaments.Presentation.Views.Settings;
@@ -41,6 +43,9 @@ public static class MauiProgram
 	}
 	public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder)
 	{
+		//Auth
+        mauiAppBuilder.Services.AddSingleton<LoginPageViewModel>();
+
 		//Home Page
         mauiAppBuilder.Services.AddSingleton<HomePageViewModel>();
         mauiAppBuilder.Services.AddSingleton<StockViewModel>();
@@ -68,13 +73,18 @@ public static class MauiProgram
 	public static MauiAppBuilder RegisterAppServices(this MauiAppBuilder mauiAppBuilder)
 	{
 		mauiAppBuilder.Services.AddSingleton<INavigationService, NavigationService>();
-		mauiAppBuilder.Services.AddSingleton<ILocalDataService, SQLiteDataService>();
+		//mauiAppBuilder.Services.AddSingleton<IDataService, SQLiteDataService>();
+		mauiAppBuilder.Services.AddSingleton<IDataService, RESTDataService>();
 		mauiAppBuilder.Services.AddSingleton<IAPIService, APIService>();
 		mauiAppBuilder.Services.AddSingleton<IRestService, RestService>();
 		return mauiAppBuilder;
 	}
 	public static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder)
 	{
+
+		//Auth
+        mauiAppBuilder.Services.AddSingleton<LoginPage>();
+
 		//Home Page
         mauiAppBuilder.Services.AddSingleton<HomePageView>();
         mauiAppBuilder.Services.AddSingleton<StockView>();

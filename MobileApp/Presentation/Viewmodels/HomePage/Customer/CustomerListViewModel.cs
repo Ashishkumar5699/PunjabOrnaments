@@ -12,12 +12,12 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Customer
         #endregion
 
         #region Constructor and initial methods
-        public CustomerListViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public CustomerListViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
         {
         }
         public async Task OnAppearing()
         {
-            var listofCustomers = await _localDataService.GetAllCustomers();
+            var listofCustomers = await _dataService.GetAllCustomers();
             CustomerList = new ObservableCollection<Models.Customer>(listofCustomers);
         }
         #endregion

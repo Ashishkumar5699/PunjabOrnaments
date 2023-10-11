@@ -1,12 +1,13 @@
 ﻿using Punjab_Ornaments.Models;
 using Punjab_Ornaments.Models.AdminPannel;
+using Punjab_Ornaments.Models.Auth;
 using Punjab_Ornaments.Models.Stock;
 using Punjab_Ornaments.Resources.Constant;
 using SQLite;
 
 namespace Punjab_Ornaments.Localization.Database
 {
-    public partial class SQLiteDataService : ILocalDataService
+    public partial class SQLiteDataService : IDataService
     {
         #region initialization
         private static readonly Lazy<SQLiteAsyncConnection> LazyInitializer = new(() =>
@@ -31,6 +32,13 @@ namespace Punjab_Ornaments.Localization.Database
             database.CreateTable<Purchase>();
             database.CreateTable<MetelType>();
             database.CreateTable<Brand>();
+        }
+        #endregion
+
+        #region Auth
+        public Task<LoginUser> LoginUser(LoginUser loginUser)
+        {
+            throw new NotImplementedException();
         }
         #endregion
 

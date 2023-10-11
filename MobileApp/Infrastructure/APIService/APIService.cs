@@ -1,4 +1,5 @@
 ﻿using Punjab_Ornaments.Infrastructure.RestService;
+using Punjab_Ornaments.Models.Auth;
 using Punjab_Ornaments.Models.Stock;
 using Punjab_Ornaments.Resources.Constant;
 
@@ -11,6 +12,13 @@ namespace Punjab_Ornaments.Infrastructure.APIService
         {
             _restService = restService;
         }
+
+        public async Task<LoginUser> LoginUser(LoginUser loginUser)
+        {
+            var responce = await _restService.PostAsync(ApiConstant.Login, loginUser);
+            return responce;
+        }
+
         public async Task AddGoldPurchaseRequst(Purchase request)
         {
            var responce =  await _restService.PutAsync(ApiConstant.AddPurchaseRequest, request);

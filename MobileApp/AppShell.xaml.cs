@@ -1,6 +1,6 @@
-﻿using Punjab_Ornaments.Localization.Database;
-using Punjab_Ornaments.Presentation.Views;
+﻿using Punjab_Ornaments.Presentation.Views;
 using Punjab_Ornaments.Presentation.Views.Approval;
+using Punjab_Ornaments.Presentation.Views.Auth;
 using Punjab_Ornaments.Presentation.Views.Customer;
 using Punjab_Ornaments.Presentation.Views.Purchase;
 using Punjab_Ornaments.Presentation.Views.Settings;
@@ -17,7 +17,11 @@ public partial class AppShell : Shell
 
     private void RegisterRoutes()
 	{
+        //Auth
+        Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
+
         //Home
+        Routing.RegisterRoute(nameof(HomePageView), typeof(HomePageView));
         Routing.RegisterRoute(nameof(StockView), typeof(StockView));
         Routing.RegisterRoute(nameof(GoldStockList), typeof(GoldStockList));
         Routing.RegisterRoute(nameof(AddGoldStock), typeof(AddGoldStock));

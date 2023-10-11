@@ -16,13 +16,13 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         #endregion
 
         #region Constructor and override methods
-        public GoldStockListViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public GoldStockListViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
         {
         }
 
         public async Task OnAppearing()
         {
-            var listofStock = await _localDataService.GetAllGoldStock();
+            var listofStock = await _dataService.GetAllGoldStock();
             GoldStockList = new ObservableCollection<Gold>(listofStock);
         }
 
@@ -66,7 +66,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         public void AddNewItem()
         {
             Gold gold = new() { Code = Code, Weight = Weight, Image = Image, Brand = Brand, Carrot = Carrot};
-            _localDataService.AddGoldinStock(gold);
+            _dataService.AddGoldinStock(gold);
             _navigationservice.PopAsync();
         }
 

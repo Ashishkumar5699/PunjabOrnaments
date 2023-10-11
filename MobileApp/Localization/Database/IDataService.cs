@@ -1,12 +1,17 @@
 ﻿using Punjab_Ornaments.Models;
 using Punjab_Ornaments.Models.AdminPannel;
+using Punjab_Ornaments.Models.Auth;
 using Punjab_Ornaments.Models.Stock;
 
 namespace Punjab_Ornaments.Localization.Database
 {
-    public interface ILocalDataService
+    public interface IDataService
     {
         void Initialize();
+
+        #region auth
+        Task<LoginUser> LoginUser(LoginUser loginUser);
+        #endregion
 
         #region GoldSection
         Task<int> AddGoldinStock(Gold gold);

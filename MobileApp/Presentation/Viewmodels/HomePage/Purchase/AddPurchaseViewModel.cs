@@ -17,7 +17,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase
 
         #region constructor and initial methods
 
-        public AddPurchaseViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public AddPurchaseViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
         {
         }
 

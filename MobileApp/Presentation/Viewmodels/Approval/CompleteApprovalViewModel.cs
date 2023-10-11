@@ -9,7 +9,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
     {
 
         #region construction and init methods
-        public CompleteApprovalViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public CompleteApprovalViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
         {
         }
         internal async Task OnAppearing()

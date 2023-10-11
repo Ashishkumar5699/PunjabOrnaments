@@ -6,7 +6,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Settings
 {
     public partial class MetalTypeDetailPageViewModel : BaseViewModel
     {
-        public MetalTypeDetailPageViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public MetalTypeDetailPageViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
         {
         }
 

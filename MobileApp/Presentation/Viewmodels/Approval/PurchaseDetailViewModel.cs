@@ -27,7 +27,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
         #endregion
 
         #region Constructor and init methods
-        public PurchaseDetailViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public PurchaseDetailViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
         {
         }
         internal async Task OnAppearing()

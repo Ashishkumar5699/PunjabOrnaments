@@ -2,7 +2,8 @@
 {
     public static class ApiConstant
     {
-        public const string baseurl = "http://localhost:5000/api/";
+        //public const string baseurl = "http://localhost:5000/api/";
+        public const string baseurl = "https://192.168.29.142:45455/api/";
 
         #region Account
         public const string Login = baseurl + "account/login";

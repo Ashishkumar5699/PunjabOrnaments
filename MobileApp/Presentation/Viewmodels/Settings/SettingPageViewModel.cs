@@ -13,7 +13,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Settings
         #endregion
 
         #region Constructor and init Functions
-        public SettingPageViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public SettingPageViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
         {
         }
         public async Task OnAppearing()

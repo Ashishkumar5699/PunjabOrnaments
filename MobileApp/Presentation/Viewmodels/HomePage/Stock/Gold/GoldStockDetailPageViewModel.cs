@@ -13,13 +13,13 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         private int _id;
         #endregion
         #region Constructor and override methods
-        public GoldStockDetailPageViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public GoldStockDetailPageViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
         {
         }
         #endregion
         public async Task OnAppearing()
         {
-            var GoldStockDetailList = await _localDataService.GetGoldStockById(Id);
+            var GoldStockDetailList = await _dataService.GetGoldStockById(Id);
             GoldStock = GoldStockDetailList.FirstOrDefault();
         }
 

@@ -14,7 +14,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Settings
         private ObservableCollection<MetelType> _metalTypeList;
         private int _id;
 
-        public MetalTypePageViewModel(ILocalDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public MetalTypePageViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
         {
         }
         #endregion
@@ -26,7 +26,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Settings
         #region Constructor and init Method
         public async Task OnAppearing()
         {
-            var metelTypes = await _localDataService.GetAllMetalType();
+            var metelTypes = await _dataService.GetAllMetalType();
             MetalTypeList = new ObservableCollection<MetelType>(metelTypes);
         }
         #endregion
