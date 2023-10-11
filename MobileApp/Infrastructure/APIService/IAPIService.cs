@@ -1,9 +1,13 @@
-﻿using Punjab_Ornaments.Models.Stock;
+﻿using Punjab_Ornaments.Models.Auth;
+using Punjab_Ornaments.Models.Stock;
 
 namespace Punjab_Ornaments.Infrastructure.APIService
 {
     public interface IAPIService
     {
+        #region Auth
+        Task<LoginUser> LoginUser(LoginUser loginUser);
+        #endregion
         Task AddGoldPurchaseRequst(Purchase request);
         Task<List<Purchase>> GetAllPurchaseRequest();
         Task<bool> GoldApprove(int id);

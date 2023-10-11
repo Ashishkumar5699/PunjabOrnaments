@@ -23,7 +23,11 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Customer
         #endregion
 
         #region Constructor and initial functions
+<<<<<<< HEAD
         public AddNewCustomerPageViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
+=======
+        public AddNewCustomerPageViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+>>>>>>> ebe3029 (Mobile Application API integration Structure added)
         {
         }
         #endregion
@@ -137,7 +141,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Customer
                 CustmorPinCode = PinCode,
 
             };
-            await _localDataService.AddCustomer(customer);
+            await _dataService.AddCustomer(customer);
             await _navigationservice.PopAsync();
         }
 

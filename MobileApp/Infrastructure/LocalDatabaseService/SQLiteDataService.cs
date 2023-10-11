@@ -1,12 +1,13 @@
 ﻿using Punjab_Ornaments.Models;
 using Punjab_Ornaments.Models.AdminPannel;
+using Punjab_Ornaments.Models.Auth;
 using Punjab_Ornaments.Models.Stock;
 using Punjab_Ornaments.Resources.Constant;
 using SQLite;
 
 namespace Punjab_Ornaments.Infrastructure.Database
 {
-    public partial class SQLiteDataService : ILocalDataService
+    public partial class SQLiteDataService : IDataService
     {
         #region initialization
         private static readonly Lazy<SQLiteAsyncConnection> LazyInitializer = new(() =>
@@ -31,7 +32,14 @@ namespace Punjab_Ornaments.Infrastructure.Database
         }
         #endregion
 
-        #region Gold Section
+        #region Auth
+        public Task<LoginUser> LoginUser(LoginUser loginUser)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region Gold
         public async Task<int> AddGoldinStock(Gold gold) => await Database.InsertAsync(gold);
         public async Task<int> UpdateGoldinStock(Gold gold) => await Database.UpdateAsync(gold);
         public async Task<int> DeleteGoldFromStock(Gold gold) => await Database.DeleteAsync(gold);

@@ -22,7 +22,11 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         public ICommand BillGenerationCommnad => new Command(BillGenerationAsync);
         #endregion
         #region Constructor and init functions
+<<<<<<< HEAD
         public HomePageViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
+=======
+        public HomePageViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+>>>>>>> ebe3029 (Mobile Application API integration Structure added)
         {
         }
         #endregion

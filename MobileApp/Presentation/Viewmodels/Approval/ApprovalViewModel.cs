@@ -18,7 +18,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
         #endregion
 
 
-        public ApprovalViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
+        public ApprovalViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
         {
         }
         #region Bindable Properties

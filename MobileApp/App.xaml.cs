@@ -4,8 +4,8 @@ namespace Punjab_Ornaments;
 
 public partial class App : Application
 {
-	ILocalDataService _localDataService;
-    public App(ILocalDataService localDataService)
+	IDataService _localDataService;
+    public App(IDataService localDataService)
 	{
 		InitializeComponent();
 
@@ -14,7 +14,7 @@ public partial class App : Application
 
     }
 
-    private void InitializeRequired(ILocalDataService localDataService)
+    private void InitializeRequired(IDataService localDataService)
     {
         _localDataService = localDataService;
         _localDataService.Initialize();
