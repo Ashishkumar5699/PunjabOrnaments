@@ -12,11 +12,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Customer
         #endregion
 
         #region Constructor and initial methods
-<<<<<<< HEAD
-        public CustomerListViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
-=======
         public CustomerListViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
->>>>>>> ebe3029 (Mobile Application API integration Structure added)
         {
         }
         public async Task OnAppearing()

@@ -16,11 +16,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         #endregion
 
         #region Constructor and override methods
-<<<<<<< HEAD
-        public GoldStockListViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
-=======
         public GoldStockListViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
->>>>>>> ebe3029 (Mobile Application API integration Structure added)
         {
         }
 

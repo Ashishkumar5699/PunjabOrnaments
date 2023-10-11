@@ -7,11 +7,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
     public partial class PendingApprovalsViewModel : ApprovalViewModel
     {
         #region Private Members
-<<<<<<< HEAD
-        public PendingApprovalsViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
-=======
         public PendingApprovalsViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
->>>>>>> ebe3029 (Mobile Application API integration Structure added)
         {
         }
 

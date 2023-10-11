@@ -13,11 +13,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Settings
         #endregion
 
         #region Constructor and init Functions
-<<<<<<< HEAD
-        public SettingPageViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
-=======
         public SettingPageViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
->>>>>>> ebe3029 (Mobile Application API integration Structure added)
         {
         }
         public static async Task OnAppearing()

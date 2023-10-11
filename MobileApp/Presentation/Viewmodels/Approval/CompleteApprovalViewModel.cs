@@ -9,11 +9,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
     {
 
         #region construction and init methods
-<<<<<<< HEAD
-        public CompleteApprovalViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
-=======
         public CompleteApprovalViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
->>>>>>> ebe3029 (Mobile Application API integration Structure added)
         {
         }
         internal async Task OnAppearing()

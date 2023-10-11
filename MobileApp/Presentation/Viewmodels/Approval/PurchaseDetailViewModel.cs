@@ -25,11 +25,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
         #endregion
 
         #region Constructor and init methods
-<<<<<<< HEAD
-        public PurchaseDetailViewModel(ILocalDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
-=======
         public PurchaseDetailViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
->>>>>>> ebe3029 (Mobile Application API integration Structure added)
         {
         }
         internal async Task OnAppearing()
