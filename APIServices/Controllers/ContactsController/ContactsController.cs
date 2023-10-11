@@ -13,18 +13,18 @@ namespace APIServices.Controllers.ContactsController
         }
 
         [HttpGet("GetAllContacts")]
-        public async Task<Action<IEnumerable<ContactDetails>>> GetAllContacts()
+        public async Task<ActionResult<IEnumerable<ContactDetails>>?> GetAllContacts()
         {
             try
             {
-                var result = await _context.ContactDetails.ToListAsync();
+                var result =  await _context.ContactDetails.ToListAsync();
                 return result;
             }
             catch (Exception ex)
             {
-                return BadRequest("NO data found ");
+                BadRequest(ex?.Message);
             }
-
+            return null;
         }
     }
 }
