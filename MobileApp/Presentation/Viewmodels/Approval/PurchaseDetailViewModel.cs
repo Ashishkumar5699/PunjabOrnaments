@@ -25,12 +25,12 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
         #endregion
 
         #region Constructor and init methods
-        public PurchaseDetailViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public PurchaseDetailViewModel(IDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
         {
         }
         internal async Task OnAppearing()
         {
-            var purchaseitem = await _localDataService.GetPurchaseById(PurchaseRequestId);
+            var purchaseitem = await _dataService.GetPurchaseById(PurchaseRequestId);
             Purchaseitem = purchaseitem.FirstOrDefault();
             Init();
         }
@@ -104,7 +104,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
         }
         private async Task ApprovedAsync(bool isapproved)
         {
-            var issucess = await _localDataService.ApprovedPurchase(PurchaseRequestId, isapproved ? 1 : 0);
+            var issucess = await _dataService.ApprovedPurchase(PurchaseRequestId, isapproved ? 1 : 0);
             await OnAppearing();
         }
 

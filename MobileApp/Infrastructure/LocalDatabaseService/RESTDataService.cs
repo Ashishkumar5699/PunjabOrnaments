@@ -1,4 +1,5 @@
 ﻿using Punjab_Ornaments.Infrastructure.APIService;
+using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Models;
 using Punjab_Ornaments.Models.AdminPannel;
 using Punjab_Ornaments.Models.Auth;
@@ -87,6 +88,21 @@ namespace Punjab_Ornaments.Localization.Database
         public async Task<List<Brand>> GetAllBrand() => throw new NotImplementedException();
 
         public async Task<List<Brand>> GetBrandByMetalType(string metalType) => throw new NotImplementedException();
+
+        public Task<List<Purchase>> GetAllPendingPurchaseRequests()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<Purchase>> GetAllCompletePurchaseRequests()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<int> ApprovedPurchase(int purchaseid, int isapproved)
+        {
+            throw new NotImplementedException();
+        }
 
         #endregion
     }

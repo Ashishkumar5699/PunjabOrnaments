@@ -14,7 +14,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Settings
         private ObservableCollection<MetelType> _metalTypeList;
         private int _id;
 
-        public MetalTypePageViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public MetalTypePageViewModel(IDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
         {
         }
         #endregion

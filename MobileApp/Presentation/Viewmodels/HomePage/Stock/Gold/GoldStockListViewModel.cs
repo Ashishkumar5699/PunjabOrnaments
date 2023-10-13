@@ -16,7 +16,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         #endregion
 
         #region Constructor and override methods
-        public GoldStockListViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public GoldStockListViewModel(IDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
         {
         }
 
@@ -75,7 +75,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         public static void DeleteItem(Gold gold)
         {
             //Gold gold = new() { Code = Code, Weight = Weight, Image = Image, Brand = Brand, Carrot = Carrat };
-            //_localDataService.AddGoldinStock(gold);
+            //_dataService.AddGoldinStock(gold);
             //navigationservice.PopAsync();
         }
 

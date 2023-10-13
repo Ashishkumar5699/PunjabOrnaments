@@ -10,7 +10,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         public readonly IDataService _dataService;
         public readonly INavigationService _navigationservice;
 
-        public BaseViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice)
+        public BaseViewModel(IDataService localDataService, INavigationService navigationservice)
         {
             _dataService = localDataService;
             _navigationservice = navigationservice;

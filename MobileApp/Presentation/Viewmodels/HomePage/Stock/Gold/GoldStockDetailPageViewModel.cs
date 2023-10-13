@@ -13,7 +13,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         private int _id;
         #endregion
         #region Constructor and override methods
-        public GoldStockDetailPageViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public GoldStockDetailPageViewModel(IDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
         {
         }
         #endregion

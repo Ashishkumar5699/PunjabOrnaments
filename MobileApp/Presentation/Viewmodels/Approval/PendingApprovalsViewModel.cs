@@ -7,7 +7,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
     public partial class PendingApprovalsViewModel : ApprovalViewModel
     {
         #region Private Members
-        public PendingApprovalsViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public PendingApprovalsViewModel(IDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
         {
         }
 

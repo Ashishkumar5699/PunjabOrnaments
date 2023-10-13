@@ -17,7 +17,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase
 
         #region constructor and initial methods
 
-        public AddPurchaseViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public AddPurchaseViewModel(IDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
         {
         }
 
@@ -44,7 +44,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase
             if (PurchaseItemValidation(purchaseItem))
             {
                 //await _apiservice.AddGoldPurchaseRequst(purchaseItem);
-                await _localDataService.AddPurchase(purchaseItem);
+                await _dataService.AddPurchase(purchaseItem);
 
                 await _navigationservice.PopAsync();
             }

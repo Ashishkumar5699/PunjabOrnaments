@@ -9,12 +9,12 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
     {
 
         #region construction and init methods
-        public CompleteApprovalViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public CompleteApprovalViewModel(IDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
         {
         }
         internal async Task OnAppearing()
         {
-            //var _pendingpurchaselist = await _localDataService.GetAllCompletePurchases();
+            //var _pendingpurchaselist = await _dataService.GetAllCompletePurchases();
             var _purchaselist = await GetAllPendingPurchaseRequests();
             PuchaseList = new ObservableCollection<Models.Stock.Purchase>(_purchaselist.Where(x => x.IsApproved != null));
         }

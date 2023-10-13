@@ -1,6 +1,5 @@
-﻿using Punjab_Ornaments.Infrastructure.APIService;
+﻿using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Infrastructure.Navigation;
-using Punjab_Ornaments.Localization.Database;
 using Punjab_Ornaments.Models.Auth;
 using System.Windows.Input;
 
@@ -8,8 +7,8 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Auth
 {
     public class LoginPageViewModel : BaseViewModel
     {
-        public ICommand LoginCommand => new Command(() => LoginAction());
-        public LoginPageViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public ICommand LoginCommand => new Command(async () => await LoginAction());
+        public LoginPageViewModel(IDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
         {
         }
 

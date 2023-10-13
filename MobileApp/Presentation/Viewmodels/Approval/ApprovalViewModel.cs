@@ -1,5 +1,4 @@
-﻿using Punjab_Ornaments.Infrastructure.APIService;
-using Punjab_Ornaments.Infrastructure.Database;
+﻿using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Infrastructure.Navigation;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -18,7 +17,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
         #endregion
 
 
-        public ApprovalViewModel(IDataService localDataService, INavigationService navigationservice, IAPIService apiservice) : base(localDataService, navigationservice, apiservice)
+        public ApprovalViewModel(IDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
         {
         }
         #region Bindable Properties
@@ -34,7 +33,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
         #endregion
 
         #region Methods
-        public async Task<List<Models.Stock.Purchase>> GetAllPendingPurchaseRequests() => await _localDataService.GetAllPendingPurchases();
+        public async Task<List<Models.Stock.Purchase>> GetAllPendingPurchaseRequests() => await _dataService.GetAllPendingPurchases();
 
         private async Task NavigateToPurchaseDetailPageAsync(int purchaseid) => await _navigationservice.NavigateToAsync("PurchaseDetailPage", "PurchaseId", purchaseid);
         #endregion
