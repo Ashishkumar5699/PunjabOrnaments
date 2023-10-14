@@ -3,7 +3,6 @@ using System;
 using APIServices.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
@@ -12,98 +11,134 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APIServices.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230725073306_init")]
-    partial class init
+    [Migration("20231014133552_InitialSchoolDB")]
+    partial class InitialSchoolDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.8")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
-
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            modelBuilder.HasAnnotation("ProductVersion", "7.0.8");
 
             modelBuilder.Entity("APIServices.Entities.AppUser", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<byte[]>("PasswordHash")
                         .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                        .HasColumnType("BLOB");
 
                     b.Property<byte[]>("PasswordSalt")
                         .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                        .HasColumnType("BLOB");
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("APIServices.Entities.Contacts.ContactDetails", b =>
+                {
+                    b.Property<int>("ContactId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ContactAddress1")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ContactAddress2")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ContactCity")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ContactFirstName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ContactLandMark")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ContactLastName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ContactPhoneNumber")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ContactPinCode")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ContactPrifix")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ContactState")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ContactType")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ContactId");
+
+                    b.ToTable("ContactDetails");
+                });
+
             modelBuilder.Entity("APIServices.Entities.Purchase.PurchaseRequest", b =>
                 {
                     b.Property<int>("PurchaseRequestId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PurchaseRequestId"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Brand")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<double>("GrossWeight")
-                        .HasColumnType("float");
+                        .HasColumnType("REAL");
 
                     b.Property<int?>("IsApproved")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("ItemType")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<double>("Labour")
-                        .HasColumnType("float");
+                        .HasColumnType("REAL");
 
                     b.Property<double>("LessWeight")
-                        .HasColumnType("float");
+                        .HasColumnType("REAL");
 
                     b.Property<string>("ManufactureId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ManufactureName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("MatelType")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<double>("NetWeight")
-                        .HasColumnType("float");
+                        .HasColumnType("REAL");
 
                     b.Property<DateTime>("PurchaseDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<double>("Rate")
-                        .HasColumnType("float");
+                        .HasColumnType("REAL");
 
                     b.Property<double>("Wastage")
-                        .HasColumnType("float");
+                        .HasColumnType("REAL");
 
                     b.HasKey("PurchaseRequestId");
 
@@ -114,49 +149,32 @@ namespace APIServices.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Brand")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Carrot")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Code")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<double>("GrossWeight")
-                        .HasColumnType("float");
+                        .HasColumnType("REAL");
 
                     b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<double>("LessWeight")
-                        .HasColumnType("float");
+                        .HasColumnType("REAL");
 
                     b.Property<double>("NetWeight")
-                        .HasColumnType("float");
-
-                    b.Property<int?>("PurchaseRequestId")
-                        .HasColumnType("int");
+                        .HasColumnType("REAL");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PurchaseRequestId");
-
                     b.ToTable("GoldStock");
-                });
-
-            modelBuilder.Entity("APIServices.Entities.Stock.Gold", b =>
-                {
-                    b.HasOne("APIServices.Entities.Purchase.PurchaseRequest", "PurchasedDetail")
-                        .WithMany()
-                        .HasForeignKey("PurchaseRequestId");
-
-                    b.Navigation("PurchasedDetail");
                 });
 #pragma warning restore 612, 618
         }
