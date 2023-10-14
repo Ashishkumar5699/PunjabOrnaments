@@ -9,14 +9,16 @@ public partial class App : Application
 {
 	IDataService _dataService;
     private bool isUserAuth;
-    public App()
+    public App(IDataService dataService)
 	{
         InitializeComponent();
+        _dataService = dataService;
         Initapp();
     }
+
     private void Initapp()
     {
-        _dataService = ServiceHelper.GetService<SQLiteDataService>();
+        //_dataService = ServiceHelper.GetService<SQLiteDataService>();
         InitializeRequired(_dataService);
 
         isUserAuth = false;

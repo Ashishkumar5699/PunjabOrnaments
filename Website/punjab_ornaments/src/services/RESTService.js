@@ -1,13 +1,13 @@
-const GETAsync = async (authdetail) => {
+const GETAsync = async (url, authdetail) => {
     console.log("AuthService is working")
 }
-const POSTAsync = async (authdetail) => {
+const POSTAsync = async (url, authdetail) => {
+    console.log("AuthService is working",url, authdetail)
+}
+const PUTAsync = async (url, authdetail) => {
     console.log("AuthService is working")
 }
-const PUTAsync = async (authdetail) => {
-    console.log("AuthService is working")
-}
-const DELETEAsync = async (authdetail) => {
+const DELETEAsync = async (url, authdetail) => {
     console.log("AuthService is working")
 }
 export{
