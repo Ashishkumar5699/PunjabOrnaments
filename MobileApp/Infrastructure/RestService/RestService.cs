@@ -78,6 +78,7 @@ namespace Punjab_Ornaments.Infrastructure.RestService
         {
             try
             {
+                uri = "http://192.168.1.7:45455/api/Account/login";
                 var request = new HttpRequestMessage(HttpMethod.Post, uri);
                 string jsonserilozer = System.Text.Json.JsonSerializer.Serialize(data, _serializerOptions);
                 var content = new StringContent(jsonserilozer, null, "text/plain");
