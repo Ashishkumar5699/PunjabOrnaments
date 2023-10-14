@@ -28,12 +28,11 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Auth
 
         private async Task LoginAction()
         {
-            var isauth = await _dataService.LoginUser(new LoginUser
+            var isauth = await _dataService.LoginUser(UserName, Password);
+            if (isauth)
             {
-                UserName = this.UserName,
-                Password = this.Password
-            });
-            //return Task.CompletedTask;
+                Application.Current.MainPage = new AppShell();
+            }
         }
     }
 }

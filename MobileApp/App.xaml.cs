@@ -1,17 +1,30 @@
 ﻿using Punjab_Ornaments.Infrastructure.Database;
+using Punjab_Ornaments.Presentation.Viewmodels.Auth;
+using Punjab_Ornaments.Presentation.Viewmodels.Common;
+using Punjab_Ornaments.Presentation.Views.Auth;
 
 namespace Punjab_Ornaments;
 
 public partial class App : Application
 {
 	IDataService _dataService;
-    public App(IDataService localDataService)
+    private bool isUserAuth;
+    public App()
 	{
-		InitializeComponent();
+        InitializeComponent();
+        Initapp();
+    }
+    private void Initapp()
+    {
+        _dataService = ServiceHelper.GetService<SQLiteDataService>();
+        InitializeRequired(_dataService);
 
-		MainPage = new AppShell();
-        InitializeRequired(localDataService);
+        isUserAuth = false;
 
+        if (isUserAuth)
+    		MainPage = new AppShell();
+        else
+    		MainPage = new LoginPage();
     }
 
     private void InitializeRequired(IDataService localDataService)

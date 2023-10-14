@@ -33,7 +33,7 @@ namespace Punjab_Ornaments.Infrastructure.Database
         #endregion
 
         #region Auth
-        public Task<LoginUser> LoginUser(LoginUser loginUser)
+        public Task<bool> LoginUser(string username, string password)
         {
             throw new NotImplementedException();
         }

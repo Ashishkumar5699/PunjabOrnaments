@@ -1,25 +1,13 @@
 using Punjab_Ornaments.Presentation.Viewmodels.Auth;
+using Punjab_Ornaments.Presentation.Viewmodels.Common;
 
 namespace Punjab_Ornaments.Presentation.Views.Auth;
 
 public partial class LoginPage : ContentPage
 {
-	public LoginPage(LoginPageViewModel viewModel)
+	public LoginPage()
 	{
 		InitializeComponent();
-		BindingContext = viewModel;
+		BindingContext = ServiceHelper.GetService<LoginPageViewModel>();
 	}
-
-    protected override async void OnNavigatedTo(NavigatedToEventArgs args)
-    {
-        if (false)
-        {
-            await Shell.Current.GoToAsync("///login");
-            //await Shell.Current.GoToAsync("HomePageView");
-        }
-        else
-        {
-        }
-        base.OnNavigatedTo(args);
-    }
 }

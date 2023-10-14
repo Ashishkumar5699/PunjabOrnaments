@@ -7,6 +7,7 @@ using Punjab_Ornaments.Localization.Database;
 using Punjab_Ornaments.Presentation.Viewmodels;
 using Punjab_Ornaments.Presentation.Viewmodels.Approval;
 using Punjab_Ornaments.Presentation.Viewmodels.Auth;
+using Punjab_Ornaments.Presentation.Viewmodels.Common;
 using Punjab_Ornaments.Presentation.Viewmodels.HomePage.Customer;
 using Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase;
 using Punjab_Ornaments.Presentation.Viewmodels.Settings;
@@ -36,11 +37,15 @@ public static class MauiProgram
 		builder.RegisterViewModels();
 		builder.RegisterViews();
 
+
 #if DEBUG
-		builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
-		return builder.Build();
+		//return builder.Build();
+		var app = builder.Build();
+        ServiceHelper.Initialize(app.Services);
+		return app;
 	}
 	public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder)
 	{

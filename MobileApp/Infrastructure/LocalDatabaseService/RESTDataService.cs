@@ -34,14 +34,19 @@ namespace Punjab_Ornaments.Localization.Database
         #endregion
 
         #region Auth
-        public async Task<LoginUser> LoginUser(LoginUser loginUser)
+        public async Task<bool> LoginUser(string username, string password)
         {
-            var result = await _iAPIService.LoginUser(loginUser);
-            return new LoginUser
+            var result = await _iAPIService.LoginUser(new LoginUser
             {
-                UserName = "null",
-                Password = "null",
-            };
+                UserName = username,
+                Password = password
+            });
+            return true;
+            //return new LoginUser
+            //{
+            //    UserName = "null",
+            //    Password = "null",
+            //};
         }
         #endregion
 

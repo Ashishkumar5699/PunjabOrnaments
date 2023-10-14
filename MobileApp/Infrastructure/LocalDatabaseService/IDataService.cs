@@ -1,6 +1,5 @@
 ﻿using Punjab_Ornaments.Models;
 using Punjab_Ornaments.Models.AdminPannel;
-using Punjab_Ornaments.Models.Auth;
 using Punjab_Ornaments.Models.Stock;
 
 namespace Punjab_Ornaments.Infrastructure.Database
@@ -10,7 +9,7 @@ namespace Punjab_Ornaments.Infrastructure.Database
         void Initialize();
 
         #region auth
-        Task<LoginUser> LoginUser(LoginUser loginUser);
+        Task<bool> LoginUser(string username, string password);
         #endregion
 
         #region GoldSection
