@@ -2,11 +2,10 @@
 
 namespace Punjab_Ornaments.Models.AdminPannel
 {
-    public class MetelType
+    public class MetelType : PunjabOrnaments.Models.AdminPannel.MetelType
     {
         [PrimaryKey]
         [AutoIncrement]
         public int Id { get; set; }
-        public string MetelName { get; set; }
     }
 }

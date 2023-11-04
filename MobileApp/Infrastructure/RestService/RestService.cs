@@ -1,14 +1,10 @@
 ﻿using System.Text.Json;
+using static SQLite.SQLite3;
 
 namespace Punjab_Ornaments.Infrastructure.RestService
 {
     public class RestService : IRestService
     {
-        //#if DEBUG
-        //        private readonly static HttpClientHandler insecureHandler = GetInsecureHandler();
-        //        private readonly HttpClient _client = new(insecureHandler);
-        //#else
-        //#endif
 
         private readonly HttpClient _client;
         private readonly JsonSerializerOptions _serializerOptions;
@@ -78,10 +74,9 @@ namespace Punjab_Ornaments.Infrastructure.RestService
         {
             try
             {
-                uri = "http://192.168.1.7:45455/api/Account/login";
                 var request = new HttpRequestMessage(HttpMethod.Post, uri);
                 string jsonserilozer = System.Text.Json.JsonSerializer.Serialize(data, _serializerOptions);
-                var content = new StringContent(jsonserilozer, null, "text/plain");
+                var content = new StringContent(jsonserilozer, null, "application/json");
                 request.Content = content;
                 var response = await _client.SendAsync(request);
                 var serialized = HandleResponse(response);
@@ -90,7 +85,6 @@ namespace Punjab_Ornaments.Infrastructure.RestService
             }
             catch (Exception ex)
             {
-
                 throw;
             }
         }

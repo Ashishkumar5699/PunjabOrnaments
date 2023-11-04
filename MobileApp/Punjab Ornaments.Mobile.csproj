@@ -49,16 +49,22 @@
 	<ItemGroup>
 	  <AndroidResource Remove="Domain\**" />
 	  <AndroidResource Remove="Models\Common\**" />
+	  <AndroidResource Remove="Models\Stock\Purchase\**" />
 	  <Compile Remove="Domain\**" />
 	  <Compile Remove="Models\Common\**" />
+	  <Compile Remove="Models\Stock\Purchase\**" />
 	  <EmbeddedResource Remove="Domain\**" />
 	  <EmbeddedResource Remove="Models\Common\**" />
+	  <EmbeddedResource Remove="Models\Stock\Purchase\**" />
 	  <MauiCss Remove="Domain\**" />
 	  <MauiCss Remove="Models\Common\**" />
+	  <MauiCss Remove="Models\Stock\Purchase\**" />
 	  <MauiXaml Remove="Domain\**" />
 	  <MauiXaml Remove="Models\Common\**" />
+	  <MauiXaml Remove="Models\Stock\Purchase\**" />
 	  <None Remove="Domain\**" />
 	  <None Remove="Models\Common\**" />
+	  <None Remove="Models\Stock\Purchase\**" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -80,6 +86,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="6.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
@@ -95,6 +102,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Presentation\Controls\ExpandableWidget.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Presentation\CustomControls\LabelButton.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -152,7 +162,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Models\Stock\Purchase\" />
+	  <ProjectReference Include="C:\Users\QSS\source\repos\PunjabOrnaments.Models\PunjabOrnaments.Models\PunjabOrnaments.Models.csproj" />
 	</ItemGroup>
 
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionPunjabOrnamentsHideInfoBar="True" /></VisualStudio></ProjectExtensions>

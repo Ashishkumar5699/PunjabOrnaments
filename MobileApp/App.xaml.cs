@@ -21,7 +21,7 @@ public partial class App : Application
         //_dataService = ServiceHelper.GetService<SQLiteDataService>();
         InitializeRequired(_dataService);
 
-        isUserAuth = false;
+        isUserAuth = true;
 
         if (isUserAuth)
     		MainPage = new AppShell();
