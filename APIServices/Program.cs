@@ -16,7 +16,8 @@ namespace APIServices
             builder.Services.AddSwaggerGen();
             builder.Services.AddIdentityServices(builder.Configuration);
             builder.Services.AddApplicationServices(builder.Configuration);
-
+            builder.Services.ConfigureCMCORSSetting(builder.Configuration);
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -29,7 +30,7 @@ namespace APIServices
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
+            app.UseCors();
 
             app.MapControllers();
 

@@ -3,6 +3,7 @@ using APIServices.DTOs;
 using APIServices.Entities;
 using APIServices.Interface;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
@@ -35,7 +36,7 @@ namespace APIServices.Controllers
                 await _context.SaveChangesAsync();
                 return new UserDto
                 {
-                    Username = registerDto.UserName,
+                    UserName = registerDto.UserName,
                     Token = _tokenService.CreateToken(user)
                 };
 
@@ -65,8 +66,10 @@ namespace APIServices.Controllers
 
             return new UserDto
             {
-                Username = loginDto.Username,
-                Token = _tokenService.CreateToken(user)
+                UserName = loginDto.Username,
+                Token = _tokenService.CreateToken(user),
+                LoginTime = DateTime.Now,
+                Device = "Mobile"
             };
         }
 
