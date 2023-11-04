@@ -1,3 +1,4 @@
-const url = "http://192.168.1.7:45455/";
+//const url = "https://192.168.29.142:45456/";
+const url = "https://localhost:5001/";
 
 export const baseurl = url + "api/";
