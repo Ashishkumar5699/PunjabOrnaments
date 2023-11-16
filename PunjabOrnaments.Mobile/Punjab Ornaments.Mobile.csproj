@@ -96,6 +96,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\PunjabOrnaments.Service.APi\PunjabOrnaments.Service.APi.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Compile Update="Presentation\Views\HomePage\Stock\Gold\GoldStockList.xaml.cs">
 	    <DependentUpon>GoldStockList.xaml</DependentUpon>
 	  </Compile>
@@ -161,10 +165,8 @@
 	  </MauiXaml>
 	</ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="C:\Users\QSS\source\repos\PunjabOrnaments.Models\PunjabOrnaments.Models\PunjabOrnaments.Models.csproj" />
-	</ItemGroup>
-
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionPunjabOrnamentsHideInfoBar="True" /></VisualStudio></ProjectExtensions>
+
+	<Import Project="..\PunjabOrnaments.Common\PunjabOrnaments.Common.projitems" Label="Shared" />
 
 </Project>
