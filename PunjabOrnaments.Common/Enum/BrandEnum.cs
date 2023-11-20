@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PunjabOrnaments.Common.Enum
+namespace PunjabOrnaments.Models.Enum
 {
     public enum BrandEnum
     {

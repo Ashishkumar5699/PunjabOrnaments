@@ -1,4 +1,4 @@
-﻿namespace PunjabOrnaments.Common.Stock.Requests
+﻿namespace PunjabOrnaments.Models.Stock.Requests
 {
     public class PurchaseRequest
     {

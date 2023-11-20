@@ -1,4 +1,4 @@
-﻿namespace PunjabOrnaments.Common.Auth
+﻿namespace PunjabOrnaments.Models.Auth
 {
     public class AuthUser
     {

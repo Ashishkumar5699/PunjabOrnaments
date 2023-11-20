@@ -12,7 +12,6 @@ namespace APIServices.Extentions
                 //opt.UseSqlite(config.GetConnectionString("DefaultConnectionSQLite"));
                 opt.UseSqlServer(config.GetConnectionString("DefaultConnection"));
             });
-            services.AddCors();
             services.AddScoped<ITokenService, Services.TokenService>();
             return services;
         }

@@ -1,4 +1,4 @@
-﻿namespace PunjabOrnaments.Common.Enum
+﻿namespace PunjabOrnaments.Models.Enum
 {
     public enum ApprovalEnum
     {

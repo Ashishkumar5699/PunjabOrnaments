@@ -1,10 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Punjab_Ornaments.Infrastructure.APIService;
 using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Infrastructure.Navigation;
 using Punjab_Ornaments.Models;
-using Punjab_Ornaments.Models.Enum;
 using System.Collections.ObjectModel;
 
 namespace Punjab_Ornaments.Presentation.Viewmodels

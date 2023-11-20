@@ -1,4 +1,4 @@
-﻿namespace PunjabOrnaments.Common.AdminPannel
+﻿namespace PunjabOrnaments.Models.AdminPannel
 {
     public class MetelType
     {

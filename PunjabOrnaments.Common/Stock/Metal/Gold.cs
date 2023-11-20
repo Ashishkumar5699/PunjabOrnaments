@@ -1,6 +1,6 @@
-﻿using PunjabOrnaments.Common.Enum;
+﻿using PunjabOrnaments.Models.Enum;
 
-namespace PunjabOrnaments.Common.Stock.Metal
+namespace PunjabOrnaments.Models.Stock.Metal
 {
     public class Gold
     {

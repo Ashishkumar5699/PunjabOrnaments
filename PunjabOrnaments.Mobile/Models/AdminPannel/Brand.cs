@@ -2,7 +2,7 @@
 
 namespace Punjab_Ornaments.Models.AdminPannel
 {
-    public class Brand : PunjabOrnaments.Common.AdminPannel.Brand//PunjabOrnaments.Models.AdminPannel.Brand
+    public class Brand : PunjabOrnaments.Model.AdminPannel.Brand
     {
         [PrimaryKey]
         [AutoIncrement]

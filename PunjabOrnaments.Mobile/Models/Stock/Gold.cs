@@ -1,9 +1,8 @@
-﻿using Punjab_Ornaments.Models.Enum;
-using SQLite;
+﻿using SQLite;
 
 namespace Punjab_Ornaments.Models
 {
-    public class Gold : PunjabOrnaments.Models.Stock.Gold
+    public class Gold : PunjabOrnaments.Model.Stock.Metal.Gold
     {
         [PrimaryKey]
         [AutoIncrement]
