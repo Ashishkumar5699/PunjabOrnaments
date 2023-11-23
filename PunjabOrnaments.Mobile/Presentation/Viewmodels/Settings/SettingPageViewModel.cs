@@ -1,6 +1,7 @@
 ﻿using Punjab_Ornaments.Infrastructure.APIService;
 using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Infrastructure.Navigation;
+using Punjab_Ornaments.Presentation.Views.Auth;
 using System.Windows.Input;
 
 namespace Punjab_Ornaments.Presentation.Viewmodels.Settings
@@ -9,6 +10,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Settings
     {
         #region Commands
         public ICommand NavigateToMetalTypePageCommnad => new Command(async () => await NavigateToMetalTypePageAsync());
+        public ICommand LogoutPageCommnad => new Command(LogoutAsync);
 
         #endregion
 
@@ -23,6 +25,12 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Settings
         #endregion
 
         #region Methods
+        public async void LogoutAsync()
+        {
+            await Task.Delay(2000);
+            Application.Current.MainPage = new LoginPage();
+        }
+
         public async Task NavigateToMetalTypePageAsync()
         {
             await _navigationservice.NavigateToAsync("MetalTypePage");

@@ -1,6 +1,5 @@
 ﻿using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Infrastructure.Navigation;
-using Punjab_Ornaments.Models.Stock;
 using System.Windows.Input;
 
 namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
@@ -10,7 +9,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
     {
         #region Private Members
         public int _purchaserequestId;
-        private Purchase _purchaseitem;
+        private Models.Approvals.PurchaseRequest _purchaseitem;
         private bool _approverejectbtnvisible;
         private bool _deletebtnvisible;
         private bool _addtostockbtnvisible;
@@ -46,7 +45,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
                 OnPropertyChanged(nameof(PurchaseRequestId));
             }
         }
-        public Purchase Purchaseitem
+        public Models.Approvals.PurchaseRequest Purchaseitem
         {
             get => _purchaseitem;
             set

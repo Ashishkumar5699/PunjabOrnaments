@@ -1,7 +1,7 @@
 ﻿using Punjab_Ornaments.Infrastructure.APIService;
 using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Infrastructure.Navigation;
-using Punjab_Ornaments.Models.AdminPannel;
+using Punjab_Ornaments.Models.Products.Details;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
@@ -11,7 +11,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Settings
     public partial class MetalTypePageViewModel : BaseViewModel
     {
         #region Private Members
-        private ObservableCollection<MetelType> _metalTypeList;
+        private ObservableCollection<Discriptions> _metalTypeList;
         private int _id;
 
         public MetalTypePageViewModel(IDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
@@ -27,12 +27,12 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Settings
         public async Task OnAppearing()
         {
             var metelTypes = await _dataService.GetAllMetalType();
-            MetalTypeList = new ObservableCollection<MetelType>(metelTypes);
+            MetalTypeList = new ObservableCollection<Discriptions>(metelTypes);
         }
         #endregion
 
         #region Properties
-        public ObservableCollection<MetelType> MetalTypeList
+        public ObservableCollection<Discriptions> MetalTypeList
         {
             get => _metalTypeList;
             set

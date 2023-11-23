@@ -39,6 +39,6 @@
     </FlyoutItem>
 
     <FlyoutItem Title="Account">
-        <ShellContent Title="Home" ContentTemplate="{DataTemplate dummy:UnderConstruction}"/>
+        <ShellContent Title="Home" ContentTemplate="{DataTemplate Setting:SettingPage}"/>
     </FlyoutItem>
 </Shell>

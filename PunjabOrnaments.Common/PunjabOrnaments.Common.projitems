@@ -9,15 +9,17 @@
     <Import_RootNamespace>PunjabOrnaments.Common</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)AdminPannel\Brand.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)AdminPannel\MetelType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Approvals\PurchaseRequest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Auth\AuthUser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constants\GlobalMessages.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Consumer\Consumer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enum\ApprovalEnum.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Enum\BrandEnum.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Enum\CarrotEnum.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Stock\Metal\Gold.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Stock\ProductsList.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Stock\Requests\PurchaseRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Products\Gold.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Products\Silver.cs" />
+    <Compile Include="..\PunjabOrnaments.Common\Response\ResponseResult.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Mortgage\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Stock\" />
   </ItemGroup>
 </Project>

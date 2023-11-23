@@ -1,9 +1,7 @@
-﻿using PunjabOrnaments.Models.Auth;
-
-namespace Punjab_Ornaments.Models.Auth
+﻿namespace Punjab_Ornaments.Models.Auth
 {
-    public class LoginUser : AuthUser
+    public class LoginUser : PunjabOrnaments.Common.Models.Auth.AuthUser
     {
-
+        public bool IsUserloggedin => !string.IsNullOrEmpty(Token);
     }
 }

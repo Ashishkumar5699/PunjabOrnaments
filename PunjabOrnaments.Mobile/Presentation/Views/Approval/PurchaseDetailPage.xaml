@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:Punjab_Ornaments.Presentation.Viewmodels.Approval"
-             xmlns:model="clr-namespace:Punjab_Ornaments.Models.Stock"
+             xmlns:model="clr-namespace:Punjab_Ornaments.Models.Approvals"
              x:DataType="viewmodel:PurchaseDetailViewModel"
              x:Class="Punjab_Ornaments.Presentation.Views.Approval.PurchaseDetailPage"
              Title="PurchaseDetailPage">
@@ -12,7 +12,7 @@
                 <Frame>
                     <Image HeightRequest="200" WidthRequest="200" Source="dotnet_bot.png" />
                 </Frame>
-                <VerticalStackLayout x:DataType="model:Purchase">
+                <VerticalStackLayout x:DataType="model:PurchaseRequest">
                     <VerticalStackLayout VerticalOptions="CenterAndExpand">
                         <HorizontalStackLayout Spacing="10">
                             <Label Text="MatelType" FontSize="Title" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>

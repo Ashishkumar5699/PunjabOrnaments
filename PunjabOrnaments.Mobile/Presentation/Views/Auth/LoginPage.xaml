@@ -5,17 +5,16 @@
              xmlns:viewmodel="clr-namespace:Punjab_Ornaments.Presentation.Viewmodels.Auth"
              x:DataType="viewmodel:LoginPageViewModel"
              Title="LoginPage">
-    <Grid>
-        <Border>
-            <Frame>
-                <VerticalStackLayout Padding="10">
-                    <Label Text="User Name"/>
-                    <Entry Text="{Binding UserName}"/>
-                    <Label Text="Password"/>
-                    <Entry Text="{Binding Password}" IsPassword="True"/>
-                    <Button Text="Login" Command="{Binding LoginCommand}" />
-                </VerticalStackLayout>
-            </Frame>
-        </Border>
+    <Grid BackgroundColor="LightGray">
+        <Frame Margin="250" >
+            <VerticalStackLayout Padding="10" Spacing="5">
+                <Label Text="Welcome" HorizontalOptions="Center" FontSize="Title"/>
+                <Label Text="User Name"/>
+                <Entry Text="{Binding UserName}"/>
+                <Label Text="Password"/>
+                <Entry Text="{Binding Password}" IsPassword="True"/>
+                <Button Text="Login" Command="{Binding LoginCommand}" Margin="25"/>
+            </VerticalStackLayout>
+        </Frame>
     </Grid>
 </ContentPage>

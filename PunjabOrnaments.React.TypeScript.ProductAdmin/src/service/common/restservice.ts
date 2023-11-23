@@ -1,23 +1,24 @@
 //import axios from "axios";
+let myHeaders;
+const POSTMethod = (data: string, url: string) => {
 
-const POSTMethod = (data: any, url : string) =>{
+    myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
 
-    var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
+    //const raw = JSON.stringify({
+    //  "username": "string",
+    //  "password": "string"
+    //});
 
-var raw = JSON.stringify({
-  "username": "string",
-  "password": "string"
-});
+    const requestOptions: object = {
+      method: 'POST',
+      headers: myHeaders,
+      body: data,
+      redirect: 'follow'
+    };
 
-var requestOptions:any = {
-  method: 'POST',
-  headers: myHeaders,
-  body: raw,
-  redirect: 'follow'
-};
-
-fetch("https://localhost:5001/api/Account/login", requestOptions)
+    url = "https://localhost:5001/api/Account/login";
+    fetch(url, requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
