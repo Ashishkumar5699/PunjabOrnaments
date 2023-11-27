@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
 import { useNavigate } from "react-router-dom";
-
+import { removeuserDetail } from "../../../service/localstorage/Userservice"
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -58,9 +58,12 @@ export default function NavBar() {
                 break;
             case (settings[3]):
                 console.log(value, "btn clicked");
-                navigate('/');
+                removeuserDetail()
+                //navigate('/');
+                window.location.reload()
                 break;
         }
+                console.log(value, "btn function called sucessfully");
     }
 
     return (

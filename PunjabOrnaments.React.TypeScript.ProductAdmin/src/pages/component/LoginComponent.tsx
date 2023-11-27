@@ -12,9 +12,9 @@
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { LoginUser } from "../../service/auth/authservice.ts";
 import { ValidateLoginDetails } from "../../validations/ValidateLoginDetails.tsx";
-import { LoginUserModel } from "../../model/auth/LoginUserModel.ts"
+import { ILoginUser, defaultsLoginUser } from "../../model/auth/ILoginUser.ts"
 import { useNavigate } from "react-router-dom";
-
+import { setuserDetail } from "../../service/localstorage/Userservice.ts"
 
 
 export default function LoginComponent() {
@@ -23,12 +23,13 @@ export default function LoginComponent() {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        const dataobj: LoginUserModel = convertFormdatatoObj(data);
+        const dataobj: ILoginUser = convertFormdatatoObj(data);
         const isvalid = ValidateLoginDetails(dataobj);
         if (isvalid) {
             const result = await LoginUser(data);
             if (!result?.hasErrors && !result?.isSystemError) {
                 console.log("navigate to dashboard")
+                await setuserDetail(result!.data!)
                 navigate("/Dashboard");
             }
             else {
@@ -107,8 +108,9 @@ export default function LoginComponent() {
     );
 
     function convertFormdatatoObj(data: FormData) {
-        const dataobj: LoginUserModel =
+        const dataobj: ILoginUser =
         {
+            ...defaultsLoginUser,
             UserName: data.get("email") as string,
             Password: data.get("password") as string,
         }

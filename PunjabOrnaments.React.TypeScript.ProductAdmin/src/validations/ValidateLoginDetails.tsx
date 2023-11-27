@@ -1,6 +1,6 @@
-﻿import { LoginUserModel } from "../model/auth/LoginUserModel.ts";
+﻿import { ILoginUser } from "../model/auth/LoginUserModel.ts";
 
-export function ValidateLoginDetails(logindataobj: LoginUserModel) {
+export function ValidateLoginDetails(logindataobj: ILoginUser) {
     if (logindataobj != null && CheckForNullandUndefine(logindataobj.UserName) && CheckStringLengthToZero(logindataobj.UserName))
         if (CheckForNullandUndefine(logindataobj.Password) && CheckStringLengthToZero(logindataobj.Password))
             return true;
