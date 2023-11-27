@@ -1,7 +1,5 @@
 ﻿using APIServices.Data;
-using APIServices.DTOs;
 using APIServices.Interface;
-using Microsoft.AspNetCore.Mvc;
 
 namespace APIServices.Controllers
 {

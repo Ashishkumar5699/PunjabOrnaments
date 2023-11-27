@@ -1,6 +1,5 @@
 ﻿using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Infrastructure.Navigation;
-using Punjab_Ornaments.Models.Auth;
 using System.Windows.Input;
 
 namespace Punjab_Ornaments.Presentation.Viewmodels.Auth
@@ -29,7 +28,10 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Auth
         private async Task LoginAction()
         {
             var isauth = await _dataService.LoginUser(UserName, Password);
-            if (isauth)
+            if (isauth.HasErrors || isauth.IsSystemError)
+                return;
+
+            if (isauth.Data.IsUserloggedin)
             {
                 Application.Current.MainPage = new AppShell();
             }

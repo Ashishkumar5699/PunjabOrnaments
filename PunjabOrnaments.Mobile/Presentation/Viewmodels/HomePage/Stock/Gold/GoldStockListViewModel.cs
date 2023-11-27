@@ -48,10 +48,10 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         string image;
 
         [ObservableProperty]
-        Brand brand;
+        Models.Products.Details.Discriptions brand;
 
         [ObservableProperty]
-        CarrotEnum carrot;
+        string carrot;
 
         #endregion
 
@@ -64,7 +64,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         [RelayCommand]
         public void AddNewItem()
         {
-            Gold gold = new() { Code = Code, Weight = Weight, Image = Image, Brand = Brand, Carrot = Carrot};
+            Gold gold = new() { Code = Code, Weight = Weight, Image = Image, Brand = "Dhanya" , Carrot = Carrot};
             _dataService.AddGoldinStock(gold);
             _navigationservice.PopAsync();
         }

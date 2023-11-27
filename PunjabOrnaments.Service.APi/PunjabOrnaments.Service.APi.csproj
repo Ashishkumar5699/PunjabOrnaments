@@ -31,4 +31,10 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.31.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Constants\" />
+  </ItemGroup>
+
+  <Import Project="..\PunjabOrnaments.Common\PunjabOrnaments.Common.projitems" Label="Shared" />
+
 </Project>

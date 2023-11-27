@@ -1,4 +1,4 @@
-﻿namespace PunjabOrnaments.Models.Stock.Requests
+﻿namespace PunjabOrnaments.Common.Approvals
 {
     public class PurchaseRequest
     {
@@ -7,7 +7,6 @@
         public string Brand { get; set; }
         public string ManufactureId { get; set; }
         public string ManufactureName { get; set; }
-        //public Weight Weight { get; set;}
         public double GrossWeight { get; set; }
         public double LessWeight { get; set; }
         public double NetWeight { get; set; }

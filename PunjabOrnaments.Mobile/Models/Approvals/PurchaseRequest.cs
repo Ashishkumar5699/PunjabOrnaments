@@ -1,8 +1,8 @@
 ﻿using SQLite;
 
-namespace Punjab_Ornaments.Models.Stock
+namespace Punjab_Ornaments.Models.Approvals
 {
-    public class Purchase : PunjabOrnaments.Models.Stock.Requests.PurchaseRequest
+    public class PurchaseRequest : PunjabOrnaments.Common.Approvals.PurchaseRequest
     {
         [PrimaryKey]
         [AutoIncrement]

@@ -7,5 +7,6 @@
              Title="SettingPage">
     <VerticalStackLayout>
         <Button Text="MetalType" Command="{Binding NavigateToMetalTypePageCommnad}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+        <Button Text="Logout" Command="{Binding LogoutPageCommnad}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
     </VerticalStackLayout>
 </ContentPage>

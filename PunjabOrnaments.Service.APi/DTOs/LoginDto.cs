@@ -1,12 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace APIServices.DTOs
+﻿namespace APIServices.DTOs
 {
-    public class LoginDto
+    public class LoginDto : PunjabOrnaments.Common.Models.Auth.AuthUser
     {
-        [Required]
-        public string Username { get; set; }
-        [Required]
-        public string Password { get; set; }
+        //[Required]
+        //public string Username { get; set; }
+        //[Required]
+        //public string Password { get; set; }
     }
 }

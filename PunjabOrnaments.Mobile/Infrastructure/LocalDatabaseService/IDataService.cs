@@ -1,6 +1,6 @@
 ﻿using Punjab_Ornaments.Models;
-using Punjab_Ornaments.Models.AdminPannel;
-using Punjab_Ornaments.Models.Stock;
+using Punjab_Ornaments.Models.Auth;
+using Punjab_Ornaments.Models.Products.Details;
 
 namespace Punjab_Ornaments.Infrastructure.Database
 {
@@ -9,7 +9,8 @@ namespace Punjab_Ornaments.Infrastructure.Database
         void Initialize();
 
         #region auth
-        Task<bool> LoginUser(string username, string password);
+        Task<PunjabOrnaments.Common.Models.Response.ResponseResult<LoginUser>> LoginUser(string username, string password);
+
         #endregion
 
         #region GoldSection
@@ -22,8 +23,8 @@ namespace Punjab_Ornaments.Infrastructure.Database
 
         #region Approval Section
 
-        Task<List<Purchase>> GetAllPendingPurchaseRequests();
-        Task<List<Purchase>> GetAllCompletePurchaseRequests();
+        Task<List<Models.Approvals.PurchaseRequest>> GetAllPendingPurchaseRequests();
+        Task<List<Models.Approvals.PurchaseRequest>> GetAllCompletePurchaseRequests();
         #endregion
 
         #region CustomerSection
@@ -35,29 +36,29 @@ namespace Punjab_Ornaments.Infrastructure.Database
         #endregion
 
         #region PurchaseSection
-        Task<int> AddPurchase(Purchase Purchaseitem);
-        Task<int> UpdatePurchase(Purchase Purchaseitem);
-        Task<int> DeletePurchase(Purchase Purchaseitem);
-        Task<List<Purchase>> GetAllPendingPurchases();
-        Task<List<Purchase>> GetAllCompletePurchases();
-        Task<List<Purchase>> GetTodaysPurchase();
-        Task<List<Purchase>> GetPurchaseById(int purchaseid);
+        Task<int> AddPurchase(Models.Approvals.PurchaseRequest Purchaseitem);
+        Task<int> UpdatePurchase(Models.Approvals.PurchaseRequest Purchaseitem);
+        Task<int> DeletePurchase(Models.Approvals.PurchaseRequest Purchaseitem);
+        Task<List<Models.Approvals.PurchaseRequest>> GetAllPendingPurchases();
+        Task<List<Models.Approvals.PurchaseRequest>> GetAllCompletePurchases();
+        Task<List<Models.Approvals.PurchaseRequest>> GetTodaysPurchase();
+        Task<List<Models.Approvals.PurchaseRequest>> GetPurchaseById(int purchaseid);
         Task<int> ApprovedPurchase(int purchaseid, int isapproved);
         #endregion
 
         #region Admin Pannel (Setting)
 
         #region MetalType
-        Task<int> AddMetalType(MetelType metelType);
-        Task<int> DeleteMetalType(MetelType metelType);
-        Task<List<MetelType>> GetAllMetalType();
+        Task<int> AddMetalType(Discriptions metelType);
+        Task<int> DeleteMetalType(Discriptions metelType);
+        Task<List<Discriptions>> GetAllMetalType();
         #endregion
 
         #region Brand
-        Task<int> AddBrand(Brand brand);
-        Task<int> DeleteBrand(Brand brand);
-        Task<List<Brand>> GetAllBrand();
-        Task<List<Brand>> GetBrandByMetalType(string metalType);
+        Task<int> AddBrand(Discriptions brand);
+        Task<int> DeleteBrand(Discriptions brand);
+        Task<List<Discriptions>> GetAllBrand();
+        Task<List<Discriptions>> GetBrandByMetalType(string metalType);
         #endregion
 
         #endregion

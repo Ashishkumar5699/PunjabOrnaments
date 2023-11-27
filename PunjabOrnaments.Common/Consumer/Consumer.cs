@@ -1,4 +1,4 @@
-﻿namespace PunjabOrnaments.Models.Consumer
+﻿namespace PunjabOrnaments.Common.Models.Products
 {
     public class Consumer
     {

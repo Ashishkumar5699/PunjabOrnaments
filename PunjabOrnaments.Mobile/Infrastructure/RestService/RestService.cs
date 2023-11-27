@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Net;
+using System.Text.Json;
 using static SQLite.SQLite3;
 
 namespace Punjab_Ornaments.Infrastructure.RestService
@@ -70,7 +71,7 @@ namespace Punjab_Ornaments.Infrastructure.RestService
             return result;
         }
 
-        public async Task<TResult> PostAsync<TResult>(string uri, TResult data, string token = "", Dictionary<string, string> headers = null)
+        public async Task<TResponse> PostAsync<TInput, TResponse>(string uri, TInput data, string token = "", Dictionary<string, string> headers = null)
         {
             try
             {
@@ -79,8 +80,8 @@ namespace Punjab_Ornaments.Infrastructure.RestService
                 var content = new StringContent(jsonserilozer, null, "application/json");
                 request.Content = content;
                 var response = await _client.SendAsync(request);
-                var serialized = HandleResponse(response);
-                TResult result = await Task.Run(() => JsonSerializer.Deserialize<TResult>(serialized.Result, _serializerOptions));
+                var serialized = await HandleResponse(response);
+                TResponse result = await Task.Run(() => JsonSerializer.Deserialize<TResponse>(serialized, _serializerOptions));
                 return result;
             }
             catch (Exception ex)
@@ -88,7 +89,7 @@ namespace Punjab_Ornaments.Infrastructure.RestService
                 throw;
             }
         }
-        
+
         public static HttpClientHandler GetInsecureHandler()
         {
             HttpClientHandler handler = new HttpClientHandler();
@@ -105,7 +106,21 @@ namespace Punjab_Ornaments.Infrastructure.RestService
         {
             try
             {
-                response.EnsureSuccessStatusCode();
+                if(response.StatusCode == HttpStatusCode.OK) 
+                {
+                    response.EnsureSuccessStatusCode();
+                }
+                if (response.StatusCode == HttpStatusCode.Unauthorized) 
+                {
+                }
+                if(response.StatusCode == HttpStatusCode.NotFound)
+                {
+                }
+                if(response.StatusCode == HttpStatusCode.BadRequest) {
+                }
+                {
+                }
+
                 var abc = await response.Content.ReadAsStringAsync();
                 return await response.Content.ReadAsStringAsync();
 

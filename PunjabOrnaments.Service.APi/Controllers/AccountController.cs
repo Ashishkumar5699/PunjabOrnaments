@@ -3,9 +3,9 @@ using APIServices.DTOs;
 using APIServices.Entities;
 using APIServices.Interface;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using PunjabOrnaments.Common.Constants;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -21,55 +21,60 @@ namespace APIServices.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
-            try
+            if (await UserExist(registerDto.UserName)) return BadRequest("Username is taken");
+            using var hmac = new HMACSHA512();
+
+            var user = new AppUser
             {
-                if (await UserExist(registerDto.UserName)) return BadRequest("Username is taken");
-                using var hmac = new HMACSHA512();
-
-                var user = new AppUser
-                {
-                    UserName = registerDto.UserName.ToLower(),
-                    PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
-                    PasswordSalt = hmac.Key
-                };
-                _context.Users.Add(user);
-                await _context.SaveChangesAsync();
-                return new UserDto
-                {
-                    UserName = registerDto.UserName,
-                    Token = _tokenService.CreateToken(user)
-                };
-
-
-            }
-            catch (Exception ex)
+                UserName = registerDto.UserName.ToLower(),
+                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
+                PasswordSalt = hmac.Key
+            };
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+            return new UserDto
             {
-
-                throw;
-            }
+                UserName = registerDto.UserName,
+                Token = _tokenService.CreateToken(user)
+            };
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
+        public async Task<ActionResult<PunjabOrnaments.Common.Models.Response.ResponseResult<UserDto>>> Login(LoginDto loginDto)
         {
-            var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == loginDto.Username);
+            var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == loginDto.UserName);
 
-            if (user == null) return Unauthorized("invalid username");
+            if (user == null)
+                return new PunjabOrnaments.Common.Models.Response.ResponseResult<UserDto>
+                {
+                    HasErrors = true,
+                    Message = GlobalMessages.InvalidUsername
+                };
+
             using var hmac = new HMACSHA512(user.PasswordSalt);
 
             var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
 
             for (int i = 0; i < computedHash.Length; i++)
             {
-                if (computedHash[i] != user.PasswordHash[i]) return Unauthorized("invalid Password");
+                if (computedHash[i] != user.PasswordHash[i])
+                    return new PunjabOrnaments.Common.Models.Response.ResponseResult<UserDto>
+                    {
+                        HasErrors = true,
+                        Message = GlobalMessages.InvalidPassword
+                    };
             }
 
-            return new UserDto
+            return new PunjabOrnaments.Common.Models.Response.ResponseResult<UserDto>
             {
-                UserName = loginDto.Username,
-                Token = _tokenService.CreateToken(user),
-                LoginTime = DateTime.Now,
-                Device = "Mobile"
+                Message = GlobalMessages.SucessMessage,
+                Data = new UserDto()
+                {
+                    UserName = loginDto.UserName,
+                    Token = _tokenService.CreateToken(user),
+                    LoginTime = DateTime.Now,
+                    Device = loginDto.Device,
+                }
             };
         }
 

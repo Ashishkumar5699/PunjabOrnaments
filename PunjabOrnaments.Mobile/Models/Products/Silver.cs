@@ -1,8 +1,8 @@
 ﻿using SQLite;
 
-namespace Punjab_Ornaments.Models
+namespace Punjab_Ornaments.Models.Products
 {
-    public class Gold : PunjabOrnaments.Model.Stock.Metal.Gold
+    public class Silver : PunjabOrnaments.Common.Products.Silver
     {
         [PrimaryKey]
         [AutoIncrement]
