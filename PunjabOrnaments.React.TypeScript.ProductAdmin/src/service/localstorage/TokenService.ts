@@ -12,7 +12,8 @@ const getToken = (): string => {
 
 const isTokenExist = (): boolean => {
     const token = localStorage.getItem(authtoken)
-    return token!.length != 0;
+    console.log(token)
+    return token?.length != 0;
 }
 
 export {

@@ -13,6 +13,8 @@ Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "punjabornaments.react.types
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PunjabOrnaments.Service.APi", "..\PunjabOrnaments.Service.APi\PunjabOrnaments.Service.APi.csproj", "{B20E75F2-DA7F-4667-8A1A-FCBC62725077}"
 EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "punjabornaments.react.javascript.productadmin", "..\punjabornaments.react.javascript.productadmin\punjabornaments.react.javascript.productadmin.esproj", "{C493CE3D-A6F5-4613-986E-AD71831FA0BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,12 @@ Global
 		{B20E75F2-DA7F-4667-8A1A-FCBC62725077}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B20E75F2-DA7F-4667-8A1A-FCBC62725077}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B20E75F2-DA7F-4667-8A1A-FCBC62725077}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C493CE3D-A6F5-4613-986E-AD71831FA0BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C493CE3D-A6F5-4613-986E-AD71831FA0BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C493CE3D-A6F5-4613-986E-AD71831FA0BF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C493CE3D-A6F5-4613-986E-AD71831FA0BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C493CE3D-A6F5-4613-986E-AD71831FA0BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C493CE3D-A6F5-4613-986E-AD71831FA0BF}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

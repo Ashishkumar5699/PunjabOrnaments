@@ -1,7 +1,9 @@
-//import { jsx } from "@emotion/react";
+//import { Routes } from "react-router-dom";
+
+import { ReactNode } from "react";
 
 export interface INavigation {
     Path: string,
-    Title?: string,
-    //Component: jsx.JSX.Element,
+    Title: string,
+    Component: JSX.Element,
 }

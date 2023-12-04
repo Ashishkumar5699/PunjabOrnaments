@@ -1,19 +1,19 @@
 import { Routes, Route } from 'react-router-dom'
-import LoginPage from '../pages/LoginPage';
-import Dashboard from "../pages/Dashboard";
-//import { PathConstants } from "../Constants/RoutePaths"
+import { RoutePaths } from "../Constants/RoutePaths"
+import PrivateRoute from "../router/PrivateRoute"
+import { INavigation } from "../model/navigation/INavigation"
 
 function Router() {
     return (
         <Routes>
-            {/*{PathConstants.map((navItem) => {*/}
-            {/*    return <Route path={navItem.Path} element={< LoginPage />} />*/}
-            {/*})}*/}
-
-            <Route path='/' element={<LoginPage/>} />
-            <Route path='/Dashboard' element={<Dashboard/>} />
+            {
+                RoutePaths.map((data: INavigation, i: number) => {
+                    console.log(data)
+                    return <Route key={i} path={data.Path} element={<PrivateRoute Component={data.Component} />} />
+                })
+            }
         </Routes>
-  );
+    );
 }
 
 export default Router;

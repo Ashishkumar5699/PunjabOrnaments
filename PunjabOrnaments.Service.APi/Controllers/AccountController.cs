@@ -42,7 +42,20 @@ namespace APIServices.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<PunjabOrnaments.Common.Models.Response.ResponseResult<UserDto>>> Login(LoginDto loginDto)
         {
-            var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == loginDto.UserName);
+            var user = new AppUser();
+            try
+            {
+                user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == loginDto.UserName);
+            }
+            catch (Exception ex)
+            {
+                return new PunjabOrnaments.Common.Models.Response.ResponseResult<UserDto>
+                {
+                    HasErrors = true,
+                    Message = ex.ToString(),//GlobalMessages.InvalidUsername
+                };
+            }
+
 
             if (user == null)
                 return new PunjabOrnaments.Common.Models.Response.ResponseResult<UserDto>

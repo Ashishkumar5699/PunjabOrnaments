@@ -13,21 +13,17 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-import { useNavigate } from "react-router-dom";
-import { removeuserDetail } from "../../../service/localstorage/Userservice"
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-export default function NavBar() {
-    const navigate = useNavigate();
+function NavBar() {
+    const [anchorElNav, setAnchorElNav] = React.useState(null);
+    const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-
-    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
-    const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+    const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
     };
 
@@ -38,33 +34,6 @@ export default function NavBar() {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
-
-    //const handlesettingactions = (event: React.MouseEvent<HTMLElement>) => {
-    //    const a = (event!.target as HTMLInputElement)!.;
-    //    console.log(a, "a")
-    //};
-
-    const handlesettingaction = (value: string) => {
-        handleCloseUserMenu();
-        switch (value) {
-            case settings[0]:
-                console.log(value, "btn clicked");
-                break;
-            case (settings[1]):
-                console.log(value, "btn clicked");
-                break;
-            case (settings[2]):
-                console.log(value, "btn clicked");
-                break;
-            case (settings[3]):
-                console.log(value, "btn clicked");
-                removeuserDetail()
-                navigate('/');
-                //window.location.reload()
-                break;
-        }
-                console.log(value, "btn function called sucessfully");
-    }
 
     return (
         <AppBar position="static">
@@ -179,7 +148,7 @@ export default function NavBar() {
                             onClose={handleCloseUserMenu}
                         >
                             {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={() => handlesettingaction(setting)}>
+                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
                                     <Typography textAlign="center">{setting}</Typography>
                                 </MenuItem>
                             ))}
@@ -190,3 +159,4 @@ export default function NavBar() {
         </AppBar>
     );
 }
+export default NavBar;
