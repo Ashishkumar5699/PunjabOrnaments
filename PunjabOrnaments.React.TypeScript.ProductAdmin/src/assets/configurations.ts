@@ -1,4 +1,5 @@
-const baseurl = "https://localhost:5001";
+//const baseurl = "http://punjabornaments.service:2012";
+const baseurl = "http://localhost:5000";
 export class PathUrlForApi
 {
     static Loginurl = (): string => 

@@ -62,7 +62,7 @@ public static class MauiProgram
         mauiAppBuilder.Services.AddSingleton<CustomerListViewModel>();
 
         //Approval Page
-        _ = mauiAppBuilder.Services.AddSingleton<AddPurchaseViewModel>();
+        mauiAppBuilder.Services.AddSingleton<AddPurchaseViewModel>();
         mauiAppBuilder.Services.AddSingleton<PendingApprovalsViewModel>();
         mauiAppBuilder.Services.AddSingleton<CompleteApprovalViewModel>();
         mauiAppBuilder.Services.AddSingleton<PurchaseDetailViewModel>();

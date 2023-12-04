@@ -1,5 +1,6 @@
-export class Pagename {
-
-    Login: string = "/";
+export abstract class Pagename
+{
     
+    Login: "/" | undefined;
+    Dashboard: "/Dashboard" | undefined
 }
