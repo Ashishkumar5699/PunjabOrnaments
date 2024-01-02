@@ -2,6 +2,7 @@
 using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Infrastructure.Navigation;
 using Punjab_Ornaments.Presentation.Views.Auth;
+using Punjab_Ornaments.Resources.Constant;
 using System.Windows.Input;
 
 namespace Punjab_Ornaments.Presentation.Viewmodels.Settings
@@ -33,7 +34,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Settings
 
         public async Task NavigateToMetalTypePageAsync()
         {
-            await _navigationservice.NavigateToAsync("MetalTypePage");
+            await _navigationservice.NavigateToAsync(NavigationPath.MetalTypePage);
         }
         #endregion
     }

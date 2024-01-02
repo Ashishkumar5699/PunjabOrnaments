@@ -15,5 +15,10 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
             _dataService = localDataService;
             _navigationservice = navigationservice;
         }
+
+        public virtual Task InitializeAsync(object obj)
+        {
+            return Task.CompletedTask;
+        }
     }
 }

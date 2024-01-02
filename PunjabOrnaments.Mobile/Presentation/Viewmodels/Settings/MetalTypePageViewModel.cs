@@ -2,6 +2,7 @@
 using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Infrastructure.Navigation;
 using Punjab_Ornaments.Models.Products.Details;
+using Punjab_Ornaments.Resources.Constant;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
@@ -54,11 +55,11 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Settings
         #region Methods
         public async Task NavigateAddMetaltypePageAsync()
         {
-            await _navigationservice.NavigateToAsync("MetalTypeDetailPage");
+            await _navigationservice.NavigateToAsync(NavigationPath.MetalTypeDetailPage);
         }
         public async Task NavigateToMetalDetailPageAsync(int id)
         {
-            await _navigationservice.NavigateToAsync("MetalTypeDetailPage", "Id", id);
+            await _navigationservice.NavigateToAsync(NavigationPath.MetalTypeDetailPage, "Id", id);
         }
         #endregion
     }

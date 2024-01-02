@@ -24,19 +24,6 @@ namespace Punjab_Ornaments.Localization.Database
 
         public async Task<ResponseResult<LoginUser>> LoginUser(string username, string password)
         {
-            if (string.IsNullOrEmpty(username)) return new ResponseResult<LoginUser>
-                                                {
-                                                    HasErrors = true,
-                                                    IsSystemError = true,
-                                                    Message = PunjabOrnaments.Common.Constants.GlobalMessages.InvalidUsername,
-                                                };
-            
-            if (string.IsNullOrEmpty(password)) return new ResponseResult<LoginUser>
-                                                {
-                                                    HasErrors = true,
-                                                    IsSystemError = true,
-                                                    Message = PunjabOrnaments.Common.Constants.GlobalMessages.InvalidPassword,
-                                                };
 
             var result = await _iAPIService.LoginUser(new LoginUser
             {    

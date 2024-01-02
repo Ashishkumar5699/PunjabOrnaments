@@ -1,5 +1,6 @@
 ﻿using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Infrastructure.Navigation;
+using Punjab_Ornaments.Resources.Constant;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
@@ -35,7 +36,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
         #region Methods
         public async Task<List<Models.Approvals.PurchaseRequest>> GetAllPendingPurchaseRequests() => await _dataService.GetAllPendingPurchases();
 
-        private async Task NavigateToPurchaseDetailPageAsync(int purchaseid) => await _navigationservice.NavigateToAsync("PurchaseDetailPage", "PurchaseId", purchaseid);
+        private async Task NavigateToPurchaseDetailPageAsync(int purchaseid) => await _navigationservice.NavigateToAsync(NavigationPath.PurchaseDetailPage, "PurchaseId", purchaseid);
         #endregion
     }
 }

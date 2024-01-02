@@ -2,25 +2,25 @@
 {
     public static class ApiConstant
     {
-        public const string url = "http://192.168.29.142:45459/";
-        public const string baseurl = url + "api/";
+        public const string url = "https://192.168.29.143:45456/";
+        public const string base_url = url + "api/";
 
         #region Account
-        public const string Login = baseurl + "account/login";
-        public const string Register = baseurl + "account/register";
+        public const string Login = base_url + "account/login";
+        public const string Register = base_url + "account/register";
         #endregion
         #region Stock
-        public const string GetAllStock = baseurl + "Stock";
+        public const string GetAllStock = base_url + "Stock";
         #endregion
         #region Request
-        public const string AddPurchaseRequest = baseurl + "Request/AddGoldPurchaseRequst";
-        public const string GetGoldRequestDetail = baseurl + "Request/GetGoldRequestDetail/";
-        public const string DeleteGoldPurchaseRequst = baseurl + "Request/DeleteGoldPurchaseRequst/";
+        public const string AddPurchaseRequest = base_url + "Request/AddGoldPurchaseRequst";
+        public const string GetGoldRequestDetail = base_url + "Request/GetGoldRequestDetail/";
+        public const string DeleteGoldPurchaseRequst = base_url + "Request/DeleteGoldPurchaseRequst/";
         #endregion
         #region Approval
-        public const string GetAllGoldPurchaseRequests = baseurl + "Approval/Getallgoldpurchaserequests";
-        public const string GoldApprove = baseurl + "Approval/GoldApprove/";
-        public const string GoldReject = baseurl + "Approval/GoldReject/";
+        public const string GetAllGoldPurchaseRequests = base_url + "Approval/Getallgoldpurchaserequests";
+        public const string GoldApprove = base_url + "Approval/GoldApprove/";
+        public const string GoldReject = base_url + "Approval/GoldReject/";
         #endregion
     }
 }

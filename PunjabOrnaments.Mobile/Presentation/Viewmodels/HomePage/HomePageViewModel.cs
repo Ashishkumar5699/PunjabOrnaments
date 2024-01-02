@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Infrastructure.Navigation;
+using Punjab_Ornaments.Resources.Constant;
 using Syncfusion.Drawing;
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
@@ -47,10 +48,10 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
 
         //#region Methods
         [RelayCommand]
-        async Task Stock() => await _navigationservice.NavigateToAsync("StockView");
-        async Task NavigateToAddNewCustmerPageAsync() => await _navigationservice.NavigateToAsync("AddNewCustomerPage");
-        async Task NavigateToViewAllCustmorPageAsync() => await _navigationservice.NavigateToAsync("CustomerListPage");
-        async Task NavigateToAddPurchasePageAsync() => await _navigationservice.NavigateToAsync("AddPurchase");
+        async Task Stock() => await _navigationservice.NavigateToAsync(NavigationPath.StockView);
+        async Task NavigateToAddNewCustmerPageAsync() => await _navigationservice.NavigateToAsync(NavigationPath.AddNewCustomerPage);
+        async Task NavigateToViewAllCustmorPageAsync() => await _navigationservice.NavigateToAsync(NavigationPath.CustomerListPage);
+        async Task NavigateToAddPurchasePageAsync() => await _navigationservice.NavigateToAsync(NavigationPath.AddPurchase);
 
         void BillGenerationAsync()
         {

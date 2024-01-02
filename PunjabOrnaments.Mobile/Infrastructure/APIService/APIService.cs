@@ -15,6 +15,20 @@ namespace Punjab_Ornaments.Infrastructure.APIService
 
         public async Task<ResponseResult<LoginUser>> LoginUser(LoginUser loginUser)
         {
+            if (string.IsNullOrEmpty(loginUser.UserName)) return new ResponseResult<LoginUser>
+            {
+                HasErrors = true,
+                IsSystemError = true,
+                Message = PunjabOrnaments.Common.Constants.GlobalMessages.InvalidUsername,
+            };
+
+            if (string.IsNullOrEmpty(loginUser.Password)) return new ResponseResult<LoginUser>
+            {
+                HasErrors = true,
+                IsSystemError = true,
+                Message = PunjabOrnaments.Common.Constants.GlobalMessages.InvalidPassword,
+            };
+
             var responce = await _restService.PostAsync<LoginUser, ResponseResult<LoginUser>>(ApiConstant.Login, loginUser);
             return responce;
         }
