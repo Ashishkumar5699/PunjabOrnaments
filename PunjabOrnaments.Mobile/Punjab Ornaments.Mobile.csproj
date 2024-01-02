@@ -37,6 +37,9 @@
 		<AppInstallerUri>C:\Users\QSS\Desktop\del</AppInstallerUri>
 		<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+	  <MtouchLink>SdkOnly</MtouchLink>
+	</PropertyGroup>
 
 	<ItemGroup>
 		<!-- App Icon -->

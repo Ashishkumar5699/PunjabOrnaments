@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>ba2bebaa-ee52-4227-a286-3cd43526ac1b</UserSecretsId>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
@@ -10,9 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Constants\**" />
     <Compile Remove="Controllers\HomePageController\**" />
+    <Content Remove="Constants\**" />
     <Content Remove="Controllers\HomePageController\**" />
+    <EmbeddedResource Remove="Constants\**" />
     <EmbeddedResource Remove="Controllers\HomePageController\**" />
+    <None Remove="Constants\**" />
     <None Remove="Controllers\HomePageController\**" />
   </ItemGroup>
 
@@ -29,10 +33,6 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.31.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Constants\" />
   </ItemGroup>
 
   <Import Project="..\PunjabOrnaments.Common\PunjabOrnaments.Common.projitems" Label="Shared" />

@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Infrastructure.Navigation;
 using Punjab_Ornaments.Models;
+using Punjab_Ornaments.Resources.Constant;
 using System.Collections.ObjectModel;
 
 namespace Punjab_Ornaments.Presentation.Viewmodels
@@ -80,7 +81,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         [RelayCommand]
         public async Task NavigatetoDetailPage(int id)
         {
-            await _navigationservice.NavigateToAsync("GoldStockDetailPage", "id", id);
+            await _navigationservice.NavigateToAsync(NavigationPath.GoldStockDetailPage, "id", id);
         }
         #endregion
     }
