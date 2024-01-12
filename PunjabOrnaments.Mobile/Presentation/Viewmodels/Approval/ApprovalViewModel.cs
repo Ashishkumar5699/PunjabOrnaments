@@ -36,7 +36,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Approval
         #region Methods
         public async Task<List<Models.Approvals.PurchaseRequest>> GetAllPendingPurchaseRequests() => await _dataService.GetAllPendingPurchases();
 
-        private async Task NavigateToPurchaseDetailPageAsync(int purchaseid) => await _navigationservice.NavigateToAsync(NavigationPath.PurchaseDetailPage, "PurchaseId", purchaseid);
+        private async Task NavigateToPurchaseDetailPageAsync(int purchaseid) => await _navigationService.NavigateToAsync(NavigationPath.PurchaseDetailPage, "PurchaseId", purchaseid);
         #endregion
     }
 }

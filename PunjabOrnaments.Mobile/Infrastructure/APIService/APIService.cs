@@ -7,7 +7,7 @@ namespace Punjab_Ornaments.Infrastructure.APIService
 {
     public class APIService : IAPIService
     {
-        public IRestService _restService;
+        private readonly IRestService _restService;
         public APIService(IRestService restService)
         {
             _restService = restService;
@@ -15,22 +15,27 @@ namespace Punjab_Ornaments.Infrastructure.APIService
 
         public async Task<ResponseResult<LoginUser>> LoginUser(LoginUser loginUser)
         {
-            if (string.IsNullOrEmpty(loginUser.UserName)) return new ResponseResult<LoginUser>
+            var response = new ResponseResult<LoginUser>
             {
                 HasErrors = true,
                 IsSystemError = true,
-                Message = PunjabOrnaments.Common.Constants.GlobalMessages.InvalidUsername,
             };
 
-            if (string.IsNullOrEmpty(loginUser.Password)) return new ResponseResult<LoginUser>
+            if (string.IsNullOrEmpty(loginUser.UserName))
             {
-                HasErrors = true,
-                IsSystemError = true,
-                Message = PunjabOrnaments.Common.Constants.GlobalMessages.InvalidPassword,
-            };
+                response.Message = PunjabOrnaments.Common.Constants.GlobalMessages.InvalidUsername;
+                return response;
+            }
 
-            var responce = await _restService.PostAsync<LoginUser, ResponseResult<LoginUser>>(ApiConstant.Login, loginUser);
-            return responce;
+            if (string.IsNullOrEmpty(loginUser.Password))
+            {
+                response.Message = PunjabOrnaments.Common.Constants.GlobalMessages.InvalidPassword;
+                return response;
+            }
+
+            response = await _restService.PostAsync(ApiConstant.Login, loginUser, response);
+            response.Message ??= Preferences.Get(PreferenceConstant.LastError, PreferenceConstant.Default);
+            return response;
         }
 
         public async Task AddGoldPurchaseRequst(Models.Approvals.PurchaseRequest request)

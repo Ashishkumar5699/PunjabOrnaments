@@ -138,7 +138,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Customer
 
             };
             await _dataService.AddCustomer(customer);
-            await _navigationservice.PopAsync();
+            await _navigationService.PopAsync();
         }
 
     }

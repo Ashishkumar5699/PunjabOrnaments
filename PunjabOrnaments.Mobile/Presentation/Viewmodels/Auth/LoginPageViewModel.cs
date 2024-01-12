@@ -1,4 +1,6 @@
-﻿using Punjab_Ornaments.Infrastructure.Database;
+﻿using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
+using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Infrastructure.Navigation;
 using System.Windows.Input;
 
@@ -27,11 +29,9 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Auth
 
         private async Task LoginAction()
         {
-            var isauth = await _dataService.LoginUser(UserName, Password);
-            if (isauth.HasErrors || isauth.IsSystemError)
-                return;
+            var isAuthorized = await _dataService.LoginUser(UserName, Password);
 
-            if (isauth.Data.IsUserloggedin)
+            if (isAuthorized.Data != null && isAuthorized.Data.IsUserloggedin)
             {
                 Application.Current.MainPage = new AppShell();
             }

@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using Punjab_Ornaments.Resources.Constant;
+using System.Net;
 using System.Text.Json;
 using static SQLite.SQLite3;
 
@@ -71,23 +72,24 @@ namespace Punjab_Ornaments.Infrastructure.RestService
             return result;
         }
 
-        public async Task<TResponse> PostAsync<TInput, TResponse>(string uri, TInput data, string token = "", Dictionary<string, string> headers = null)
+        public async Task<TResponse> PostAsync<TInput, TResponse>(string uri, TInput data, TResponse response, string token = "", Dictionary<string, string> headers = null)
         {
             try
             {
                 var request = new HttpRequestMessage(HttpMethod.Post, uri);
-                string jsonserilozer = System.Text.Json.JsonSerializer.Serialize(data, _serializerOptions);
-                var content = new StringContent(jsonserilozer, null, "application/json");
+                string jsonSerializer = System.Text.Json.JsonSerializer.Serialize(data, _serializerOptions);
+                var content = new StringContent(jsonSerializer, null, "application/json");
                 request.Content = content;
-                var response = await _client.SendAsync(request);
-                var serialized = await HandleResponse(response);
+                var domainResponse = await _client.SendAsync(request);
+                var serialized = await HandleResponse(domainResponse);
                 TResponse result = await Task.Run(() => JsonSerializer.Deserialize<TResponse>(serialized, _serializerOptions));
-                return result;
+                response = result;
             }
             catch (Exception ex)
             {
-                throw;
+                Preferences.Set(PreferenceConstant.LastError, ex.Message);
             }
+            return response;
         }
 
         public static HttpClientHandler GetInsecureHandler()

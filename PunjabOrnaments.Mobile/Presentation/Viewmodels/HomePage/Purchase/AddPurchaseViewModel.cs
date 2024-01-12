@@ -45,7 +45,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.HomePage.Purchase
                 //await _apiservice.AddGoldPurchaseRequst(purchaseItem);
                 await _dataService.AddPurchase(purchaseItem);
 
-                await _navigationservice.PopAsync();
+                await _navigationService.PopAsync();
             }
             else
                 await Application.Current.MainPage.DisplayAlert("Error", "please fill all fields", "Okay");

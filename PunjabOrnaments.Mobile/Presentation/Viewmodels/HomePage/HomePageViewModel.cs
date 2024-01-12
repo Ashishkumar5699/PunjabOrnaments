@@ -48,10 +48,10 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
 
         //#region Methods
         [RelayCommand]
-        async Task Stock() => await _navigationservice.NavigateToAsync(NavigationPath.StockView);
-        async Task NavigateToAddNewCustmerPageAsync() => await _navigationservice.NavigateToAsync(NavigationPath.AddNewCustomerPage);
-        async Task NavigateToViewAllCustmorPageAsync() => await _navigationservice.NavigateToAsync(NavigationPath.CustomerListPage);
-        async Task NavigateToAddPurchasePageAsync() => await _navigationservice.NavigateToAsync(NavigationPath.AddPurchase);
+        async Task Stock() => await _navigationService.NavigateToAsync(NavigationPath.StockView);
+        async Task NavigateToAddNewCustmerPageAsync() => await _navigationService.NavigateToAsync(NavigationPath.AddNewCustomerPage);
+        async Task NavigateToViewAllCustmorPageAsync() => await _navigationService.NavigateToAsync(NavigationPath.CustomerListPage);
+        async Task NavigateToAddPurchasePageAsync() => await _navigationService.NavigateToAsync(NavigationPath.AddPurchase);
 
         void BillGenerationAsync()
         {

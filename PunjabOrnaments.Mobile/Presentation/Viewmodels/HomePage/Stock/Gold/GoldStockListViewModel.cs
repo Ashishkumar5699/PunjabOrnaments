@@ -67,7 +67,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         {
             Gold gold = new() { Code = Code, Weight = Weight, Image = Image, Brand = "Dhanya" , Carrot = Carrot};
             _dataService.AddGoldinStock(gold);
-            _navigationservice.PopAsync();
+            _navigationService.PopAsync();
         }
 
         [RelayCommand]
@@ -81,7 +81,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
         [RelayCommand]
         public async Task NavigatetoDetailPage(int id)
         {
-            await _navigationservice.NavigateToAsync(NavigationPath.GoldStockDetailPage, "id", id);
+            await _navigationService.NavigateToAsync(NavigationPath.GoldStockDetailPage, "id", id);
         }
         #endregion
     }

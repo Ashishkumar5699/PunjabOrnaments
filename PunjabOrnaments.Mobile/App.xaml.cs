@@ -11,13 +11,13 @@ public partial class App : Application
 	{
         InitializeComponent();
         InitializeRequired(dataService);
-        Initapp();
+        InitApp();
     }
 
-    private void Initapp()
+    private void InitApp()
     {
 
-        isUserAuth = true;
+        isUserAuth = false;
 
         if (isUserAuth)
     		MainPage = new AppShell();
