@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
+using Punjab_Ornaments.Infrastructure.AlertService;
 using Punjab_Ornaments.Infrastructure.APIService;
 using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Infrastructure.Navigation;
@@ -27,6 +29,7 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
             .UseMauiApp<App>()
+            .UseMauiCommunityToolkit()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -83,6 +86,7 @@ public static class MauiProgram
 		mauiAppBuilder.Services.AddSingleton<IDataService, RESTDataService>();
 		mauiAppBuilder.Services.AddSingleton<IAPIService, APIService>();
 		mauiAppBuilder.Services.AddSingleton<IRestService, RestService>();
+		mauiAppBuilder.Services.AddSingleton<IAlertService, AlertService>();
 		return mauiAppBuilder;
 	}
 	public static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder)

@@ -34,7 +34,7 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Settings
 
         public async Task NavigateToMetalTypePageAsync()
         {
-            await _navigationservice.NavigateToAsync(NavigationPath.MetalTypePage);
+            await _navigationService.NavigateToAsync(NavigationPath.MetalTypePage);
         }
         #endregion
     }

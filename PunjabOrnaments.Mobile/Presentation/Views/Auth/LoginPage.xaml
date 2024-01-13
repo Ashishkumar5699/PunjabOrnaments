@@ -6,7 +6,7 @@
              x:DataType="viewmodel:LoginPageViewModel"
              Title="LoginPage">
     <Grid BackgroundColor="LightGray">
-        <Frame Margin="250" >
+        <Frame Margin="10" VerticalOptions="Center" >
             <VerticalStackLayout Padding="10" Spacing="5">
                 <Label Text="Welcome" HorizontalOptions="Center" FontSize="Title"/>
                 <Label Text="User Name"/>
@@ -14,9 +14,6 @@
                 <Label Text="Password"/>
                 <Entry Text="{Binding Password}" IsPassword="True"/>
                 <Button Text="Login" Command="{Binding LoginCommand}" Margin="25"/>
-                <Picker>
-                    <Picker.item
-                </Picker>
             </VerticalStackLayout>
         </Frame>
     </Grid>

@@ -7,16 +7,15 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
 {
     public class BaseViewModel : ObservableObject
     {
-        public readonly IDataService _dataService;
-        public readonly INavigationService _navigationservice;
-
-        public BaseViewModel(IDataService localDataService, INavigationService navigationservice)
+        protected readonly IDataService _dataService;
+        protected readonly INavigationService _navigationService;
+        public BaseViewModel(IDataService localDataService, INavigationService navigationService)
         {
             _dataService = localDataService;
-            _navigationservice = navigationservice;
+            _navigationService = navigationService;
         }
 
-        public virtual Task InitializeAsync(object obj)
+        protected virtual Task InitializeAsync(object obj)
         {
             return Task.CompletedTask;
         }

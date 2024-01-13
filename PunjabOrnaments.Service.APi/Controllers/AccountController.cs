@@ -86,7 +86,7 @@ namespace APIServices.Controllers
                     UserName = loginDto.UserName,
                     Token = _tokenService.CreateToken(user),
                     LoginTime = DateTime.Now,
-                    Device = loginDto.Device,
+                    //Device = loginDto.Device,
                 }
             };
         }

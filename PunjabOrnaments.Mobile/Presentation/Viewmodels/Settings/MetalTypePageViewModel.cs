@@ -55,11 +55,11 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Settings
         #region Methods
         public async Task NavigateAddMetaltypePageAsync()
         {
-            await _navigationservice.NavigateToAsync(NavigationPath.MetalTypeDetailPage);
+            await _navigationService.NavigateToAsync(NavigationPath.MetalTypeDetailPage);
         }
         public async Task NavigateToMetalDetailPageAsync(int id)
         {
-            await _navigationservice.NavigateToAsync(NavigationPath.MetalTypeDetailPage, "Id", id);
+            await _navigationService.NavigateToAsync(NavigationPath.MetalTypeDetailPage, "Id", id);
         }
         #endregion
     }

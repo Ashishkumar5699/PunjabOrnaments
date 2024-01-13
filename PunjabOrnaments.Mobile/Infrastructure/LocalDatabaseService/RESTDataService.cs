@@ -1,4 +1,6 @@
-﻿using Punjab_Ornaments.Infrastructure.APIService;
+﻿using CommunityToolkit.Maui.Core;
+using Punjab_Ornaments.Infrastructure.AlertService;
+using Punjab_Ornaments.Infrastructure.APIService;
 using Punjab_Ornaments.Infrastructure.Database;
 using Punjab_Ornaments.Models;
 using Punjab_Ornaments.Models.Approvals;
@@ -12,10 +14,12 @@ namespace Punjab_Ornaments.Localization.Database
     {
        #region initialization
         public readonly IAPIService _iAPIService;
+        protected readonly IAlertService _alertService;
 
-        public RESTDataService(IAPIService apiService)
+        public RESTDataService(IAPIService apiService, IAlertService alertService)
         {
             _iAPIService = apiService;
+            _alertService = alertService;
         }
         public void Initialize()
         {
@@ -30,7 +34,11 @@ namespace Punjab_Ornaments.Localization.Database
                 UserName = username,
                 Password = password
             });
-            
+
+            ToastDuration duration = result.HasErrors || result.IsSystemError ? ToastDuration.Long : ToastDuration.Short;
+
+            await _alertService.ShowAlert(result.Message, duration, 14);
+
             return result;
         }
 
