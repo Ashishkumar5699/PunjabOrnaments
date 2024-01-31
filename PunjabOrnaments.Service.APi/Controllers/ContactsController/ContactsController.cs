@@ -1,10 +1,10 @@
-﻿using APIServices.Data;
-using APIServices.Entities.Contacts;
-using APIServices.Interface;
+﻿using PunjabOrnaments.Service.APi.Data;
+using PunjabOrnaments.Service.APi.Entities.Contacts;
+using PunjabOrnaments.Service.APi.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace APIServices.Controllers.ContactsController
+namespace PunjabOrnaments.Service.APi.Controllers.ContactsController
 {
     public class ContactsController : BaseApiController
     {

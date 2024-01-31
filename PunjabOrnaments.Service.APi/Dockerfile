@@ -10,16 +10,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["APIServices.csproj", "."]
-RUN dotnet restore "./APIServices.csproj"
+COPY ["PunjabOrnaments.Service.APi.csproj", "."]
+RUN dotnet restore "./PunjabOrnaments.Service.APi.csproj"
 COPY . .
 WORKDIR "/src/."
-RUN dotnet build "APIServices.csproj" -c Release -o /app/build
+RUN dotnet build "PunjabOrnaments.Service.APi.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "APIServices.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "PunjabOrnaments.Service.APi.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "APIServices.dll"]
+ENTRYPOINT ["dotnet", "PunjabOrnaments.Service.APi.dll"]

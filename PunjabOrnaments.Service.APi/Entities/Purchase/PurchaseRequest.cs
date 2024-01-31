@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace APIServices.Entities.Purchase
+namespace PunjabOrnaments.Service.APi.Entities.Purchase
 {
     public class PurchaseRequest
     {

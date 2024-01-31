@@ -1,7 +1,7 @@
-﻿using APIServices.Data;
-using APIServices.Interface;
+﻿using PunjabOrnaments.Service.APi.Data;
+using PunjabOrnaments.Service.APi.Interface;
 
-namespace APIServices.Controllers
+namespace PunjabOrnaments.Service.APi.Controllers
 {
     public class AdminController : BaseApiController
     {

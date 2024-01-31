@@ -2,7 +2,7 @@
 {
     public static class ApiConstant
     {
-        public const string url = "http://192.168.1.8:45457/";
+        public const string url = "http://192.168.1.8:45455/";
         public const string base_url = url + "api/";
 
         #region Account

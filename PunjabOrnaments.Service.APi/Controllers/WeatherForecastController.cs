@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace APIServices.Controllers
+namespace PunjabOrnaments.Service.APi.Controllers
 {
     [ApiController]
     [Route("[controller]")]

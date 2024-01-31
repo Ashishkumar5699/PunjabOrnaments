@@ -1,10 +1,10 @@
-﻿using APIServices.Entities;
-using APIServices.Entities.Contacts;
-using APIServices.Entities.Purchase;
-using APIServices.Entities.Stock;
+﻿using PunjabOrnaments.Service.APi.Entities;
+using PunjabOrnaments.Service.APi.Entities.Contacts;
+using PunjabOrnaments.Service.APi.Entities.Purchase;
+using PunjabOrnaments.Service.APi.Entities.Stock;
 using Microsoft.EntityFrameworkCore;
 
-namespace APIServices.Data
+namespace PunjabOrnaments.Service.APi.Data
 {
     public class DataContext: DbContext
     {

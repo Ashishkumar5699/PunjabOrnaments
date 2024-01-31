@@ -1,4 +1,4 @@
-﻿namespace APIServices.DTOs
+﻿namespace PunjabOrnaments.Service.APi.DTOs
 {
     public class UserDto : PunjabOrnaments.Common.Models.Auth.AuthUser
     {

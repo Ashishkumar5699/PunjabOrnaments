@@ -1,11 +1,11 @@
-﻿using APIServices.Data;
-using APIServices.DTOs.PurchaseDto;
-using APIServices.Entities.Purchase;
-using APIServices.Interface;
+﻿using PunjabOrnaments.Service.APi.Data;
+using PunjabOrnaments.Service.APi.DTOs.PurchaseDto;
+using PunjabOrnaments.Service.APi.Entities.Purchase;
+using PunjabOrnaments.Service.APi.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace APIServices.Controllers.ApprovalController
+namespace PunjabOrnaments.Service.APi.Controllers.ApprovalController
 {
     public class ApprovalController : BaseApiController
     {

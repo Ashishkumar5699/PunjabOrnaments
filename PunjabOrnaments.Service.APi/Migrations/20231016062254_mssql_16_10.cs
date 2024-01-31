@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace APIServices.Migrations
+namespace PunjabOrnaments.Service.APi.Migrations
 {
     /// <inheritdoc />
     public partial class mssql_16_10 : Migration

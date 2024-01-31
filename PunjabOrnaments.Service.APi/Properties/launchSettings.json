@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "APIServices": {
+    "PunjabOrnaments.Service.APi": {
       "commandName": "Project",
       "launchBrowser": false,
       "launchUrl": "swagger",

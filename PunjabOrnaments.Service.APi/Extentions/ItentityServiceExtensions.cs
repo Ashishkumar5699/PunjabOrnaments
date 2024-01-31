@@ -2,7 +2,7 @@
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace APIServices.Extentions
+namespace PunjabOrnaments.Service.APi.Extentions
 {
     public static class ItentityServiceExtensions
     {

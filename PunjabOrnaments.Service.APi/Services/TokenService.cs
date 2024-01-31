@@ -1,11 +1,11 @@
-﻿using APIServices.Entities;
-using APIServices.Interface;
+﻿using PunjabOrnaments.Service.APi.Entities;
+using PunjabOrnaments.Service.APi.Interface;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace APIServices.Services
+namespace PunjabOrnaments.Service.APi.Services
 {
     public class TokenService : ITokenService
     {

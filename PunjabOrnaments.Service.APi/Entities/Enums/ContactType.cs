@@ -1,4 +1,4 @@
-﻿namespace APIServices.Entities.Enums
+﻿namespace PunjabOrnaments.Service.APi.Entities.Enums
 {
     public enum ContactType
     {

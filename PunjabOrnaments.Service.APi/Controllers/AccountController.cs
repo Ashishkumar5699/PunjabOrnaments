@@ -1,7 +1,7 @@
-﻿using APIServices.Data;
-using APIServices.DTOs;
-using APIServices.Entities;
-using APIServices.Interface;
+﻿using PunjabOrnaments.Service.APi.Data;
+using PunjabOrnaments.Service.APi.DTOs;
+using PunjabOrnaments.Service.APi.Entities;
+using PunjabOrnaments.Service.APi.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +9,7 @@ using PunjabOrnaments.Common.Constants;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace APIServices.Controllers
+namespace PunjabOrnaments.Service.APi.Controllers
 {
     [AllowAnonymous]
     public class AccountController : BaseApiController

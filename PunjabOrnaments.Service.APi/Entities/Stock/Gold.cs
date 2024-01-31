@@ -1,8 +1,8 @@
-﻿using APIServices.Entities.Purchase;
+﻿using PunjabOrnaments.Service.APi.Entities.Purchase;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace APIServices.Entities.Stock
+namespace PunjabOrnaments.Service.APi.Entities.Stock
 {
     public class Gold
     {

@@ -6,34 +6,32 @@ using System.Windows.Input;
 
 namespace Punjab_Ornaments.Presentation.Viewmodels.Auth
 {
-    public class LoginPageViewModel : BaseViewModel
+    public class LoginPageViewModel(IDataService localDataService, INavigationService navigationservice) : BaseViewModel(localDataService, navigationservice)
     {
         public ICommand LoginCommand => new Command(async () => await LoginAction());
-        public LoginPageViewModel(IDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
-        {
-        }
 
-        private string _username;
-        public string UserName
-        {
-            get => _username;
-            set => _username = value;
-        }
-
-        private string _password;
-        public string Password
-        {
-            get => _password;
-            set => _password = value;
-        }
+        public string UserName { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
 
         private async Task LoginAction()
         {
-            var isAuthorized = await _dataService.LoginUser(UserName, Password);
-
-            if (isAuthorized.Data != null && isAuthorized.Data.IsUserloggedin)
+            try
             {
-                Application.Current.MainPage = new AppShell();
+                IsBusy = true;
+                var isAuthorized = await _dataService.LoginUser(UserName, Password);
+
+                if (isAuthorized.Data != null && isAuthorized.Data.IsUserloggedin)
+                {
+                    Application.Current.MainPage = new AppShell();
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+            finally
+            {
+                IsBusy = false;
             }
         }
     }

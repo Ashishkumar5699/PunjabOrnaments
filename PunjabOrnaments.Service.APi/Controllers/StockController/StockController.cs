@@ -1,12 +1,12 @@
-﻿using APIServices.Data;
-using APIServices.DTOs.StockDto;
-using APIServices.Entities.Stock;
-using APIServices.Interface;
+﻿using PunjabOrnaments.Service.APi.Data;
+using PunjabOrnaments.Service.APi.DTOs.StockDto;
+using PunjabOrnaments.Service.APi.Entities.Stock;
+using PunjabOrnaments.Service.APi.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace APIServices.Controllers.StockController
+namespace PunjabOrnaments.Service.APi.Controllers.StockController
 {
     //[Authorize]
     [AllowAnonymous]

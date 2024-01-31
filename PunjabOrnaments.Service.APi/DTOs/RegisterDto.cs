@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace APIServices.DTOs
+namespace PunjabOrnaments.Service.APi.DTOs
 {
     public class RegisterDto
     {

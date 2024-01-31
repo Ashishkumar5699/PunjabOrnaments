@@ -1,6 +1,6 @@
-﻿using APIServices.Entities;
+﻿using PunjabOrnaments.Service.APi.Entities;
 
-namespace APIServices.Interface
+namespace PunjabOrnaments.Service.APi.Interface
 {
     public interface ITokenService
     {

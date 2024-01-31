@@ -1,7 +1,7 @@
-﻿using APIServices.Entities.Enums;
+﻿using PunjabOrnaments.Service.APi.Entities.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace APIServices.Entities.Contacts
+namespace PunjabOrnaments.Service.APi.Entities.Contacts
 {
     public class ContactDetails
     {

@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Punjab_Ornaments.Presentation.Views.Auth.LoginPage"
              xmlns:viewmodel="clr-namespace:Punjab_Ornaments.Presentation.Viewmodels.Auth"
+             xmlns:control="clr-namespace:Punjab_Ornaments.Presentation.CustomControls"
+             xmlns:custom="clr-namespace:CustomControlFramework.Buttons.LoadingButton;assembly=CustomControlFramework"
              x:DataType="viewmodel:LoginPageViewModel"
              Title="LoginPage">
     <Grid BackgroundColor="LightGray">
@@ -13,7 +15,7 @@
                 <Entry Text="{Binding UserName}"/>
                 <Label Text="Password"/>
                 <Entry Text="{Binding Password}" IsPassword="True"/>
-                <Button Text="Login" Command="{Binding LoginCommand}" Margin="25"/>
+                <control:Loadingbutton Text="aaaaaaaaa" Margin="25" BackgroundColor="red"/>
             </VerticalStackLayout>
         </Frame>
     </Grid>

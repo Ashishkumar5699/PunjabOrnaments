@@ -1,4 +1,4 @@
-namespace APIServices
+namespace PunjabOrnaments.Service.APi
 {
     public class WeatherForecast
     {

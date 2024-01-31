@@ -9,11 +9,14 @@ namespace Punjab_Ornaments.Presentation.Viewmodels
     {
         protected readonly IDataService _dataService;
         protected readonly INavigationService _navigationService;
+        private bool isBusy;
         public BaseViewModel(IDataService localDataService, INavigationService navigationService)
         {
             _dataService = localDataService;
             _navigationService = navigationService;
         }
+
+        public bool IsBusy { get; set; }
 
         protected virtual Task InitializeAsync(object obj)
         {

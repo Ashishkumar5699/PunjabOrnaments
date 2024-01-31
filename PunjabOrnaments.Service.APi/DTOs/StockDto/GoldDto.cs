@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace APIServices.DTOs.StockDto
+namespace PunjabOrnaments.Service.APi.DTOs.StockDto
 {
     public class GoldDto
     {

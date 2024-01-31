@@ -5,13 +5,9 @@ using PunjabOrnaments.Common.Models.Response;
 
 namespace Punjab_Ornaments.Infrastructure.APIService
 {
-    public class APIService : IAPIService
+    public class APIService(IRestService restService) : IAPIService
     {
-        private readonly IRestService _restService;
-        public APIService(IRestService restService)
-        {
-            _restService = restService;
-        }
+        private readonly IRestService _restService = restService;
 
         public async Task<ResponseResult<LoginUser>> LoginUser(LoginUser loginUser)
         {
@@ -23,13 +19,13 @@ namespace Punjab_Ornaments.Infrastructure.APIService
 
             if (string.IsNullOrEmpty(loginUser.UserName))
             {
-                response.Message = PunjabOrnaments.Common.Constants.GlobalMessages.InvalidUsername;
+                response.Message = PunjabOrnaments.Common.Constants.GlobalMessages.UsernameEmpty;
                 return response;
             }
 
             if (string.IsNullOrEmpty(loginUser.Password))
             {
-                response.Message = PunjabOrnaments.Common.Constants.GlobalMessages.InvalidPassword;
+                response.Message = PunjabOrnaments.Common.Constants.GlobalMessages.PasswordEmpty;
                 return response;
             }
 

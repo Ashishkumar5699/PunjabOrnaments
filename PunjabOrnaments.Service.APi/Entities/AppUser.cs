@@ -1,4 +1,4 @@
-﻿namespace APIServices.Entities
+﻿namespace PunjabOrnaments.Service.APi.Entities
 {
     public class AppUser
     {

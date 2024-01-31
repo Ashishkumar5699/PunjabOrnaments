@@ -1,8 +1,8 @@
-﻿using APIServices.Data;
-using APIServices.Interface;
+﻿using PunjabOrnaments.Service.APi.Data;
+using PunjabOrnaments.Service.APi.Interface;
 using Microsoft.EntityFrameworkCore;
 
-namespace APIServices.Extentions
+namespace PunjabOrnaments.Service.APi.Extentions
 {
     public static class ApplicationServiceExtentions
     {

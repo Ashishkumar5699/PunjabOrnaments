@@ -1,4 +1,4 @@
-﻿namespace APIServices.Extentions
+﻿namespace PunjabOrnaments.Service.APi.Extentions
 {
     public static class ConfigureCMCORSSExtension
     {

@@ -1,8 +1,8 @@
-﻿using APIServices.Data;
-using APIServices.Interface;
+﻿using PunjabOrnaments.Service.APi.Data;
+using PunjabOrnaments.Service.APi.Interface;
 using Microsoft.AspNetCore.Mvc;
 
-namespace APIServices.Controllers
+namespace PunjabOrnaments.Service.APi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

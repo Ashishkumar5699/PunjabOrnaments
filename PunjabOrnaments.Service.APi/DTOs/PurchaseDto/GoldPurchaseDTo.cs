@@ -1,4 +1,4 @@
-﻿namespace APIServices.DTOs.PurchaseDto
+﻿namespace PunjabOrnaments.Service.APi.DTOs.PurchaseDto
 {
     public class GoldPurchaseDTo
     {

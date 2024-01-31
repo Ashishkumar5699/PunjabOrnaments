@@ -1,6 +1,6 @@
-using APIServices.Extentions;
+using PunjabOrnaments.Service.APi.Extentions;
 
-namespace APIServices
+namespace PunjabOrnaments.Service.APi
 {
     public class Program
     {

@@ -7,7 +7,15 @@ public partial class LoginPage : ContentPage
 {
 	public LoginPage()
 	{
-		InitializeComponent();
-		BindingContext = ServiceHelper.GetService<LoginPageViewModel>();
+		try
+		{
+			InitializeComponent();
+			BindingContext = ServiceHelper.GetService<LoginPageViewModel>();
+		}
+		catch (Exception ex)
+		{
+
+			throw;
+		}
 	}
 }
