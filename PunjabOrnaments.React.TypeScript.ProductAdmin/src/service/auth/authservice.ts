@@ -3,7 +3,10 @@ import { PathUrlForApi } from "../../assets/configurations.ts"
 import { ResponseResult } from "../../model/ResponseResult.ts"
 import { ILoginUser } from "../../model/auth/ILoginUser.ts"
 
-const LoginUser = async (request: FormData) => {
+// function Login(data: FormData, ShowToster: (text: string) => void) {
+//     throw new Error('Function not implemented.');
+// }
+const LoginUser = async (request: FormData, ShowToster: (text: string) => void) => {
     const data = {
         Username : request.get("email"),
         Password : request.get("password")
@@ -12,7 +15,7 @@ const LoginUser = async (request: FormData) => {
     if (response != null && response != undefined)
     {
         const Requiredreqponse: ResponseResult<ILoginUser> = response.data;
-
+        ShowToster("Login Sucessfully");
         return Requiredreqponse
     }
 }

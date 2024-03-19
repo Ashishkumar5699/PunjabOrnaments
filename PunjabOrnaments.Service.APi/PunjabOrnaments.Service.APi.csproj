@@ -9,6 +9,7 @@
     <DockerfileContext>.</DockerfileContext>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'APIServices' " />
   <ItemGroup>
     <Compile Remove="Constants\**" />
     <Compile Remove="Controllers\HomePageController\**" />

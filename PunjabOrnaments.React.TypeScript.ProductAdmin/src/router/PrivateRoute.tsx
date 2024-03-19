@@ -1,35 +1,25 @@
-import { useState, useEffect, Dispatch, SetStateAction} from 'react'
+import {useEffect} from 'react'
 import { isTokenExist } from "../service/localstorage/TokenService"
-//import { INavigation } from '../model/navigation/INavigation'
-import LoginPage from '../pages/LoginPage.tsx'
-import React from 'react'
+import React from 'react';
+import { NavigateFunction, useNavigate } from "react-router-dom";
 
 interface IProp {
     Component: React.ReactNode
 }
 
-//const PrivateRoute: FC<IProp> = (props): ReactNode => {
-
-const PrivateRoute = (props: IProp) => {
-    //const [Islogin, setislogin] = useState<boolean>(false)
-   //const Component: JSX.Element = props;
-    //useEffect(() => {
-    //    CheckforUserlogin(setislogin)
-    //}, []);
+export default function PrivateRoute(props: IProp)
+ {
+  const navigate = useNavigate();
+  useEffect(()=>
+  {
+    CheckforUserlogins(navigate);
+  },[navigate])
 
     return (
-        <React.Fragment>{props.Component}</React.Fragment>)
+      <React.Fragment>{props.Component}</React.Fragment>)
+      }
 
-        //<>
-        //    {
-        //        Islogin ? < main > {props.Component}</main > : <LoginPage />
-        //    }
-        //</>
-        //)
-}
-function CheckforUserlogin(setisuserlogin: Dispatch<SetStateAction<boolean>>) {
-    const result = isTokenExist();
-    console.log("isTokenExist", result)
-    setisuserlogin(result)
-}
-export default PrivateRoute;
+      function CheckforUserlogins(navigate: NavigateFunction) {
+        if(!isTokenExist())
+          navigate("/");
+      }
