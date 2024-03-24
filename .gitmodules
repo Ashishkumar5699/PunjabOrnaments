@@ -4,3 +4,6 @@
 [submodule "Maui-Application"]
 	path = Maui-Application
 	url = https://github.com/Ashishkumar5699/Maui-Application.git
+[submodule "DotnetMauiLinker"]
+	path = Common
+	url = https://github.com/Ashishkumar5699/DotnetMauiLinker.git
