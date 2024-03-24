@@ -1,6 +1,6 @@
 [submodule "DotnetService"]
 	path = DotnetService
 	url = https://github.com/Ashishkumar5699/DotnetService.git
-[submodule "MauiApplication"]
-	path = MauiApplication
+[submodule "Maui-Application"]
+	path = Maui-Application
 	url = https://github.com/Ashishkumar5699/Maui-Application.git
