@@ -12,6 +12,7 @@ public partial class App : Application
         InitializeComponent();
         InitializeRequired(dataService);
         InitApp();
+        AppDomain.CurrentDomain.FirstChanceException += CurrentDomain_FirstChanceException;
     }
 
     private void InitApp()
@@ -27,8 +28,13 @@ public partial class App : Application
 
     private void InitializeRequired(IDataService dataService)
     {
-        //_dataService = ServiceHelper.GetService<SQLiteDataService>();
         _dataService = dataService;
         _dataService.Initialize();
     }
+
+    private void CurrentDomain_FirstChanceException(object sender, System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs e)
+    {
+        System.Diagnostics.Debug.WriteLine($"********************************** UNHANDLED EXCEPTION! Details: {e.Exception.ToString()}");
+    }
+
 }

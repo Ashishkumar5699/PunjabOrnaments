@@ -8,19 +8,22 @@ namespace Punjab_Ornaments.Presentation.Viewmodels.Auth
 {
     public class LoginPageViewModel : BaseViewModel
     {
-        public ICommand LoginCommand => new Command(async () => await LoginAction());
+        private string _username;
+        private string _password;
+
         public LoginPageViewModel(IDataService localDataService, INavigationService navigationservice) : base(localDataService, navigationservice)
         {
+            LoginCommand = new Command(async () => await LoginAction());
         }
 
-        private string _username;
+        public ICommand LoginCommand { get; }
+
         public string UserName
         {
             get => _username;
             set => _username = value;
         }
 
-        private string _password;
         public string Password
         {
             get => _password;
