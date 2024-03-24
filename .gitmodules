@@ -1,3 +1,6 @@
 [submodule "DotnetService"]
 	path = DotnetService
 	url = https://github.com/Ashishkumar5699/DotnetService.git
+[submodule "del/Dotnet"]
+	path = del/Dotnet
+	url = https://github.com/Ashishkumar5699/DotnetService.git
