@@ -7,8 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api Service", "Api Service", "{0A1A9F4D-633E-4131-9693-6A3046E2B8AA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "React TSX", "React TSX", "{51D19F75-C7FA-4B1E-B58B-A1C08BA599E7}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Next TSX", "Next TSX", "{C9EC7F31-5455-4632-BDF5-8CD3A7DAFBD1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sonaar.Application", "Maui-Application\Sonaar.Mobile\Sonaar.Application.csproj", "{7A89A41D-075E-B17C-7AA2-4190B00DCD35}"
@@ -19,15 +17,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sonaar.Infrastructure", "Do
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sonaar.Domain", "DotnetService\Sonaar.Domain\Sonaar.Domain.csproj", "{80881776-6AA9-10D1-A76C-E35F202F7B28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sonaar.Service.Application", "DotnetService\Sonaar.Service.Application\Sonaar.Service.Application.csproj", "{1DF12AA4-CD8F-C6C5-5733-8FDA312E0869}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sonar.Inventory", "Maui-Application\Sonar.Inventory\Sonar.Inventory.csproj", "{6C367BF7-815A-43A4-92C4-9330050603C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sonar.Service.Application", "DotnetService\Sonaar.Service.Application\Sonar.Service.Application.csproj", "{1DF12AA4-CD8F-C6C5-5733-8FDA312E0869}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagementSystem", "Maui-Application\Inventory-Management-System-master\InventoryManagementSystem\InventoryManagementSystem.csproj", "{043D206C-D054-5418-6E6A-2EF989FD7375}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PnjbRateCreater", "Maui-Application\PnjbRateCreater\PnjbRateCreater\PnjbRateCreater.csproj", "{E4366725-F758-C20D-7BA5-64461DDC231A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BikeSparesInventorySystem", "Maui-Application\BikeSparesInventorySystem-main\BikeSparesInventorySystem.csproj", "{3B8C4667-4EE5-8040-3BB5-21CB888A6610}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sonar.Inventory", "Maui-Application\Sonar.Inventory\Sonar.Inventory.csproj", "{E73769A4-ACD4-31EA-1560-64FD1426AA2D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{1F538DC1-9742-4D5E-858F-CB4912F33D22}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sonar.Shared", "Common\Sonar.Shared\Sonar.Shared.shproj", "{7C4ACC5E-7940-4FCB-844B-0EE1D4773F99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,12 +59,6 @@ Global
 		{1DF12AA4-CD8F-C6C5-5733-8FDA312E0869}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DF12AA4-CD8F-C6C5-5733-8FDA312E0869}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DF12AA4-CD8F-C6C5-5733-8FDA312E0869}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6C367BF7-815A-43A4-92C4-9330050603C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6C367BF7-815A-43A4-92C4-9330050603C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6C367BF7-815A-43A4-92C4-9330050603C4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{6C367BF7-815A-43A4-92C4-9330050603C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6C367BF7-815A-43A4-92C4-9330050603C4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6C367BF7-815A-43A4-92C4-9330050603C4}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{043D206C-D054-5418-6E6A-2EF989FD7375}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{043D206C-D054-5418-6E6A-2EF989FD7375}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{043D206C-D054-5418-6E6A-2EF989FD7375}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -78,6 +74,12 @@ Global
 		{3B8C4667-4EE5-8040-3BB5-21CB888A6610}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B8C4667-4EE5-8040-3BB5-21CB888A6610}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3B8C4667-4EE5-8040-3BB5-21CB888A6610}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E73769A4-ACD4-31EA-1560-64FD1426AA2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E73769A4-ACD4-31EA-1560-64FD1426AA2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E73769A4-ACD4-31EA-1560-64FD1426AA2D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E73769A4-ACD4-31EA-1560-64FD1426AA2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E73769A4-ACD4-31EA-1560-64FD1426AA2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E73769A4-ACD4-31EA-1560-64FD1426AA2D}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,12 +90,18 @@ Global
 		{9BDECF63-2560-B075-B7C4-5BD3918BFA58} = {0A1A9F4D-633E-4131-9693-6A3046E2B8AA}
 		{80881776-6AA9-10D1-A76C-E35F202F7B28} = {0A1A9F4D-633E-4131-9693-6A3046E2B8AA}
 		{1DF12AA4-CD8F-C6C5-5733-8FDA312E0869} = {0A1A9F4D-633E-4131-9693-6A3046E2B8AA}
-		{6C367BF7-815A-43A4-92C4-9330050603C4} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{043D206C-D054-5418-6E6A-2EF989FD7375} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{E4366725-F758-C20D-7BA5-64461DDC231A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{3B8C4667-4EE5-8040-3BB5-21CB888A6610} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{E73769A4-ACD4-31EA-1560-64FD1426AA2D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{7C4ACC5E-7940-4FCB-844B-0EE1D4773F99} = {1F538DC1-9742-4D5E-858F-CB4912F33D22}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {61F7FB11-1E47-470C-91E2-47F8143E1572}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Common\Sonar.Shared\Sonar.Shared.projitems*{7c4acc5e-7940-4fcb-844b-0ee1d4773f99}*SharedItemsImports = 13
+		Common\Sonar.Shared\Sonar.Shared.projitems*{80881776-6aa9-10d1-a76c-e35f202f7b28}*SharedItemsImports = 5
+		Common\Sonar.Shared\Sonar.Shared.projitems*{e73769a4-acd4-31ea-1560-64fd1426aa2d}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal

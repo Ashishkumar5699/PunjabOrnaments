@@ -10,3 +10,6 @@
 [submodule "NextJS"]
 	path = NextJS
 	url = https://github.com/Ashishkumar5699/NextJS.git
+[submodule "Common"]
+	path = Common
+	url = https://github.com/Ashishkumar5699/Sonar.Shared.git

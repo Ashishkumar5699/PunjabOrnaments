@@ -1,0 +1,144 @@
+﻿name: Test BUILD Sonar Inventory
+
+on:   
+  pull_request:
+    branches:
+      - invoice  # Ensure deployment check before merging
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      DOTNET_ENVIRONMENT: Development
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          submodules: true  # Ensures that submodules are initialized and updated
+          token: ${{ secrets.GITHUB_TOKEN }}  # Token for authentication
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Install MAUI Workload
+        run: dotnet workload install maui
+
+      - name: Restore Dependencies
+        run: dotnet restore ./Sonar.Inventory.csproj
+        working-directory: ./Maui-Application/Sonar.Inventory
+
+      - name: Set Environment Variable in MAUI
+        run: echo "Preferences.Set(\"Environment\", \"$DOTNET_ENVIRONMENT\");" >> MauiProgram.cs
+
+      - name: Build Solution
+        run: dotnet build ./Sonar.Inventory.csproj -c Release -f net9.0-windows10.0.19041.0
+        working-directory: ./Maui-Application/Sonar.Inventory
+
+      - name: Decode Signing Certificate
+        run: |
+          # Ensure old files are removed
+          Remove-Item -Path cert.asc, Sonar.Inventory_TemporaryKey.pfx -ErrorAction Ignore
+          # Decode the certificate from secrets
+          echo "${{ secrets.CERTIFICATE }}" | Out-File -Encoding ascii cert.asc
+          certutil -decode cert.asc Sonar.Inventory_TemporaryKey.pfx
+          # Verify if decoding was successful
+          if (!(Test-Path Sonar.Inventory_TemporaryKey.pfx)) {
+            echo "❌ Certificate file not found!"
+            exit 1
+          }
+        working-directory: ./Maui-Application/Sonar.Inventory
+
+      - name: Verify Certificate File
+        run: |
+          if (!(Test-Path Sonar.Inventory_TemporaryKey.pfx)) {
+            echo "❌ Certificate file not found!"
+            exit 1
+          } else {
+            echo "✅ Certificate file found!"
+          }
+        shell: pwsh
+        working-directory: ./Maui-Application/Sonar.Inventory
+
+      - name: Install Signing Certificate
+        run: |
+          cd ./Maui-Application  # Navigate to the submodule directory
+          certutil -f -user -p ${{ secrets.SIGNIN_CERTIFICATE_PASSWORD }} -silent -importPFX Sonar.Inventory_TemporaryKey.pfx NoRoot
+        #run:  certutil -f -user -p ${{secrets.SIGNIN_CERTIFICATE_PASSWORD}} -silent -importPFX Sonar.Inventory_TemporaryKey.pfx NoRoot
+        working-directory: ./Maui-Application/Sonar.Inventory
+        continue-on-error: false
+
+      - name: Run Tests
+        run: dotnet test ./Sonar.Inventory.csproj -c Release
+        working-directory: ./Maui-Application/Sonar.Inventory
+        
+      - name: Publish Application
+        run: |
+          $cert = Get-ChildItem -Path Cert:\CurrentUser\My | Where-Object { $_.Thumbprint -eq "${{ secrets.CERTIFICATE_THUMBPRINT }}" }
+          if ($cert -eq $null) {
+            echo "❌ Certificate not found in the store!"
+            exit 1
+          }
+          dotnet publish ./Maui-Application/Sonar.Inventory.csproj -c Release -f net9.0-windows10.0.19041.0 -o ${{ github.workspace }}/publish /p:GenerateAppxPackageOnBuild=true /p:AppxPackageSigningEnable=true /p:PackageCertificateThumbprint=${{ secrets.CERTIFICATE_THUMBPRINT }}
+        working-directory: ./Maui-Application/Sonar.Inventory
+
+      - name: Verify Published Files
+        run: |
+          echo "Checking if publish folder exists..."
+          if (Test-Path "${{ github.workspace }}/publish") { 
+            echo "✅ Publish directory found. Listing contents:"
+            Get-ChildItem -Path "${{ github.workspace }}/publish" -Recurse 
+          } else { 
+            echo "❌ Publish directory NOT found!"
+            exit 1
+          }
+        shell: pwsh
+
+      - name: Upload Debug Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Build-Debug
+          path: ./Maui-Application/Sonar.Inventory/Sonar.Inventory/bin/Release/net9.0-windows10.0.19041.0/**
+
+      - name: Upload Final Test Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: TestBuild
+          path: ${{ github.workspace }}/publish/**/*.msix
+
+      - name: Setup Android SDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+
+      - name: Install Android SDK
+        uses: android-actions/setup-android@v2
+
+      - name: Build Android Project
+        run: dotnet build ./Sonar.Inventory.csproj -c Release -f net9.0-android
+        working-directory: ./Sonar.Inventory
+
+      - name: Publish Android Application
+        run: dotnet publish ./Sonar.Inventory.csproj -c Release -f net9.0-android -o ${{ github.workspace }}/publish-android
+        working-directory: ./Maui-Application/Sonar.Inventory
+
+      - name: Verify Android Published Files
+        run: |
+          echo "Checking if Android publish folder exists..."
+          if (Test-Path "${{ github.workspace }}/publish-android") { 
+            echo "✅ Android publish directory found. Listing contents:"
+            Get-ChildItem -Path "${{ github.workspace }}/publish-android" -Recurse 
+          } else { 
+            echo "❌ Android publish directory NOT found!"
+            exit 1
+          }
+        shell: pwsh
+
+      - name: Upload Android Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AndroidBuild
+          path: ${{ github.workspace }}/publish-android/**/*.apk
